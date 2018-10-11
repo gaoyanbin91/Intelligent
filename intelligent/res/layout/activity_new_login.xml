@@ -1,0 +1,206 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_new_login"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@mipmap/sign_img_bg"
+    android:fitsSystemWindows="true">
+
+
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/transparent"
+        android:elevation="0dp"
+        android:fitsSystemWindows="true"
+        android:gravity="left"
+        android:minHeight="@dimen/mar_45"
+        app:navigationIcon="@mipmap/btn_close"
+        app:title="" />
+
+    <ImageView
+        android:id="@+id/logo"
+        android:layout_width="@dimen/mar_120"
+        android:layout_height="@dimen/mar_120"
+        android:layout_below="@id/toolbar"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="30dp"
+        android:src="@mipmap/icon_app" />
+
+    <View
+        android:id="@+id/centerview"
+        android:layout_width="18dp"
+        android:layout_height="10dp"
+        android:layout_below="@id/logo"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="20dp"
+        android:visibility="invisible" />
+
+    <RelativeLayout
+        android:id="@+id/nameLayout"
+        android:layout_width="275dp"
+        android:layout_height="45dp"
+        android:layout_below="@id/logo"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/background_newlogin_name"
+        android:elevation="10dp"
+        tools:ignore="UnusedAttribute">
+
+
+            <EditText
+                android:id="@+id/mobile_edittext"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_alignParentLeft="true"
+                android:layout_toLeftOf="@+id/phone_delte_imageview"
+                android:background="@null"
+                android:drawablePadding="@dimen/mar_10"
+                android:gravity="left|center_vertical"
+                android:hint="@string/login_input_user"
+                android:drawableLeft="@mipmap/id"
+                android:maxLength="20"
+                android:maxLines="1"
+                android:textColorHint="@color/normal_gray"
+                android:textSize="@dimen/text_14" />
+
+            <ImageView
+                android:id="@+id/phone_delte_imageview"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:contentDescription="@null"
+                android:src="@mipmap/sign_btn_close"
+                android:visibility="gone" />
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/pwdVertifyLayout"
+        android:layout_width="275dp"
+        android:layout_height="45dp"
+        android:layout_below="@id/nameLayout"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="14dp"
+        android:background="@drawable/background_newlogin_name"
+        android:elevation="10dp"
+        tools:ignore="UnusedAttribute">
+
+        <RelativeLayout
+            android:id="@+id/vertifyLayout"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_toLeftOf="@+id/showpwd_imageview"
+            android:visibility="visible">
+            <EditText
+                android:id="@+id/pwd_edittext"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_alignParentLeft="true"
+                android:layout_toLeftOf="@+id/clear_pwd_imageview"
+                android:background="@null"
+                android:drawablePadding="@dimen/mar_10"
+                android:drawableLeft="@mipmap/password"
+                android:gravity="left|center_vertical"
+                android:hint="@string/login_input_password"
+                android:inputType="number"
+                android:maxLines="1"
+                android:textColorHint="@color/normal_gray"
+                android:textSize="@dimen/text_14" />
+
+            <ImageView
+                android:id="@+id/clear_pwd_imageview"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:contentDescription="@null"
+                android:src="@mipmap/sign_btn_close"
+                android:visibility="gone" />
+
+
+        </RelativeLayout>
+
+        <ImageView
+            android:id="@+id/showpwd_imageview"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:paddingLeft="8dp"
+            android:paddingRight="0dp"
+            android:src="@mipmap/btn_password_nodisplay"
+            android:visibility="gone" />
+
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/forgetLayout"
+        android:layout_width="275dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/pwdVertifyLayout"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="6dp"
+        android:paddingLeft="14dp"
+        android:paddingRight="14dp">
+
+        <TextView
+            android:id="@+id/pwd_forget_textview"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:paddingBottom="6dp"
+            android:paddingTop="6dp"
+            android:text="@string/login_forget_password"
+            android:textColor="#616161"
+            android:textSize="@dimen/text_12"
+            tools:ignore="SmallSp" />
+
+
+        <TextView
+            android:id="@+id/forgetPwd"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_toLeftOf="@id/pwd_forget_textview"
+            android:paddingBottom="6dp"
+            android:paddingTop="6dp"
+            android:layout_marginRight="10dp"
+            android:text="@string/login_reg"
+            android:textColor="#616161"
+            android:textSize="10sp"
+            tools:ignore="SmallSp" />
+
+    </RelativeLayout>
+
+    <!--<ImageView-->
+        <!--android:id="@+id/goButton"-->
+        <!--android:layout_width="45dp"-->
+        <!--android:layout_height="45dp"-->
+        <!--android:layout_centerHorizontal="true"-->
+        <!--android:layout_marginTop="60dp"-->
+        <!--android:background="@drawable/background_newlogin_gobutton_gray"-->
+        <!--android:elevation="10dp"-->
+        <!--android:scaleType="centerInside"-->
+        <!--android:src="@mipmap/sign_btn_next"-->
+        <!--tools:ignore="UnusedAttribute" />-->
+
+    <Button
+        android:id="@+id/login_button"
+        android:layout_width="match_parent"
+        android:layout_below="@id/pwdVertifyLayout"
+        android:layout_height="@dimen/mar_40"
+        android:layout_marginLeft="@dimen/mar_30"
+        android:layout_marginRight="@dimen/mar_30"
+        android:layout_marginTop="@dimen/mar_80"
+        android:background="@drawable/background_newlogin_gobutton_gray"
+        android:text="@string/login_button"
+        android:textColor="@color/white"
+        android:textSize="@dimen/text_16" />
+
+
+</RelativeLayout>

@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    android:fitsSystemWindows="true">
+
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/mar_45"
+        android:background="@color/white"
+        android:elevation="0dp"
+        android:gravity="left"
+        android:minHeight="@dimen/mar_45"
+        app:navigationIcon="@mipmap/back_black"
+        app:title="">
+        <TextView
+            android:id="@+id/mTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="@string/home_1"
+            android:textColor="@color/activity_txt"
+            android:textSize="@dimen/text_16" />
+    </android.support.v7.widget.Toolbar>
+    <View
+        android:layout_below="@id/toolbar"
+        android:layout_width="match_parent"
+        android:background="@color/gray1_1"
+        android:id="@+id/line_1"
+        android:layout_height="1dp"/>
+    <LinearLayout
+        android:background="@color/white"
+        android:layout_below="@+id/line_1"
+        android:orientation="horizontal"
+        android:id="@+id/rootLayout"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/mar_45">
+
+        <TextView
+            android:id="@+id/text_classes"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:textColor="@color/darkgray"
+            android:layout_marginBottom="@dimen/mar_15"
+            android:textSize="@dimen/text_16"
+            android:gravity="center"
+            android:layout_marginTop="@dimen/mar_10"
+            android:text="名称" />
+        <View
+            android:layout_width="0.5dp"
+            android:layout_gravity="center"
+            android:background="@color/gray1_1"
+            android:layout_height="@dimen/mar_20"/>
+        <TextView
+            android:id="@+id/text_record_time"
+            android:layout_width="0dp"
+            android:layout_weight="1.5"
+            android:layout_height="wrap_content"
+            android:textColor="@color/darkgray"
+            android:layout_marginBottom="@dimen/mar_15"
+            android:gravity="center"
+            android:textSize="@dimen/text_16"
+            android:layout_marginTop="@dimen/mar_10"
+            android:text="型号" />
+        <View
+            android:layout_width="0.5dp"
+            android:layout_gravity="center"
+            android:background="@color/gray1_1"
+            android:layout_height="@dimen/mar_20"/>
+        <TextView
+            android:id="@+id/text_product"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:textColor="@color/darkgray"
+            android:layout_marginBottom="@dimen/mar_15"
+            android:textSize="@dimen/text_16"
+            android:gravity="center"
+            android:layout_marginTop="@dimen/mar_10"
+            android:text="出厂编号" />
+        <ImageView
+            android:layout_width="@dimen/mar_25"
+            android:layout_height="@dimen/mar_25"
+            android:layout_gravity="center"
+            android:layout_marginRight="@dimen/mar_10"
+            android:padding="@dimen/mar_5"
+            android:visibility="invisible"
+            android:src="@mipmap/go"/>
+    </LinearLayout>
+
+        <ListView
+            android:id="@+id/listview"
+            android:layout_below="@id/rootLayout"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/window_bg"
+            android:choiceMode="singleChoice"
+            android:divider="@null"
+            android:fadingEdge="none"
+            android:listSelector="@android:color/transparent"/>
+
+    <include
+        android:id="@+id/no_internet"
+        layout="@layout/no_internet"
+        android:layout_below="@id/line_1"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:visibility="gone" />
+</RelativeLayout>

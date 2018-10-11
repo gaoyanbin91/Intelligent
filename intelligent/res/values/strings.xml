@@ -1,0 +1,197 @@
+<resources>
+    <string name="app_name">维捷云</string>
+
+    <string name="progress_dialog">读取中...</string>
+
+    <!-- 对话框 -->
+    <string name="md_back_label">返回</string>
+    <string name="md_done_label">完成</string>
+    <string name="md_cancel_label">取消</string>
+    <string name="md_choose_label">选择</string>
+    <string name="md_custom_label">Custom</string>
+    <string name="md_presets_label">Presets</string>
+    <string name="user_update_toast_edit">编辑还未保存</string>
+    <string name="user_update_toast_edit_con">继续编辑</string>
+    <string name="user_update_toast_edit_cause">退出</string>
+
+
+    <!-- 登录 -->
+    <string name="activity_login">登录</string>
+    <string name="login_input_user">请输入用户名</string>
+    <string name="login_input_password">请输入密码</string>
+    <string name="login_input_pwd">密码</string>
+    <string name="login_reg">注册</string>
+    <string name="login_forget_password">忘记密码</string>
+    <string name="login_button">登录</string>
+    <string name="login_success">登录成功</string>
+
+    <string name="tab_home">主页</string>
+    <string name="tab_contact">通讯录</string>
+    <string name="tab_mine">我的</string>
+    <!-- 报修-->
+    <string name="activity_guarantee">服务请求</string>
+    <string name="activity_guarantee_to">服务请求处理</string>
+    <string name="activity_fault_content">问题详情</string>
+    <string name="activity_fault_content_hint">请输入您遇到的问题详情</string>
+    <string name="activity_fault_part">问题名称</string>
+    <string name="activity_classify">问题分类</string>
+    <string name="activity_fault_part_hint">请输入问题名称</string>
+    <string name="activity_classify_hint">请选择问题分类</string>
+    <string name="activity_code_num">出厂编码</string>
+    <string name="activity_code_num_hint">请输入出厂编码</string>
+    <string name="activity_phone_num">手机号码</string>
+    <string name="activity_phone_num_hint">请输入手机号码</string>
+
+    <string name="demand_add">新增</string>
+    <string name="demand_back_add">回复</string>
+    <string name="activity_image">图片</string>
+    <string name="pull_text_line">我是有底线的</string>
+
+    <string name="pull_to_refresh_from_bottom_pull_label">@string/pull_to_refresh_pull_label</string>
+    <string name="pull_to_refresh_from_bottom_refreshing_label">@string/pull_to_refresh_refreshing_label</string>
+    <string name="pull_to_refresh_from_bottom_release_label">@string/pull_to_refresh_release_label</string>
+    <string name="pull_to_refresh_pull_label">下拉刷新…</string>
+    <string name="pull_to_refresh_refreshing_label">加载中…</string>
+    <string name="pull_to_refresh_release_label">放开刷新…</string>
+    <string name="demand_detail">详情</string>
+
+    <string name="activity_photopicker">选择图片</string>
+    <string name="picker_images">图片</string>
+    <string name="picker_delete">删除</string>
+    <string name="picker_done">完成</string>
+    <string name="picker_done_with_count">完成(%1$d/%2$d)</string>
+    <string name="picker_image_index">%1$d/%2$d</string>
+    <string name="picker_undo">撤消</string>
+    <string name="picker_deleted_a_photo">删除了一张图片</string>
+    <string name="picker_confirm_to_delete">确认删除？</string>
+    <string name="picker_yes">确定</string>
+    <string name="picker_cancel">取消</string>
+    <string name="picker_all_image">所有图片</string>
+    <string name="picker_over_max_count_tips">你最多可以选择%1$d张图片</string>
+    <string name="picker_image_count">%1$d张</string>
+
+    <string name="title_dialog">Tips</string>
+    <string name="message_permission_rationale">Grant the following permissions to continue the program:\n\n%1$s</string>
+    <string name="message_permission_always_failed">We need these permissions, please give us permission in the settings:\n\n%1$s</string>
+    <string name="setting">Setting</string>
+    <string name="resume">Resume</string>
+
+    <string name="ok">OK</string>
+    <string name="no">NO</string>
+    <string name="permission_setting">Permission Setting</string>
+    <!-- 工艺参数-->
+    <string name="activity_process">工艺参数数据</string>
+
+
+    <string name="user_update_tittle">我的资料</string>
+    <string name="user_update_nick_hint">(2-10个字符)</string>
+    <string name="user_update_sex">性别</string>
+    <string name="user_update_sex_boy">男</string>
+    <string name="user_update_sex_gril">女</string>
+    <string name="user_update_image">头像</string>
+    <string name="user_update_nick">用户名</string>
+    <string name="user_update_phone">电话</string>
+    <string name="user_update_email">邮箱</string>
+    <string name="language_save">保存</string>
+    <string name="input_nick_name">请输入昵称</string>
+    <string name="input_nick_phone">请输入电话</string>
+    <string name="input_nick_email">请输入邮箱</string>
+
+
+    <string name="tab_message">消息</string>
+    <!-- 设置中心 -->
+    <string name="activity_set">设置</string>
+    <string name="set_clear_cache">清空缓存</string>
+    <string name="set_clear_cache_des">app在运行加载过程中，所产生的图片和视频等缓存，点击清除，让您手机运行速度加快。</string>
+    <string name="set_msg_on_off">接收设备新消息</string>
+    <string name="set_area">地域</string>
+    <string name="set_more_language">多语言</string>
+    <string name="set_login_out">登出</string>
+    <string name="set_question">常见问题</string>
+    <string name="set_about_app">关于维捷云</string>
+    <string name="set_online_update">在线更新</string>
+    <string name="set_clear_cache_dialog">是否清空缓存?</string>
+
+    <string name="hbszxbb">还不是最新版也，新版更赞哟~</string>
+    <string name="UMUpdateNow">立即更新</string>
+    <string name="UMNotNow">以后再说</string>
+
+    <string name="activity_area_list">区域选择</string>
+    <string name="activity_language">切换语言</string>
+    <string name="language_simplified">中文简体</string>
+    <string name="language_traditional">繁体中文</string>
+    <string name="language_english">English</string>
+
+    <string name="language_dialog_msg">下次打开APP会显示您的设置的语言</string>
+    <string name="language_dialog_switch">切换</string>
+    <string name="language_dialog_cancel">取消</string>
+    <string name="exit_app">再按一次退出程序</string>
+
+    <string name="activity_feedback">意见反馈</string>
+    <string name="feedback_content_prompt">请填写您的建议</string>
+    <string name="feedback_contact_label">您的联系方式(选填)：</string>
+    <string name="feedback_contact_prompt">邮箱、手机或QQ</string>
+    <string name="feedback_submit">提交</string>
+    <string name="feedback_submit_network_success">非常感谢您的意见</string>
+
+    <string name="face_back_contents">反馈内容</string>
+    <string name="face_back_contents_hint">请填写您的建议</string>
+    <string name="face_back_contacts">手机号码</string>
+    <string name="face_back_contacts_hint">请输入您的手机号</string>
+    <!-- dialog -->
+    <string name="prompt">提示</string>
+    <string name="cancel">取消</string>
+    <string name="clear">清空</string>
+    <string name="record_activity">设备运行记录</string>
+    <string name="record_detail_activity">运行记录</string>
+    <string name="record_supplement_activity">补充</string>
+    <string name="supplement_product_name">设备名称</string>
+    <string name="supplement_person_name">记录人</string>
+    <string name="supplement_remark">备注</string>
+    <string name="supplement_yunxing">是否带故障运行</string>
+    <string name="supplement_replace_part">更换部件</string>
+    <string name="supplement_process_redoct">过程记录</string>
+    <string name="supplement_accendant">维护人员</string>
+    <string name="supplement_maintenance_part">保养部位</string>
+
+    <string name="supplement_product_name_hint">请输入设备名称</string>
+    <string name="supplement_person_name_hint">请输入记录人</string>
+    <string name="supplement_remark_hint">请输入备注</string>
+    <string name="supplement_yunxing_hint">是否带故障运行</string>
+    <string name="supplement_replace_part_hint">请输入更换部件</string>
+    <string name="supplement_process_redoct_hint">请输入过程记录</string>
+    <string name="supplement_accendant_hint">请输入维护人员</string>
+    <string name="supplement_maintenance_part_hint">请输入保养部位</string>
+    <string name="supplement_chack1">计划-更换品种</string>
+    <string name="supplement_chack2">计划-清洁超车</string>
+    <string name="supplement_chack3">计划-保养</string>
+    <string name="supplement_chack4">非计划-机械故障</string>
+    <string name="supplement_chack5">非计划-电气故障</string>
+    <string name="supplement_chack6">非计划-其他故障</string>
+    <string name="supplement_chack7">外部原因</string>
+    <string name="supplement_chack8">样品</string>
+
+    <string name="about_activity">关于维捷云</string>
+    <string name="about_activity_own">关于我们</string>
+    <string name="about_owner">郑州纺织机械有限公司前身为国营郑州纺织机械厂，是为了进一步贯彻落实国经贸企改（2002）859号《关于国有大中型企业主辅分离辅业改制分流安置富余人员的实施办法》文件精神，抓住政策机遇，加快推进企业改制分流工作，报由集团公司批复，经过2008年11月15日召开的郑纺机厂第十四届职工代表大会第八次会议职工代表大会讨论并审议通过后，于2008年12月8日由河南省劳动和社会保障厅审核备案，并下发并出具了《国营郑州纺织机械厂职工安置方案审核意见书》，于2009年3月16日完成了改制后新公司的工商注册工作。</string>
+    <string name="txv_recipe_guide">点击可查看食谱分类噢</string>
+    <string name="no_internet">暂无数据</string>
+    <!-- 实时监测-->
+    <string name="activity_real_time">实时监测</string>
+
+    <!-- 工艺参数-->
+
+    <string name="activity_process_template">工艺模板列表</string>
+
+    <string name="activity_drvice_list">设备档案</string>
+    <string name="activity_drvice_files">设备文件</string>
+    <string name="activity_process_type">工艺参数分类</string>
+
+    <string name="home_1">设备档案</string>
+    <string name="home_2">实时监测</string>
+    <string name="home_3">服务请求</string>
+    <string name="home_4">运行记录</string>
+    <string name="home_5">工艺模板</string>
+    <string name="home_6">实时工艺</string>
+    <string name="home_7">服务请求处理</string>
+</resources>

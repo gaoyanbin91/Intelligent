@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools">
+    <data>
+        <variable
+            name="item"
+            type="com.gao.intelligent.model.StringItem"/>
+    </data>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:gravity="center_vertical"
+        android:layout_height="wrap_content">
+        <ImageView
+            android:id="@+id/iw_icon"
+            android:layout_marginLeft="@dimen/mar_10"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:visibility="gone"
+            android:src="@mipmap/icon_choose"/>
+    <LinearLayout
+        android:id="@+id/ll_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:layout_toRightOf="@id/iw_icon"
+        android:paddingLeft="@dimen/mar_10"
+        android:orientation="vertical">
+        <TextView
+            android:id="@+id/tw_item"
+            android:layout_marginLeft="@dimen/mar_10"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/mar_8"
+            android:layout_marginBottom="@dimen/mar_8"
+            android:textColor="@color/bottomNavigatorTextColor"
+            android:text="@{item.item}"
+            android:textSize="@dimen/text_16">
+        </TextView>
+        <TextView
+            android:id="@+id/tw_line"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@color/searchBgColor"/>
+    </LinearLayout>
+
+    </LinearLayout>
+</layout>

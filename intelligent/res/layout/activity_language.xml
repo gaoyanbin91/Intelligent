@@ -1,0 +1,122 @@
+
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fitsSystemWindows="true">
+
+    <LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/mar_45"
+        android:background="@color/white"
+        android:elevation="0dp"
+        android:gravity="left"
+        android:minHeight="@dimen/mar_45"
+        app:navigationIcon="@mipmap/back_black"
+        app:title="">
+
+        <TextView
+            android:id="@+id/mTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="@string/activity_language"
+            android:textColor="@color/activity_txt"
+            android:textSize="@dimen/text_16" />
+
+
+        <TextView
+            android:id="@+id/saveButton"
+            android:layout_width="@dimen/mar_70"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:layout_gravity="right"
+            android:text="@string/language_save"
+            android:layout_marginRight="10dp"
+            android:textColor="@color/activity_txt"
+            android:textSize="@dimen/text_14"/>
+    </android.support.v7.widget.Toolbar>
+
+    <View
+        android:id="@+id/view_"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:visibility="visible"
+        android:layout_below="@+id/toolbar"
+        android:background="@color/line" />
+
+
+    <RadioGroup
+        android:id="@+id/languageRadioGroup"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:background="@color/white">
+
+
+        <RadioButton
+            android:id="@+id/simplifiedChechbox"
+            android:background="@drawable/item_color_background"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:button="@null"
+            android:checked="true"
+            android:textSize="@dimen/text_14"
+            android:drawableRight="@drawable/check_language"
+            android:drawablePadding="5dp"
+            android:textColor="@color/activity_txt"
+            android:text="@string/language_simplified"
+            android:padding="10dp"/>
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="0.5dp"
+            android:background="@color/line" />
+        <RadioButton
+            android:id="@+id/traditionalChechbox"
+            android:background="@drawable/item_color_background"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:button="@null"
+            android:textSize="@dimen/text_14"
+            android:drawableRight="@drawable/check_language"
+            android:drawablePadding="5dp"
+            android:textColor="@color/activity_txt"
+            android:text="@string/language_traditional"
+            android:padding="10dp"/>
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="0.5dp"
+            android:background="@color/line" />
+
+        <RadioButton
+            android:id="@+id/englishChechbox"
+            android:background="@drawable/item_color_background"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:button="@null"
+            android:textSize="@dimen/text_14"
+            android:drawableRight="@drawable/check_language"
+            android:drawablePadding="5dp"
+            android:textColor="@color/activity_txt"
+            android:text="@string/language_english"
+            android:padding="10dp"/>
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="0.5dp"
+            android:background="@color/line" />
+
+    </RadioGroup>
+
+
+
+</LinearLayout>
+
+
+</RelativeLayout>

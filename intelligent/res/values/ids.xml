@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <item name="cb_item_tag" type="id"></item>
+    <item type="id" name="scrollview" />
+
+    <item type="id" name="del_layout" />
+
+    <item name="banner_indicatorId" type="id" />
+</resources>

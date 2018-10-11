@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    android:fitsSystemWindows="true">
+
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/mar_45"
+        android:background="@color/white"
+        android:elevation="0dp"
+        android:gravity="left"
+        android:minHeight="@dimen/mar_45"
+        app:navigationIcon="@mipmap/back_black"
+        app:title="">
+        <TextView
+            android:id="@+id/mTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="@string/activity_image"
+            android:textColor="@color/activity_txt"
+            android:textSize="@dimen/text_16" />
+    </android.support.v7.widget.Toolbar>
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_below="@id/toolbar"
+        android:background="@color/gray1_1"/>
+    <RelativeLayout
+        android:id="@+id/rl_show"
+        android:layout_below="@id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="@dimen/mar_10"
+        android:paddingBottom="@dimen/mar_10">
+
+
+    <com.gao.intelligent.view.ZoomImageView
+        android:layout_centerInParent="true"
+        android:id="@+id/iv_big_image"
+        android:src="@mipmap/icon_app"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"/>
+
+    <com.zhaoshuang.weixinrecorded.MyVideoView
+        android:layout_centerInParent="true"
+        android:id="@+id/vv_play"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        />
+    </RelativeLayout>
+</RelativeLayout>

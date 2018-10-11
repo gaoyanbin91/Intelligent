@@ -1,0 +1,218 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!-- These top three attributes are not accessible to library users -->
+    <attr name="md_divider" format="color" />
+
+    <!-- Accessible global theming attributes -->
+    <attr name="md_dark_theme" format="boolean" />
+    <attr name="md_background_color" format="color" />
+
+    <attr name="md_icon" format="reference" />
+    <attr name="md_icon_max_size" format="dimension" />
+    <attr name="md_icon_limit_icon_to_default_size" format="boolean" />
+
+    <attr name="md_title_color" format="color" />
+    <attr name="md_content_color" format="color" />
+
+    <attr name="md_positive_color" format="color" />
+    <attr name="md_neutral_color" format="color" />
+    <attr name="md_negative_color" format="color" />
+    <attr name="md_widget_color" format="color" />
+
+    <attr name="md_item_color" format="color" />
+    <attr name="md_divider_color" format="color" />
+    <attr name="md_list_selector" format="reference" />
+
+    <attr name="md_btn_stacked_selector" format="reference" />
+    <attr name="md_btn_positive_selector" format="reference" />
+    <attr name="md_btn_neutral_selector" format="reference" />
+    <attr name="md_btn_negative_selector" format="reference" />
+
+    <attr name="md_btn_ripple_color" format="color" />
+
+    <attr name="md_title_gravity" format="enum">
+        <enum name="start" value="0" />
+        <enum name="center" value="1" />
+        <enum name="end" value="2" />
+    </attr>
+
+    <attr name="md_content_gravity" format="enum">
+        <enum name="start" value="0" />
+        <enum name="center" value="1" />
+        <enum name="end" value="2" />
+    </attr>
+
+    <attr name="md_btnstacked_gravity" format="enum">
+        <enum name="start" value="0" />
+        <enum name="center" value="1" />
+        <enum name="end" value="2" />
+    </attr>
+
+    <attr name="md_items_gravity" format="enum">
+        <enum name="start" value="0" />
+        <enum name="center" value="1" />
+        <enum name="end" value="2" />
+    </attr>
+
+    <attr name="md_buttons_gravity" format="enum">
+        <enum name="start" value="0" />
+        <enum name="center" value="1" />
+        <enum name="end" value="2" />
+    </attr>
+
+    <declare-styleable name="MDRootLayout">
+        <attr name="md_reduce_padding_no_title_no_buttons" format="boolean" />
+    </declare-styleable>
+
+    <attr name="md_medium_font" format="string" />
+    <attr name="md_regular_font" format="string" />
+
+    <declare-styleable name="MaterialProgressBar">
+        <!-- Style of progress drawable: horizontal or circular. Defaults to circular. -->
+        <attr name="mpb_progressStyle" format="enum">
+            <enum name="circular" value="0" />
+            <enum name="horizontal" value="1" />
+        </attr>
+        <!--
+          ~ Whether both determinate and indeterminate drawables should be set on this progress bar.
+          ~ Determinate ring progress drawable is not supported yet. Defaults to false.
+          -->
+        <attr name="mpb_setBothDrawables" format="boolean" />
+        <!-- Whether progress drawable should use its intrinsic padding. Defaults to true. -->
+        <attr name="mpb_useIntrinsicPadding" format="boolean" />
+        <!--
+          ~ Whether progress drawable should show a track. Defaults to true for horizontal progress
+          ~ drawable, false otherwise.
+          -->
+        <attr name="mpb_showTrack" format="boolean" />
+        <attr name="android:tint" />
+        <attr name="mpb_tintMode" format="enum">
+            <enum name="src_over" value="3" />
+            <enum name="src_in" value="5" />
+            <enum name="src_atop" value="9" />
+            <enum name="multiply" value="14" />
+            <enum name="screen" value="15" />
+            <enum name="add" value="16" />
+        </attr>
+    </declare-styleable>
+
+    <declare-styleable name="ConvenientBanner">
+        <attr name="canLoop" format="boolean" />
+    </declare-styleable>
+
+    <declare-styleable name="BGABanner">
+        <!-- 指示点容器背景 -->
+        <attr name="banner_pointContainerBackground" format="reference|color" />
+        <!-- 指示点背景 -->
+        <attr name="banner_pointDrawable" format="reference" />
+        <!-- 指示点容器左右内间距 -->
+        <attr name="banner_pointContainerLeftRightPadding" format="dimension" />
+        <!-- 指示点上下外间距 -->
+        <attr name="banner_pointTopBottomMargin" format="dimension" />
+        <!-- 指示点左右外间距 -->
+        <attr name="banner_pointLeftRightMargin" format="dimension" />
+        <!-- 指示器的位置 -->
+        <attr name="banner_indicatorGravity">
+            <flag name="top" value="0x30" />
+            <flag name="bottom" value="0x50" />
+            <flag name="left" value="0x03" />
+            <flag name="right" value="0x05" />
+            <flag name="center_horizontal" value="0x01" />
+        </attr>
+        <!-- 是否开启自动轮播 -->
+        <attr name="banner_pointAutoPlayAble" format="boolean" />
+        <!-- 自动轮播的时间间隔 -->
+        <attr name="banner_pointAutoPlayInterval" format="integer" />
+        <!-- 页码切换过程的时间长度 -->
+        <attr name="banner_pageChangeDuration" format="integer" />
+        <!-- 页面切换的动画效果 -->
+        <attr name="banner_transitionEffect" format="enum">
+            <enum name="defaultEffect" value="0" />
+            <enum name="alpha" value="1" />
+            <enum name="rotate" value="2" />
+            <enum name="cube" value="3" />
+            <enum name="flip" value="4" />
+            <enum name="accordion" value="5" />
+            <enum name="zoomFade" value="6" />
+            <enum name="fade" value="7" />
+            <enum name="zoomCenter" value="8" />
+            <enum name="zoomStack" value="9" />
+            <enum name="stack" value="10" />
+            <enum name="depth" value="11" />
+            <enum name="zoom" value="12" />
+        </attr>
+        <!-- 提示文案的文字颜色 -->
+        <attr name="banner_tipTextColor" format="reference|color" />
+        <!-- 提示文案的文字大小 -->
+        <attr name="banner_tipTextSize" format="dimension" />
+        <!-- 加载网络数据时覆盖在BGABanner最上层的占位图 -->
+        <attr name="banner_placeholderDrawable" format="reference" />
+        <!-- 是否是数字指示器 -->
+        <attr name="banner_isNumberIndicator" format="boolean" />
+        <!-- 数字指示器文字颜色 -->
+        <attr name="banner_numberIndicatorTextColor" format="reference|color" />
+        <!-- 数字指示器文字大小 -->
+        <attr name="banner_numberIndicatorTextSize" format="dimension" />
+        <!-- 数字指示器背景 -->
+        <attr name="banner_numberIndicatorBackground" format="reference" />
+        <!-- 当只有一页数据时是否显示指示器，默认值为false -->
+        <attr name="banner_isNeedShowIndicatorOnOnlyOnePage" format="boolean" />
+    </declare-styleable>
+
+    <declare-styleable name="FlowLayout">
+        <attr name="android:orientation" />
+        <attr name="layoutDirection" format="enum">
+            <enum name="ltr" value="0"/>
+            <enum name="rtl" value="1"/>
+        </attr>
+        <attr name="debugDraw" format="boolean"/>
+        <attr name="weightDefault" format="float" />
+        <attr name="android:gravity"/>
+    </declare-styleable>
+    <declare-styleable name="FlowLayout_LayoutParams">
+        <attr name="layout_newLine" format="boolean"/>
+        <attr name="layout_weight" format="float"/>
+        <attr name="android:layout_gravity"/>
+    </declare-styleable>
+
+
+    <declare-styleable name="BottomBarItem">
+        <!--默认状态下的图标-->
+        <attr name="iconNormal" format="reference"/>
+        <!--选中状态下的图标-->
+        <attr name="iconSelected" format="reference"/>
+        <!--底部文字-->
+        <attr name="itemText" format="string"/>
+        <!--文字大小-->
+        <attr name="itemTextSize" format="dimension"/>
+        <!--默认状态下的文字颜色-->
+        <attr name="textColorNormal" format="color"/>
+        <!--选中状态下的文字颜色-->
+        <attr name="textColorSelected" format="color"/>
+        <!--文字和图标的顶部距离-->
+        <attr name="itemMarginTop" format="dimension"/>
+        <!--是否开启触摸背景效果-->
+        <attr name="openTouchBg" format="boolean"/>
+        <!--设置触摸背景-->
+        <attr name="touchDrawable" format="reference"/>
+        <!--设置图标的宽度-->
+        <attr name="iconWidth" format="dimension"/>
+        <!--设置图标的高度-->
+        <attr name="iconHeight" format="dimension"/>
+        <!--设置BottomBarItem的padding-->
+        <attr name="itemPadding" format="dimension"/>
+        <!--设置未读数字体大小-->
+        <attr name="unreadTextSize" format="dimension"/>
+        <!--设置提示消息字体大小-->
+        <attr name="msgTextSize" format="dimension"/>
+        <!--设置未读数组阈值 大于阈值的数字将显示为 n+ n为设置的阈值-->
+        <attr name="unreadThreshold" format="integer"/>
+    </declare-styleable>
+
+    <declare-styleable name="BottomBarLayout">
+        <attr name="smoothScroll" format="boolean"/>
+    </declare-styleable>
+
+
+</resources>

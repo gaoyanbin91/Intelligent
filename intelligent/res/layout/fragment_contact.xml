@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@color/white"
+                android:fitsSystemWindows="false"
+                xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <RelativeLayout
+        android:id="@+id/re_title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@mipmap/title_bag_groud">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/mar_40"
+            android:layout_marginTop="@dimen/mar_20"
+            android:gravity="center"
+            android:text="@string/tab_contact"
+            android:textColor="@color/white"
+            android:textSize="@dimen/text_16" />
+
+    </RelativeLayout>
+    <TextView
+        android:id="@+id/tv_no"
+        android:textSize="@dimen/text_16"
+        android:gravity="center"
+        android:text="暂无联系人"
+        android:layout_below="@id/re_title"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"/>
+    <com.gao.intelligent.view.pulltorefresh.extral.PullToRefreshRecyclerView
+        android:id="@+id/pullToRefreshRecyclerView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/tv_no"
+        android:background="@color/white"
+        android:choiceMode="singleChoice"
+        android:divider="@null"
+        android:fadingEdge="none"
+        android:listSelector="@android:color/transparent"
+        android:scrollbarStyle="outsideOverlay"
+        android:scrollbars="none"
+        android:visibility="visible"
+        app:ptrDrawableEnd="@drawable/progress_wave_large"
+        app:ptrDrawableStart="@drawable/progress_wave_large"
+        app:ptrHeaderBackground="@color/white"
+        app:ptrHeaderLayout="@layout/pull_to_refresh_header1"
+        app:ptrHeaderTextColor="@color/activity_txt"
+        app:ptrMode="both"
+        app:ptrScrollingWhileRefreshingEnabled="false">
+
+
+    </com.gao.intelligent.view.pulltorefresh.extral.PullToRefreshRecyclerView>
+
+</RelativeLayout>

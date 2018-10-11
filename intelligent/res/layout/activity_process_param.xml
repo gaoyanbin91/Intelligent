@@ -1,0 +1,3624 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              xmlns:app="http://schemas.android.com/apk/res-auto"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:background="@color/white"
+              android:fitsSystemWindows="true"
+              android:orientation="vertical">
+
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/mar_45"
+        android:background="@color/white"
+        android:elevation="0dp"
+        android:gravity="left"
+        android:minHeight="@dimen/mar_45"
+        app:navigationIcon="@mipmap/back_black"
+        app:title=""
+        app:titleTextAppearance="@style/Toolbar.TitleText">
+
+        <TextView
+            android:id="@+id/mTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="@string/activity_process"
+            android:textColor="@color/activity_txt"
+            android:textSize="@dimen/text_16"/>
+
+    </android.support.v7.widget.Toolbar>
+
+
+    <ScrollView
+        android:id="@+id/param_views"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <!--<View-->
+                <!--style="@style/line_o_style"/>-->
+
+            <!--<LinearLayout-->
+                <!--android:layout_width="match_parent"-->
+                <!--android:layout_height="@dimen/mar_35"-->
+                <!--android:orientation="horizontal">-->
+
+                <!--<LinearLayout-->
+                    <!--android:layout_width="0dp"-->
+                    <!--android:layout_height="@dimen/mar_35"-->
+                    <!--android:layout_weight="1"-->
+                    <!--android:orientation="horizontal">-->
+
+                    <!--<TextView-->
+                        <!--style="@style/text_style"-->
+                        <!--android:layout_width="@dimen/mar_60"-->
+                        <!--android:text="批号"/>-->
+
+                    <!--<View-->
+                        <!--style="@style/line_style"/>-->
+
+                    <!--<TextView-->
+                        <!--android:id="@+id/text_1_1"-->
+                        <!--style="@style/text_edit_style"/>-->
+
+                    <!--<View-->
+                        <!--style="@style/line_style"/>-->
+                <!--</LinearLayout>-->
+
+
+                <!--<LinearLayout-->
+                    <!--android:layout_width="0dp"-->
+                    <!--android:layout_height="@dimen/mar_35"-->
+                    <!--android:layout_weight="1"-->
+                    <!--android:orientation="horizontal">-->
+
+                    <!--<View-->
+                        <!--style="@style/line_style"/>-->
+
+                    <!--<TextView-->
+
+                        <!--style="@style/text_style"-->
+                        <!--android:text="规格"/>-->
+
+                    <!--<View-->
+                        <!--style="@style/line_style"/>-->
+
+                    <!--<TextView-->
+                        <!--android:id="@+id/ZX_CPGG_A"-->
+                        <!--style="@style/text_edit_style"/>-->
+
+
+                <!--</LinearLayout>-->
+            <!--</LinearLayout>-->
+
+            <!--<View-->
+                <!--style="@style/line_o_style"/>-->
+
+            <!--<LinearLayout-->
+                <!--android:layout_width="match_parent"-->
+                <!--android:layout_height="@dimen/mar_35"-->
+                <!--android:orientation="horizontal">-->
+
+                <!--<LinearLayout-->
+                    <!--android:layout_width="0dp"-->
+                    <!--android:layout_height="@dimen/mar_35"-->
+                    <!--android:layout_weight="1"-->
+                    <!--android:orientation="horizontal">-->
+
+
+                    <!--<TextView-->
+                        <!--style="@style/text_style"-->
+                        <!--android:layout_width="@dimen/mar_60"-->
+                        <!--android:text="克重g/㎡"-->
+                        <!--/>-->
+
+                    <!--<View-->
+                        <!--style="@style/line_style"/>-->
+
+                    <!--<TextView-->
+                        <!--android:id="@+id/ZX_CPKZ_A"-->
+                        <!--style="@style/text_edit_style"/>-->
+
+                    <!--<View-->
+                        <!--style="@style/line_style"/>-->
+                <!--</LinearLayout>-->
+
+                <!--<LinearLayout-->
+                    <!--android:layout_width="0dp"-->
+                    <!--android:layout_height="@dimen/mar_35"-->
+                    <!--android:layout_weight="1"-->
+                    <!--android:orientation="horizontal">-->
+
+                    <!--<View-->
+                        <!--style="@style/line_style"/>-->
+
+                    <!--<TextView-->
+                        <!--style="@style/text_style"-->
+                        <!--android:text="幅宽"-->
+                        <!--/>-->
+
+                    <!--<View-->
+                        <!--style="@style/line_style"/>-->
+
+                    <!--<TextView-->
+                        <!--android:id="@+id/ZX_CPFK_A"-->
+                        <!--style="@style/text_edit_style"-->
+                        <!--/>-->
+                <!--</LinearLayout>-->
+            <!--</LinearLayout>-->
+
+            <!--<View-->
+                <!--style="@style/line_o_style"/>-->
+
+            <!--<LinearLayout-->
+                <!--android:layout_width="match_parent"-->
+                <!--android:layout_height="@dimen/mar_35"-->
+                <!--android:orientation="horizontal">-->
+                <!--<TextView-->
+                    <!--style="@style/text_style"-->
+                    <!--android:layout_width="@dimen/mar_60"-->
+                    <!--android:text="原料："/>-->
+
+                <!--<View-->
+                    <!--style="@style/line_style"/>-->
+
+                <!--<TextView-->
+                    <!--android:id="@+id/text_1_5"-->
+                    <!--style="@style/text_edit_style"/>-->
+
+
+            <!--</LinearLayout>-->
+
+            <!--<View style="@style/line_o_style"/>-->
+            <View
+                android:id="@+id/line1"
+                style="@style/line_o_style"
+                android:layout_marginTop="@dimen/mar_3"/>
+
+            <LinearLayout
+                android:id="@+id/kaiqing"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/mar_595"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:visibility="gone"
+                    style="@style/text_style"
+                    android:text="开清"
+                    />
+
+                <View
+                    style="@style/line_style"/>
+
+                <LinearLayout
+                    android:layout_width="0dp"
+
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:orientation="vertical">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/mar_140"
+                        android:orientation="horizontal">
+
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_height="@dimen/mar_140"
+                            android:layout_weight="1"
+                            android:orientation="vertical">
+
+                            <TextView
+                                style="@style/text_style"
+                                android:text="1#称量机"/>
+
+                            <View
+                                style="@style/line_o_style"/>
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="@dimen/mar_34"
+                                android:orientation="horizontal">
+
+                                <TextView
+                                    style="@style/text_style"
+                                    android:layout_width="@dimen/mar_45"
+                                    android:text="原料"/>
+
+                                <View
+                                    style="@style/line_style"/>
+
+                                <TextView
+                                    style="@style/text_edit_style"
+                                    />
+                            </LinearLayout>
+
+                            <View
+                                style="@style/line_o_style"/>
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="@dimen/mar_34"
+                                android:orientation="horizontal">
+
+                                <TextView
+                                    style="@style/text_style"
+                                    android:layout_width="@dimen/mar_45"
+                                    android:text="满称g"/>
+
+                                <View
+                                    style="@style/line_style"/>
+
+                                <TextView
+                                    android:id="@+id/KQ_Z1CZMC_B"
+                                    style="@style/text_edit_style"
+                                    />
+                            </LinearLayout>
+
+                            <View
+                                style="@style/line_o_style"/>
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="@dimen/mar_34"
+                                android:orientation="horizontal">
+
+                                <TextView
+                                    style="@style/text_style"
+                                    android:layout_width="@dimen/mar_45"
+                                    android:text="半称g"/>
+
+                                <View
+                                    style="@style/line_style"/>
+
+                                <TextView
+                                    android:id="@+id/KQ_Z1CLJCZBCZ_B"
+                                    style="@style/text_edit_style"
+                                    />
+                            </LinearLayout>
+
+                            <View
+                                style="@style/line_o_style"/>
+                        </LinearLayout>
+
+                        <View
+                            style="@style/line_style"/>
+
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_height="@dimen/mar_140"
+                            android:layout_weight="1"
+                            android:orientation="vertical">
+
+                            <TextView
+                                style="@style/text_style"
+                                android:text="2#称量机"/>
+
+                            <View
+                                style="@style/line_o_style"/>
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="@dimen/mar_34"
+                                android:orientation="horizontal">
+
+                                <TextView
+                                    style="@style/text_style"
+                                    android:layout_width="@dimen/mar_45"
+                                    android:text="原料"/>
+
+                                <View
+                                    style="@style/line_style"/>
+
+                                <TextView
+                                    style="@style/text_edit_style"
+                                    />
+                            </LinearLayout>
+
+                            <View
+                                style="@style/line_o_style"/>
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="@dimen/mar_34"
+                                android:orientation="horizontal">
+
+                                <TextView
+                                    style="@style/text_style"
+                                    android:layout_width="@dimen/mar_45"
+                                    android:text="满称g"/>
+
+                                <View
+                                    style="@style/line_style"/>
+
+                                <TextView
+                                    android:id="@+id/KQ_Z2CLJZMCZ_B"
+                                    style="@style/text_edit_style"
+                                    />
+                            </LinearLayout>
+
+                            <View
+                                style="@style/line_o_style"/>
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="@dimen/mar_34"
+                                android:orientation="horizontal">
+
+                                <TextView
+                                    style="@style/text_style"
+                                    android:layout_width="@dimen/mar_45"
+                                    android:text="半称g"/>
+
+                                <View
+                                    style="@style/line_style"/>
+
+                                <TextView
+                                    android:id="@+id/KQ_Z2CLJZBCZ_B"
+                                    style="@style/text_edit_style"
+                                    />
+                            </LinearLayout>
+
+                            <View
+                                style="@style/line_o_style"/>
+                        </LinearLayout>
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/mar_140"
+                        android:orientation="horizontal">
+
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_height="@dimen/mar_140"
+                            android:layout_weight="1"
+                            android:orientation="vertical">
+
+                            <TextView
+                                style="@style/text_style"
+                                android:text="3#称量机"/>
+
+                            <View
+                                style="@style/line_o_style"/>
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="@dimen/mar_34"
+                                android:orientation="horizontal">
+
+                                <TextView
+                                    style="@style/text_style"
+                                    android:layout_width="@dimen/mar_45"
+                                    android:text="原料"/>
+
+                                <View
+                                    style="@style/line_style"/>
+
+                                <TextView
+                                    style="@style/text_edit_style"
+                                    />
+                            </LinearLayout>
+
+                            <View
+                                style="@style/line_o_style"/>
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="@dimen/mar_34"
+                                android:orientation="horizontal">
+
+                                <TextView
+                                    style="@style/text_style"
+                                    android:layout_width="@dimen/mar_45"
+                                    android:text="满称g"/>
+
+                                <View
+                                    style="@style/line_style"/>
+
+                                <TextView
+                                    android:id="@+id/KQ_Z3CLJCZMCZ_B"
+                                    style="@style/text_edit_style"
+                                    />
+                            </LinearLayout>
+
+                            <View
+                                style="@style/line_o_style"/>
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="@dimen/mar_34"
+                                android:orientation="horizontal">
+
+                                <TextView
+                                    style="@style/text_style"
+                                    android:layout_width="@dimen/mar_45"
+                                    android:text="半称g"/>
+
+                                <View
+                                    style="@style/line_style"/>
+
+                                <TextView
+                                    android:id="@+id/KQ_Z3CLJCZBCZ_B"
+                                    style="@style/text_edit_style"
+                                    />
+                            </LinearLayout>
+
+                            <View
+                                style="@style/line_o_style"/>
+                        </LinearLayout>
+
+                        <View
+                            style="@style/line_style"/>
+
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_height="@dimen/mar_140"
+                            android:layout_weight="1"
+                            android:orientation="vertical">
+
+                            <TextView
+                                style="@style/text_style"
+                                android:text="4#称量机"/>
+
+                            <View
+                                style="@style/line_o_style"/>
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="@dimen/mar_34"
+                                android:orientation="horizontal">
+
+                                <TextView
+                                    style="@style/text_style"
+                                    android:layout_width="@dimen/mar_45"
+                                    android:text="原料"/>
+
+                                <View
+                                    style="@style/line_style"/>
+
+                                <TextView
+                                    style="@style/text_edit_style"
+                                    />
+                            </LinearLayout>
+
+                            <View
+                                style="@style/line_o_style"/>
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="@dimen/mar_34"
+                                android:orientation="horizontal">
+
+                                <TextView
+                                    style="@style/text_style"
+                                    android:layout_width="@dimen/mar_45"
+                                    android:text="满称g"/>
+
+                                <View
+                                    style="@style/line_style"/>
+
+                                <TextView
+                                    android:id="@+id/KQ_Y1CLJCZMCZ_B"
+                                    style="@style/text_edit_style"
+                                    />
+                            </LinearLayout>
+
+                            <View
+                                style="@style/line_o_style"/>
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="@dimen/mar_34"
+                                android:orientation="horizontal">
+
+                                <TextView
+                                    style="@style/text_style"
+                                    android:layout_width="@dimen/mar_45"
+                                    android:text="半称g"/>
+
+                                <View
+                                    style="@style/line_style"/>
+
+                                <TextView
+                                    android:id="@+id/KQ_Y1CLJCZBCZ_B"
+                                    style="@style/text_edit_style"
+                                    />
+                            </LinearLayout>
+
+                            <View
+                                style="@style/line_o_style"/>
+                        </LinearLayout>
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/mar_140"
+                        android:orientation="horizontal">
+
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_height="@dimen/mar_140"
+                            android:layout_weight="1"
+                            android:orientation="vertical">
+
+                            <TextView
+                                style="@style/text_style"
+                                android:text="5#称量机"/>
+
+                            <View
+                                style="@style/line_o_style"/>
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="@dimen/mar_34"
+                                android:orientation="horizontal">
+
+                                <TextView
+                                    style="@style/text_style"
+                                    android:layout_width="@dimen/mar_45"
+                                    android:text="原料"/>
+
+                                <View
+                                    style="@style/line_style"/>
+
+                                <TextView
+                                    style="@style/text_edit_style"
+                                    />
+                            </LinearLayout>
+
+                            <View
+                                style="@style/line_o_style"/>
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="@dimen/mar_34"
+                                android:orientation="horizontal">
+
+                                <TextView
+                                    style="@style/text_style"
+                                    android:layout_width="@dimen/mar_45"
+                                    android:text="满称g"/>
+
+                                <View
+                                    style="@style/line_style"/>
+
+                                <TextView
+                                    android:id="@+id/KQ_Y2CLJCZMCZ_B"
+                                    style="@style/text_edit_style"
+                                    />
+                            </LinearLayout>
+
+                            <View
+                                style="@style/line_o_style"/>
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="@dimen/mar_34"
+                                android:orientation="horizontal">
+
+                                <TextView
+                                    style="@style/text_style"
+                                    android:layout_width="@dimen/mar_45"
+                                    android:text="半称g"/>
+
+                                <View
+                                    style="@style/line_style"/>
+
+                                <TextView
+                                    android:id="@+id/KQ_CLJCZBCZ_B"
+                                    style="@style/text_edit_style"
+                                    />
+                            </LinearLayout>
+
+                            <View
+                                style="@style/line_o_style"/>
+                        </LinearLayout>
+
+                        <View
+                            style="@style/line_style"/>
+
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_height="@dimen/mar_140"
+                            android:layout_weight="1"
+                            android:orientation="vertical">
+
+                            <TextView
+                                style="@style/text_style"
+                                android:text="6#称量机"/>
+
+                            <View
+                                style="@style/line_o_style"/>
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="@dimen/mar_34"
+                                android:orientation="horizontal">
+
+                                <TextView
+                                    style="@style/text_style"
+                                    android:layout_width="@dimen/mar_45"
+                                    android:text="原料"/>
+
+                                <View
+                                    style="@style/line_style"/>
+
+                                <TextView
+                                    style="@style/text_edit_style"
+                                    />
+                            </LinearLayout>
+
+                            <View
+                                style="@style/line_o_style"/>
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="@dimen/mar_34"
+                                android:orientation="horizontal">
+
+                                <TextView
+                                    style="@style/text_style"
+                                    android:layout_width="@dimen/mar_45"
+                                    android:text="满称g"/>
+
+                                <View
+                                    style="@style/line_style"/>
+
+                                <TextView
+                                    android:id="@+id/KQ_Y3CLJCZMCZ_B"
+                                    style="@style/text_edit_style"
+                                    />
+                            </LinearLayout>
+
+                            <View
+                                style="@style/line_o_style"/>
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="@dimen/mar_34"
+                                android:orientation="horizontal">
+
+                                <TextView
+                                    style="@style/text_style"
+                                    android:layout_width="@dimen/mar_45"
+                                    android:text="半称g"/>
+
+                                <View
+                                    style="@style/line_style"/>
+
+                                <TextView
+                                    android:id="@+id/KQ_Y3CLJCZBCZ_B"
+                                    style="@style/text_edit_style"
+                                    />
+                            </LinearLayout>
+
+                            <View
+                                style="@style/line_o_style"/>
+                        </LinearLayout>
+                    </LinearLayout>
+
+                    <View
+                        style="@style/line_o_style"
+                        android:layout_marginTop="@dimen/mar_3"/>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/mar_34"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            style="@style/text_style"
+                            android:layout_width="@dimen/mar_65"
+                            android:text="皮带秤"/>
+
+                        <View
+                            style="@style/line_style"/>
+
+                        <TextView
+                            style="@style/text_style"
+                            android:layout_width="0dp"
+                            android:layout_weight="1"
+                            android:text="1#"/>
+
+                        <View
+                            style="@style/line_style"/>
+
+                        <TextView
+                            style="@style/text_style"
+                            android:layout_width="0dp"
+                            android:layout_weight="1"
+                            android:text="2#"/>
+
+                        <View
+                            style="@style/line_style"/>
+
+                    </LinearLayout>
+
+                    <View
+                        style="@style/line_o_style"/>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/mar_33"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            style="@style/text_style"
+                            android:layout_width="@dimen/mar_65"
+                            android:layout_height="match_parent"
+                            android:text="筛棉重量"/>
+
+                        <View
+                            style="@style/line_style"/>
+
+                        <TextView
+                            style="@style/text_edit_style"
+                            android:layout_width="0dp"
+                            android:layout_weight="1"
+                            android:text=""/>
+
+                        <View
+                            style="@style/line_style"/>
+
+                        <TextView
+                            style="@style/text_edit_style"
+                            android:layout_width="0dp"
+                            android:layout_weight="1"
+                            android:text=""/>
+
+                        <View
+                            style="@style/line_style"/>
+                    </LinearLayout>
+
+                    <View
+                        style="@style/line_o_style"/>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/mar_33"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            style="@style/text_style"
+                            android:layout_width="@dimen/mar_65"
+                            android:layout_height="match_parent"
+                            android:text="克重设定"/>
+
+                        <View
+                            style="@style/line_style"/>
+
+                        <TextView
+                            style="@style/text_edit_style"
+                            android:layout_width="0dp"
+                            android:layout_weight="1"
+                            android:text=""/>
+
+                        <View
+                            style="@style/line_style"/>
+
+                        <TextView
+                            style="@style/text_edit_style"
+                            android:layout_width="0dp"
+                            android:layout_weight="1"
+                            android:text=""/>
+
+                        <View
+                            style="@style/line_style"/>
+                    </LinearLayout>
+
+                    <View
+                        style="@style/line_o_style"/>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/mar_33"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            style="@style/text_style"
+                            android:layout_width="@dimen/mar_65"
+                            android:text="梳理出网"/>
+
+                        <View
+                            style="@style/line_style"/>
+
+                        <TextView
+                            android:id="@+id/out_of_net_1"
+                            style="@style/text_edit_style"
+                            android:layout_width="0dp"
+                            android:layout_weight="1"
+                            android:text=""/>
+
+                        <View
+                            style="@style/line_style"/>
+
+                        <TextView
+                            android:id="@+id/out_of_net_2"
+                            style="@style/text_edit_style"
+                            android:layout_width="0dp"
+                            android:layout_weight="1"
+                            android:text=""/>
+
+                        <View
+                            style="@style/line_style"/>
+                    </LinearLayout>
+
+                    <View
+                        style="@style/line_o_style"/>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/mar_33"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            style="@style/text_style"
+                            android:layout_width="@dimen/mar_65"
+                            android:text="皮带秤"/>
+
+                        <View
+                            style="@style/line_style"/>
+
+                        <TextView
+                            android:id="@+id/belt_scale_1"
+                            style="@style/text_edit_style"
+                            android:layout_width="0dp"
+                            android:layout_weight="1"
+                            android:text=""/>
+
+                        <View
+                            style="@style/line_style"/>
+
+                        <TextView
+                            android:id="@+id/belt_scale_2"
+                            style="@style/text_edit_style"
+                            android:layout_width="0dp"
+                            android:layout_weight="1"
+                            android:text=""/>
+
+                        <View
+                            style="@style/line_style"/>
+                    </LinearLayout>
+                </LinearLayout>
+            </LinearLayout>
+
+            <View
+                android:id="@+id/line2"
+                style="@style/line_o_style"/>
+
+            <View
+                android:id="@+id/line3"
+                style="@style/line_o_style"
+                android:layout_marginTop="@dimen/mar_3"/>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+            <LinearLayout
+                android:id="@+id/shuliji1"
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/mar_1050">
+                <TextView
+                    android:visibility="gone"
+                    style="@style/text_style"
+                    android:text="梳理机"
+                    />
+                <View style="@style/line_style"/>
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:orientation="vertical"
+                    android:layout_height="match_parent">
+                    <TextView
+                        android:visibility="gone"
+                        android:text="1#梳理机"
+                        style="@style/text_style"/>
+                    <View
+                        android:visibility="gone"
+                        style="@style/line_o_style"/>
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/mar_34"
+                        android:orientation="horizontal">
+                        <TextView
+                            android:layout_width="@dimen/mar_65"
+                            style="@style/text_style"/>
+                        <View
+                            style="@style/line_style"/>
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_weight="1"
+                            android:text="实际m/min"
+                            style="@style/text_style"/>
+                        <View
+                            style="@style/line_style"/>
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_weight="1"
+                            android:text="设定m/min"
+                            style="@style/text_style"/>
+                    </LinearLayout>
+                    <View style="@style/line_o_style"/>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/mar_34"
+                        android:orientation="horizontal">
+                        <TextView
+                            android:text="主锡林"
+                            android:layout_width="@dimen/mar_65"
+                            style="@style/text_style"/>
+                        <View
+                            style="@style/line_style"/>
+                        <TextView
+                            android:id="@+id/SL1_ZXL_A"
+                            android:layout_width="0dp"
+                            android:layout_weight="1"
+                            style="@style/text_edit_style"/>
+                        <View
+                            style="@style/line_style"/>
+                        <TextView
+                            android:id="@+id/SL1_ZXL_B"
+                            android:layout_width="0dp"
+                            android:layout_weight="1"
+                            style="@style/text_edit_style"/>
+                    </LinearLayout>
+                    <View style="@style/line_o_style"/>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/mar_34"
+                        android:orientation="horizontal">
+                        <TextView
+                            android:text="主工作辊"
+                            android:layout_width="@dimen/mar_65"
+                            style="@style/text_style"/>
+                        <View
+                            style="@style/line_style"/>
+                        <TextView
+                            android:id="@+id/SL1_ZXLGZG_A"
+                            android:layout_width="0dp"
+                            android:layout_weight="1"
+                            style="@style/text_edit_style"/>
+                        <View
+                            style="@style/line_style"/>
+                        <TextView
+                            android:id="@+id/SL1_ZGZG_B"
+                            android:layout_width="0dp"
+                            android:layout_weight="1"
+                            style="@style/text_edit_style"/>
+                    </LinearLayout>
+                    <View style="@style/line_o_style"/>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/mar_34"
+                        android:orientation="horizontal">
+                        <TextView
+                            android:text="主剥取辊"
+                            android:layout_width="@dimen/mar_65"
+                            style="@style/text_style"/>
+                        <View
+                            style="@style/line_style"/>
+                        <TextView
+                            android:id="@+id/SL1_ZXLBQG_A"
+                            android:layout_width="0dp"
+                            android:layout_weight="1"
+                            style="@style/text_edit_style"/>
+                        <View
+                            style="@style/line_style"/>
+                        <TextView
+                            android:id="@+id/SL1_ZBQG_B"
+                            android:layout_width="0dp"
+                            android:layout_weight="1"
+                            style="@style/text_edit_style"/>
+                    </LinearLayout>
+                    <View style="@style/line_o_style"/>
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/mar_34"
+                        android:orientation="horizontal">
+                        <TextView
+                            android:text="中间道夫"
+                            android:layout_width="@dimen/mar_65"
+                            style="@style/text_style"/>
+                        <View
+                            style="@style/line_style"/>
+                        <TextView
+                            android:id="@+id/SL1_ZJDF_A"
+                            android:layout_width="0dp"
+                            android:layout_weight="1"
+                            style="@style/text_edit_style"/>
+                        <View
+                            style="@style/line_style"/>
+                        <TextView
+                            android:id="@+id/SL1_ZJDF_B"
+                            android:layout_width="0dp"
+                            android:layout_weight="1"
+                            style="@style/text_edit_style"/>
+                    </LinearLayout>
+                    <View style="@style/line_o_style"/>
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/mar_34"
+                        android:orientation="horizontal">
+                        <TextView
+                            android:text="胸锡林"
+                            android:layout_width="@dimen/mar_65"
+                            style="@style/text_style"/>
+                        <View
+                            style="@style/line_style"/>
+                        <TextView
+                            android:id="@+id/SL1_XXL_A"
+                            android:layout_width="0dp"
+                            android:layout_weight="1"
+                            style="@style/text_edit_style"/>
+                        <View
+                            style="@style/line_style"/>
+                        <TextView
+                            android:id="@+id/SL1_XXL_B"
+                            android:layout_width="0dp"
+                            android:layout_weight="1"
+                            style="@style/text_edit_style"/>
+                    </LinearLayout>
+                    <View style="@style/line_o_style"/>
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/mar_34"
+                        android:orientation="horizontal">
+                        <TextView
+                            android:text="胸工作辊"
+                            android:layout_width="@dimen/mar_65"
+                            style="@style/text_style"/>
+                        <View
+                            style="@style/line_style"/>
+                        <TextView
+                            android:id="@+id/SL1_XXLGZG_A"
+                            android:layout_width="0dp"
+                            android:layout_weight="1"
+                            style="@style/text_edit_style"/>
+                        <View
+                            style="@style/line_style"/>
+                        <TextView
+                            android:id="@+id/SL1_XXLGZG_B"
+                            android:layout_width="0dp"
+                            android:layout_weight="1"
+                            style="@style/text_edit_style"/>
+                    </LinearLayout>
+                    <View style="@style/line_o_style"/>
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/mar_34"
+                        android:orientation="horizontal">
+                        <TextView
+                            android:text="棉道压力"
+                            android:layout_width="@dimen/mar_65"
+                            style="@style/text_style"/>
+                        <View
+                            style="@style/line_style"/>
+                        <TextView
+                            android:id="@+id/SL1_SMXYL_A"
+                            android:layout_width="0dp"
+                            android:layout_weight="1"
+                            style="@style/text_edit_style"/>
+                        <View
+                            style="@style/line_style"/>
+                        <TextView
+                            android:id="@+id/SL1_SMXYL_B"
+                            android:layout_width="0dp"
+                            android:layout_weight="1"
+                            style="@style/text_edit_style"/>
+                    </LinearLayout>
+                    <View style="@style/line_o_style"/>
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/mar_34"
+                        android:orientation="horizontal">
+                        <TextView
+                            android:text="棉箱压力"
+                            android:layout_width="@dimen/mar_65"
+                            style="@style/text_style"/>
+                        <View
+                            style="@style/line_style"/>
+                        <TextView
+                            android:id="@+id/SL1_XMXYL_A"
+                            android:layout_width="0dp"
+                            android:layout_weight="1"
+                            style="@style/text_edit_style"/>
+                        <View
+                            style="@style/line_style"/>
+                        <TextView
+                            android:id="@+id/SL1_XMXYL_B"
+                            android:layout_width="0dp"
+                            android:layout_weight="1"
+                            style="@style/text_edit_style"/>
+                    </LinearLayout>
+                    <View style="@style/line_o_style"/>
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/mar_34"
+                        android:orientation="horizontal">
+                        <TextView
+                            android:text="喂棉帘子"
+                            android:layout_width="@dimen/mar_65"
+                            style="@style/text_style"/>
+                        <View
+                            style="@style/line_style"/>
+                        <TextView
+                            android:id="@+id/SL1_WMLZ_A"
+                            android:layout_width="0dp"
+                            android:layout_weight="1"
+                            style="@style/text_edit_style"/>
+                        <View
+                            style="@style/line_style"/>
+                        <TextView
+                            android:id="@+id/SL1_WMLZ_B"
+                            android:layout_width="0dp"
+                            android:layout_weight="1"
+                            style="@style/text_edit_style"/>
+                    </LinearLayout>
+                    <View style="@style/line_o_style"/>
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/mar_34"
+                        android:orientation="horizontal">
+                        <TextView
+                            android:text="皮带秤"
+                            android:layout_width="@dimen/mar_65"
+                            style="@style/text_style"/>
+                        <View
+                            style="@style/line_style"/>
+                        <TextView
+                            android:id="@+id/SL1_PDC_A"
+                            android:layout_width="0dp"
+                            android:layout_weight="1"
+                            style="@style/text_edit_style"/>
+                        <View
+                            style="@style/line_style"/>
+                        <TextView
+
+                            android:layout_width="0dp"
+                            android:layout_weight="1"
+                            style="@style/text_edit_style"/>
+                    </LinearLayout>
+                    <View style="@style/line_o_style"/>
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/mar_34"
+                        android:orientation="horizontal">
+                        <TextView
+                            android:text="喂棉罗拉"
+                            android:layout_width="@dimen/mar_65"
+                            style="@style/text_style"/>
+                        <View
+                            style="@style/line_style"/>
+                        <TextView
+                            android:id="@+id/SL1_WMLL_A"
+                            android:layout_width="0dp"
+                            android:layout_weight="1"
+                            style="@style/text_edit_style"/>
+                        <View
+                            style="@style/line_style"/>
+                        <TextView
+                            android:id="@+id/SL1_WMLL_B"
+                            android:layout_width="0dp"
+                            android:layout_weight="1"
+                            style="@style/text_edit_style"/>
+                    </LinearLayout>
+                    <View style="@style/line_o_style"/>
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/mar_34"
+                        android:orientation="horizontal">
+                        <TextView
+                            android:text="伺服电源"
+                            android:layout_width="@dimen/mar_65"
+                            style="@style/text_style"/>
+                        <View
+                            style="@style/line_style"/>
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_weight="1"
+                            style="@style/text_edit_style"/>
+                        <View
+                            style="@style/line_style"/>
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_weight="1"
+                            style="@style/text_edit_style"/>
+                    </LinearLayout>
+                    <View style="@style/line_o_style"/>
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/mar_34"
+                        android:orientation="horizontal">
+                        <TextView
+                            android:text="上道夫"
+                            android:layout_width="@dimen/mar_65"
+                            style="@style/text_style"/>
+                        <View
+                            style="@style/line_style"/>
+                        <TextView
+                            android:id="@+id/SL1_SDF_A"
+                            android:layout_width="0dp"
+                            android:layout_weight="1"
+                            style="@style/text_edit_style"/>
+                        <View
+                            style="@style/line_style"/>
+                        <TextView
+                            android:id="@+id/SL1_SDF_B"
+                            android:layout_width="0dp"
+                            android:layout_weight="1"
+                            style="@style/text_edit_style"/>
+                    </LinearLayout>
+                    <View style="@style/line_o_style"/>
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/mar_34"
+                        android:orientation="horizontal">
+                        <TextView
+                            android:text="上凝聚1"
+                            android:layout_width="@dimen/mar_65"
+                            style="@style/text_style"/>
+                        <View
+                            style="@style/line_style"/>
+                        <TextView
+                            android:id="@+id/SL1_SNJ1_A"
+                            android:layout_width="0dp"
+                            android:layout_weight="1"
+                            style="@style/text_edit_style"/>
+                        <View
+                            style="@style/line_style"/>
+                        <TextView
+                            android:id="@+id/SL1_SNJ1_B"
+                            android:layout_width="0dp"
+                            android:layout_weight="1"
+                            style="@style/text_edit_style"/>
+                    </LinearLayout>
+                    <View style="@style/line_o_style"/>
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/mar_34"
+                        android:orientation="horizontal">
+                        <TextView
+                            android:text="上凝聚2"
+                            android:layout_width="@dimen/mar_65"
+                            style="@style/text_style"/>
+                        <View
+                            style="@style/line_style"/>
+                        <TextView
+                            android:id="@+id/SL1_SNJ2_A"
+                            android:layout_width="0dp"
+                            android:layout_weight="1"
+                            style="@style/text_edit_style"/>
+                        <View
+                            style="@style/line_style"/>
+                        <TextView
+                            android:id="@+id/SL1_SNJ2_B"
+                            android:layout_width="0dp"
+                            android:layout_weight="1"
+                            style="@style/text_edit_style"/>
+                    </LinearLayout>
+                    <View style="@style/line_o_style"/>
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/mar_34"
+                        android:orientation="horizontal">
+                        <TextView
+                            android:text="上剥棉"
+                            android:layout_width="@dimen/mar_65"
+                            style="@style/text_style"/>
+                        <View
+                            style="@style/line_style"/>
+                        <TextView
+                            android:id="@+id/SL1_SBM_A"
+                            android:layout_width="0dp"
+                            android:layout_weight="1"
+                            style="@style/text_edit_style"/>
+                        <View
+                            style="@style/line_style"/>
+                        <TextView
+                            android:id="@+id/SL1_SBM_B"
+                            android:layout_width="0dp"
+                            android:layout_weight="1"
+                            style="@style/text_edit_style"/>
+                    </LinearLayout>
+                    <View style="@style/line_o_style"/>
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/mar_34"
+                        android:orientation="horizontal">
+                        <TextView
+                            android:text="上出网"
+                            android:layout_width="@dimen/mar_65"
+                            style="@style/text_style"/>
+                        <View
+                            style="@style/line_style"/>
+                        <TextView
+                            android:id="@+id/SL1_SCWL_A"
+                            android:layout_width="0dp"
+                            android:layout_weight="1"
+                            style="@style/text_edit_style"/>
+                        <View
+                            style="@style/line_style"/>
+                        <TextView
+                            android:id="@+id/SL1_SCWL_B"
+                            android:layout_width="0dp"
+                            android:layout_weight="1"
+                            style="@style/text_edit_style"/>
+                    </LinearLayout>
+                    <View style="@style/line_o_style"/>
+
+
+
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/mar_34"
+                        android:orientation="horizontal">
+                        <TextView
+                            android:text="下道夫"
+                            android:layout_width="@dimen/mar_65"
+                            style="@style/text_style"/>
+                        <View
+                            style="@style/line_style"/>
+                        <TextView
+                            android:id="@+id/SL1_XDF_A"
+                            android:layout_width="0dp"
+                            android:layout_weight="1"
+                            style="@style/text_edit_style"/>
+                        <View
+                            style="@style/line_style"/>
+                        <TextView
+                            android:id="@+id/SL1_XDF_B"
+                            android:layout_width="0dp"
+                            android:layout_weight="1"
+                            style="@style/text_edit_style"/>
+                    </LinearLayout>
+                    <View style="@style/line_o_style"/>
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/mar_34"
+                        android:orientation="horizontal">
+                        <TextView
+                            android:text="下凝聚1"
+                            android:layout_width="@dimen/mar_65"
+                            style="@style/text_style"/>
+                        <View
+                            style="@style/line_style"/>
+                        <TextView
+                            android:id="@+id/SL1_XNJ1_A"
+                            android:layout_width="0dp"
+                            android:layout_weight="1"
+                            style="@style/text_edit_style"/>
+                        <View
+                            style="@style/line_style"/>
+                        <TextView
+                            android:id="@+id/SL1_XNJ1_B"
+                            android:layout_width="0dp"
+                            android:layout_weight="1"
+                            style="@style/text_edit_style"/>
+                    </LinearLayout>
+                    <View style="@style/line_o_style"/>
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/mar_34"
+                        android:orientation="horizontal">
+                        <TextView
+                            android:text="下凝聚2"
+                            android:layout_width="@dimen/mar_65"
+                            style="@style/text_style"/>
+                        <View
+                            style="@style/line_style"/>
+                        <TextView
+                            android:id="@+id/SL1_XNJ2_A"
+                            android:layout_width="0dp"
+                            android:layout_weight="1"
+                            style="@style/text_edit_style"/>
+                        <View
+                            style="@style/line_style"/>
+                        <TextView
+                            android:id="@+id/SL1_XNJ2_B"
+                            android:layout_width="0dp"
+                            android:layout_weight="1"
+                            style="@style/text_edit_style"/>
+                    </LinearLayout>
+                    <View style="@style/line_o_style"/>
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/mar_34"
+                        android:orientation="horizontal">
+                        <TextView
+                            android:text="下剥棉"
+                            android:layout_width="@dimen/mar_65"
+                            style="@style/text_style"/>
+                        <View
+                            style="@style/line_style"/>
+                        <TextView
+                            android:id="@+id/SL1_XBM_A"
+                            android:layout_width="0dp"
+                            android:layout_weight="1"
+                            style="@style/text_edit_style"/>
+                        <View
+                            style="@style/line_style"/>
+                        <TextView
+                            android:id="@+id/SL1_XBM_B"
+                            android:layout_width="0dp"
+                            android:layout_weight="1"
+                            style="@style/text_edit_style"/>
+                    </LinearLayout>
+                    <View style="@style/line_o_style"/>
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/mar_34"
+                        android:orientation="horizontal">
+                        <TextView
+                            android:text="下出网"
+                            android:layout_width="@dimen/mar_65"
+                            style="@style/text_style"/>
+                        <View
+                            style="@style/line_style"/>
+                        <TextView
+                            android:id="@+id/SL1_XCWL_A"
+                            android:layout_width="0dp"
+                            android:layout_weight="1"
+                            style="@style/text_edit_style"/>
+                        <View
+                            style="@style/line_style"/>
+                        <TextView
+                            android:id="@+id/SL1_XCWL_B"
+                            android:layout_width="0dp"
+                            android:layout_weight="1"
+                            style="@style/text_edit_style"/>
+                    </LinearLayout>
+                    <View style="@style/line_o_style"/>
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/mar_34"
+                        android:orientation="horizontal">
+                        <TextView
+                            android:text="线速度"
+                            android:layout_width="@dimen/mar_65"
+                            style="@style/text_style"/>
+                        <View
+                            style="@style/line_style"/>
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_weight="1"
+                            style="@style/text_edit_style"/>
+                        <View
+                            style="@style/line_style"/>
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_weight="1"
+                            style="@style/text_edit_style"/>
+                    </LinearLayout>
+                    <View style="@style/line_o_style"/>
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/mar_34"
+                        android:orientation="horizontal">
+                        <TextView
+                            android:text="吹气风机1"
+                            android:layout_width="@dimen/mar_65"
+                            style="@style/text_style"/>
+                        <View
+                            style="@style/line_style"/>
+                        <TextView
+                            android:id="@+id/SL1_CQFJ1_A"
+                            android:layout_width="0dp"
+                            android:layout_weight="1"
+                            style="@style/text_edit_style"/>
+                        <View
+                            style="@style/line_style"/>
+                        <TextView
+                            android:id="@+id/SL1_CQFJ1_B"
+                            android:layout_width="0dp"
+                            android:layout_weight="1"
+                            style="@style/text_edit_style"/>
+                    </LinearLayout>
+                    <View style="@style/line_o_style"/>
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/mar_34"
+                        android:orientation="horizontal">
+                        <TextView
+                            android:text="吹气风机2"
+                            android:layout_width="@dimen/mar_65"
+                            style="@style/text_style"/>
+                        <View
+                            style="@style/line_style"/>
+                        <TextView
+                            android:id="@+id/SL1_CQFJ2_A"
+                            android:layout_width="0dp"
+                            android:layout_weight="1"
+                            style="@style/text_edit_style"/>
+                        <View
+                            style="@style/line_style"/>
+                        <TextView
+                            android:id="@+id/SL1_CQFJ2_B"
+                            android:layout_width="0dp"
+                            android:layout_weight="1"
+                            style="@style/text_edit_style"/>
+                    </LinearLayout>
+                    <View style="@style/line_o_style"/>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/mar_34"
+                        android:orientation="horizontal">
+                        <TextView
+                            android:text="末道给棉"
+                            android:layout_width="@dimen/mar_65"
+                            style="@style/text_style"/>
+                        <View
+                            style="@style/line_style"/>
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_weight="1"
+                            style="@style/text_edit_style"/>
+                        <View
+                            style="@style/line_style"/>
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_weight="1"
+                            style="@style/text_edit_style"/>
+                    </LinearLayout>
+                    <View style="@style/line_o_style"/>
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/mar_34"
+                        android:orientation="horizontal">
+                        <TextView
+                            android:text="棉箱喂棉"
+                            android:layout_width="@dimen/mar_65"
+                            style="@style/text_style"/>
+                        <View
+                            style="@style/line_style"/>
+                        <TextView
+                            android:id="@+id/SL1_MXJM_A"
+                            android:layout_width="0dp"
+                            android:layout_weight="1"
+                            style="@style/text_edit_style"/>
+                        <View
+                            style="@style/line_style"/>
+                        <TextView
+                            android:id="@+id/SL1_MXGM_B"
+                            android:layout_width="0dp"
+                            android:layout_weight="1"
+                            style="@style/text_edit_style"/>
+                    </LinearLayout>
+                    <View style="@style/line_o_style"/>
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/mar_34"
+                        android:orientation="horizontal">
+                        <TextView
+                            android:text="棉箱风机"
+                            android:layout_width="@dimen/mar_65"
+                            style="@style/text_style"/>
+                        <View
+                            style="@style/line_style"/>
+                        <TextView
+                            android:id="@+id/SL1_MXFJ1_A"
+                            android:layout_width="0dp"
+                            android:layout_weight="1"
+                            style="@style/text_edit_style"/>
+                        <View
+                            style="@style/line_style"/>
+                        <TextView
+                            android:id="@+id/SL1_MXFJ1_B"
+                            android:layout_width="0dp"
+                            android:layout_weight="1"
+                            style="@style/text_edit_style"/>
+                    </LinearLayout>
+                    <View style="@style/line_o_style"/>
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <View
+                android:id="@+id/line4"
+                style="@style/line_o_style"/>
+            <LinearLayout
+                android:id="@+id/shuliji2"
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/mar_1050">
+                <TextView
+                    android:visibility="gone"
+                    style="@style/text_style"
+                    android:text="梳理机"
+                    />
+                <View
+                    style="@style/line_style"/>
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:orientation="vertical"
+                    android:layout_height="match_parent">
+                    <TextView
+                        android:visibility="gone"
+                        android:text="2#梳理机"
+                        style="@style/text_style"/>
+                    <View
+                        android:visibility="gone"
+                        style="@style/line_o_style"/>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/mar_34"
+                        android:orientation="horizontal">
+                        <TextView
+                            android:layout_width="@dimen/mar_65"
+                            style="@style/text_style"/>
+                        <View
+                            style="@style/line_style"/>
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_weight="1"
+                            android:text="实际m/min"
+                            style="@style/text_style"/>
+                        <View
+                            style="@style/line_style"/>
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_weight="1"
+                            android:text="设定m/min"
+                            style="@style/text_style"/>
+                    </LinearLayout>
+                    <View style="@style/line_o_style"/>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/mar_34"
+                        android:orientation="horizontal">
+                        <TextView
+                            android:text="主锡林"
+                            android:layout_width="@dimen/mar_65"
+                            style="@style/text_style"/>
+                        <View
+                            style="@style/line_style"/>
+                        <TextView
+                            android:id="@+id/SL2_ZXL_A"
+                            android:layout_width="0dp"
+                            android:layout_weight="1"
+                            style="@style/text_edit_style"/>
+                        <View
+                            style="@style/line_style"/>
+                        <TextView
+                            android:id="@+id/SL2_ZXL_B"
+                            android:layout_width="0dp"
+                            android:layout_weight="1"
+                            style="@style/text_edit_style"/>
+                    </LinearLayout>
+                    <View style="@style/line_o_style"/>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/mar_34"
+                        android:orientation="horizontal">
+                        <TextView
+                            android:text="主工作辊"
+                            android:layout_width="@dimen/mar_65"
+                            style="@style/text_style"/>
+                        <View
+                            style="@style/line_style"/>
+                        <TextView
+                            android:id="@+id/SL2_ZXLGZG_A"
+                            android:layout_width="0dp"
+                            android:layout_weight="1"
+                            style="@style/text_edit_style"/>
+                        <View
+                            style="@style/line_style"/>
+                        <TextView
+                            android:id="@+id/SL2_ZXLGZG_B"
+                            android:layout_width="0dp"
+                            android:layout_weight="1"
+                            style="@style/text_edit_style"/>
+                    </LinearLayout>
+                    <View style="@style/line_o_style"/>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/mar_34"
+                        android:orientation="horizontal">
+                        <TextView
+                            android:text="主剥取辊"
+                            android:layout_width="@dimen/mar_65"
+                            style="@style/text_style"/>
+                        <View
+                            style="@style/line_style"/>
+                        <TextView
+                            android:id="@+id/SL2_ZXLBQG_A"
+                            android:layout_width="0dp"
+                            android:layout_weight="1"
+                            style="@style/text_edit_style"/>
+                        <View
+                            style="@style/line_style"/>
+                        <TextView
+                            android:id="@+id/SL2_ZBQG_B"
+                            android:layout_width="0dp"
+                            android:layout_weight="1"
+                            style="@style/text_edit_style"/>
+                    </LinearLayout>
+                    <View style="@style/line_o_style"/>
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/mar_34"
+                        android:orientation="horizontal">
+                        <TextView
+                            android:text="中间道夫"
+                            android:layout_width="@dimen/mar_65"
+                            style="@style/text_style"/>
+                        <View
+                            style="@style/line_style"/>
+                        <TextView
+                            android:id="@+id/SL2_ZJDF_A"
+                            android:layout_width="0dp"
+                            android:layout_weight="1"
+                            style="@style/text_edit_style"/>
+                        <View
+                            style="@style/line_style"/>
+                        <TextView
+                            android:id="@+id/SL2_ZJDF_B"
+                            android:layout_width="0dp"
+                            android:layout_weight="1"
+                            style="@style/text_edit_style"/>
+                    </LinearLayout>
+                    <View style="@style/line_o_style"/>
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/mar_34"
+                        android:orientation="horizontal">
+                        <TextView
+                            android:text="胸锡林"
+                            android:layout_width="@dimen/mar_65"
+                            style="@style/text_style"/>
+                        <View
+                            style="@style/line_style"/>
+                        <TextView
+                            android:id="@+id/SL2_XXL_A"
+                            android:layout_width="0dp"
+                            android:layout_weight="1"
+                            style="@style/text_edit_style"/>
+                        <View
+                            style="@style/line_style"/>
+                        <TextView
+                            android:id="@+id/SL2_XXL_B"
+                            android:layout_width="0dp"
+                            android:layout_weight="1"
+                            style="@style/text_edit_style"/>
+                    </LinearLayout>
+                    <View style="@style/line_o_style"/>
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/mar_34"
+                        android:orientation="horizontal">
+                        <TextView
+                            android:text="胸工作辊"
+                            android:layout_width="@dimen/mar_65"
+                            style="@style/text_style"/>
+                        <View
+                            style="@style/line_style"/>
+                        <TextView
+                            android:id="@+id/SL2_XXLGZG_A"
+                            android:layout_width="0dp"
+                            android:layout_weight="1"
+                            style="@style/text_edit_style"/>
+                        <View
+                            style="@style/line_style"/>
+                        <TextView
+                            android:id="@+id/SL2_XXLGZG_B"
+                            android:layout_width="0dp"
+                            android:layout_weight="1"
+                            style="@style/text_edit_style"/>
+                    </LinearLayout>
+                    <View style="@style/line_o_style"/>
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/mar_34"
+                        android:orientation="horizontal">
+                        <TextView
+                            android:text="棉道压力"
+                            android:layout_width="@dimen/mar_65"
+                            style="@style/text_style"/>
+                        <View
+                            style="@style/line_style"/>
+                        <TextView
+                            android:id="@+id/SL2_SMXYL_A"
+                            android:layout_width="0dp"
+                            android:layout_weight="1"
+                            style="@style/text_edit_style"/>
+                        <View
+                            style="@style/line_style"/>
+                        <TextView
+                            android:id="@+id/SL2_SMXYL_B"
+                            android:layout_width="0dp"
+                            android:layout_weight="1"
+                            style="@style/text_edit_style"/>
+                    </LinearLayout>
+                    <View style="@style/line_o_style"/>
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/mar_34"
+                        android:orientation="horizontal">
+                        <TextView
+                            android:text="棉箱压力"
+                            android:layout_width="@dimen/mar_65"
+                            style="@style/text_style"/>
+                        <View
+                            style="@style/line_style"/>
+                        <TextView
+                            android:id="@+id/SL2_XMXYL_A"
+                            android:layout_width="0dp"
+                            android:layout_weight="1"
+                            style="@style/text_edit_style"/>
+                        <View
+                            style="@style/line_style"/>
+                        <TextView
+                            android:id="@+id/SL2_XMXYL_B"
+                            android:layout_width="0dp"
+                            android:layout_weight="1"
+                            style="@style/text_edit_style"/>
+                    </LinearLayout>
+                    <View style="@style/line_o_style"/>
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/mar_34"
+                        android:orientation="horizontal">
+                        <TextView
+                            android:text="喂棉帘子"
+                            android:layout_width="@dimen/mar_65"
+                            style="@style/text_style"/>
+                        <View
+                            style="@style/line_style"/>
+                        <TextView
+                            android:id="@+id/SL2_WMLZ_A"
+                            android:layout_width="0dp"
+                            android:layout_weight="1"
+                            style="@style/text_edit_style"/>
+                        <View
+                            style="@style/line_style"/>
+                        <TextView
+                            android:id="@+id/SL2_WMLZ_B"
+                            android:layout_width="0dp"
+                            android:layout_weight="1"
+                            style="@style/text_edit_style"/>
+                    </LinearLayout>
+                    <View style="@style/line_o_style"/>
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/mar_34"
+                        android:orientation="horizontal">
+                        <TextView
+                            android:text="皮带秤"
+                            android:layout_width="@dimen/mar_65"
+                            style="@style/text_style"/>
+                        <View
+                            style="@style/line_style"/>
+                        <TextView
+                            android:id="@+id/SL2_PDC_A"
+                            android:layout_width="0dp"
+                            android:layout_weight="1"
+                            style="@style/text_edit_style"/>
+                        <View
+                            style="@style/line_style"/>
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_weight="1"
+                            style="@style/text_edit_style"/>
+                    </LinearLayout>
+                    <View style="@style/line_o_style"/>
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/mar_34"
+                        android:orientation="horizontal">
+                        <TextView
+                            android:text="喂棉罗拉"
+                            android:layout_width="@dimen/mar_65"
+                            style="@style/text_style"/>
+                        <View
+                            style="@style/line_style"/>
+                        <TextView
+                            android:id="@+id/SL2_WMLL_A"
+                            android:layout_width="0dp"
+                            android:layout_weight="1"
+                            style="@style/text_edit_style"/>
+                        <View
+                            style="@style/line_style"/>
+                        <TextView
+                            android:id="@+id/SL2_WMLL_B"
+                            android:layout_width="0dp"
+                            android:layout_weight="1"
+                            style="@style/text_edit_style"/>
+                    </LinearLayout>
+                    <View style="@style/line_o_style"/>
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/mar_34"
+                        android:orientation="horizontal">
+                        <TextView
+                            android:text="伺服电源"
+                            android:layout_width="@dimen/mar_65"
+                            style="@style/text_style"/>
+                        <View
+                            style="@style/line_style"/>
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_weight="1"
+                            style="@style/text_edit_style"/>
+                        <View
+                            style="@style/line_style"/>
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_weight="1"
+                            style="@style/text_edit_style"/>
+                    </LinearLayout>
+                    <View style="@style/line_o_style"/>
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/mar_34"
+                        android:orientation="horizontal">
+                        <TextView
+                            android:text="上道夫"
+                            android:layout_width="@dimen/mar_65"
+                            style="@style/text_style"/>
+                        <View
+                            style="@style/line_style"/>
+                        <TextView
+                            android:id="@+id/SL2_SDF_A"
+                            android:layout_width="0dp"
+                            android:layout_weight="1"
+                            style="@style/text_edit_style"/>
+                        <View
+                            style="@style/line_style"/>
+                        <TextView
+                            android:id="@+id/SL2_SDF_B"
+                            android:layout_width="0dp"
+                            android:layout_weight="1"
+                            style="@style/text_edit_style"/>
+                    </LinearLayout>
+                    <View style="@style/line_o_style"/>
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/mar_34"
+                        android:orientation="horizontal">
+                        <TextView
+                            android:text="上凝聚1"
+                            android:layout_width="@dimen/mar_65"
+                            style="@style/text_style"/>
+                        <View
+                            style="@style/line_style"/>
+                        <TextView
+                            android:id="@+id/SL2_SNJ1_A"
+                            android:layout_width="0dp"
+                            android:layout_weight="1"
+                            style="@style/text_edit_style"/>
+                        <View
+                            style="@style/line_style"/>
+                        <TextView
+                            android:id="@+id/SL2_SNJ1_B"
+                            android:layout_width="0dp"
+                            android:layout_weight="1"
+                            style="@style/text_edit_style"/>
+                    </LinearLayout>
+                    <View style="@style/line_o_style"/>
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/mar_34"
+                        android:orientation="horizontal">
+                        <TextView
+                            android:text="上凝聚2"
+                            android:layout_width="@dimen/mar_65"
+                            style="@style/text_style"/>
+                        <View
+                            style="@style/line_style"/>
+                        <TextView
+                            android:id="@+id/SL2_SNJ2_A"
+                            android:layout_width="0dp"
+                            android:layout_weight="1"
+                            style="@style/text_edit_style"/>
+                        <View
+                            style="@style/line_style"/>
+                        <TextView
+                            android:id="@+id/SL2_SNJ2_B"
+                            android:layout_width="0dp"
+                            android:layout_weight="1"
+                            style="@style/text_edit_style"/>
+                    </LinearLayout>
+                    <View style="@style/line_o_style"/>
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/mar_34"
+                        android:orientation="horizontal">
+                        <TextView
+                            android:text="上剥棉"
+                            android:layout_width="@dimen/mar_65"
+                            style="@style/text_style"/>
+                        <View
+                            style="@style/line_style"/>
+                        <TextView
+                            android:id="@+id/SL2_SBM_A"
+                            android:layout_width="0dp"
+                            android:layout_weight="1"
+                            style="@style/text_edit_style"/>
+                        <View
+                            style="@style/line_style"/>
+                        <TextView
+                            android:id="@+id/SL2_SBM_B"
+                            android:layout_width="0dp"
+                            android:layout_weight="1"
+                            style="@style/text_edit_style"/>
+                    </LinearLayout>
+                    <View style="@style/line_o_style"/>
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/mar_34"
+                        android:orientation="horizontal">
+                        <TextView
+                            android:text="上出网"
+                            android:layout_width="@dimen/mar_65"
+                            style="@style/text_style"/>
+                        <View
+                            style="@style/line_style"/>
+                        <TextView
+                            android:id="@+id/SL2_SCWL_A"
+                            android:layout_width="0dp"
+                            android:layout_weight="1"
+                            style="@style/text_edit_style"/>
+                        <View
+                            style="@style/line_style"/>
+                        <TextView
+                            android:id="@+id/SL2_SCWL_B"
+                            android:layout_width="0dp"
+                            android:layout_weight="1"
+                            style="@style/text_edit_style"/>
+                    </LinearLayout>
+                    <View style="@style/line_o_style"/>
+
+
+
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/mar_34"
+                        android:orientation="horizontal">
+                        <TextView
+                            android:text="下道夫"
+                            android:layout_width="@dimen/mar_65"
+                            style="@style/text_style"/>
+                        <View
+                            style="@style/line_style"/>
+                        <TextView
+                            android:id="@+id/SL2_XDF_A"
+                            android:layout_width="0dp"
+                            android:layout_weight="1"
+                            style="@style/text_edit_style"/>
+                        <View
+                            style="@style/line_style"/>
+                        <TextView
+                            android:id="@+id/SL2_XDF_B"
+                            android:layout_width="0dp"
+                            android:layout_weight="1"
+                            style="@style/text_edit_style"/>
+                    </LinearLayout>
+                    <View style="@style/line_o_style"/>
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/mar_34"
+                        android:orientation="horizontal">
+                        <TextView
+                            android:text="下凝聚1"
+                            android:layout_width="@dimen/mar_65"
+                            style="@style/text_style"/>
+                        <View
+                            style="@style/line_style"/>
+                        <TextView
+                            android:id="@+id/SL2_XNJ1_A"
+                            android:layout_width="0dp"
+                            android:layout_weight="1"
+                            style="@style/text_edit_style"/>
+                        <View
+                            style="@style/line_style"/>
+                        <TextView
+                            android:id="@+id/SL2_XNJ1_B"
+                            android:layout_width="0dp"
+                            android:layout_weight="1"
+                            style="@style/text_edit_style"/>
+                    </LinearLayout>
+                    <View style="@style/line_o_style"/>
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/mar_34"
+                        android:orientation="horizontal">
+                        <TextView
+                            android:text="下凝聚2"
+                            android:layout_width="@dimen/mar_65"
+                            style="@style/text_style"/>
+                        <View
+                            style="@style/line_style"/>
+                        <TextView
+                            android:id="@+id/SL2_XNJ2_A"
+                            android:layout_width="0dp"
+                            android:layout_weight="1"
+                            style="@style/text_edit_style"/>
+                        <View
+                            style="@style/line_style"/>
+                        <TextView
+                            android:id="@+id/SL2_XNJ2_B"
+                            android:layout_width="0dp"
+                            android:layout_weight="1"
+                            style="@style/text_edit_style"/>
+                    </LinearLayout>
+                    <View style="@style/line_o_style"/>
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/mar_34"
+                        android:orientation="horizontal">
+                        <TextView
+                            android:text="下剥棉"
+                            android:layout_width="@dimen/mar_65"
+                            style="@style/text_style"/>
+                        <View
+                            style="@style/line_style"/>
+                        <TextView
+                            android:id="@+id/SL2_XBM_A"
+                            android:layout_width="0dp"
+                            android:layout_weight="1"
+                            style="@style/text_edit_style"/>
+                        <View
+                            style="@style/line_style"/>
+                        <TextView
+                            android:id="@+id/SL2_XBM_B"
+                            android:layout_width="0dp"
+                            android:layout_weight="1"
+                            style="@style/text_edit_style"/>
+                    </LinearLayout>
+                    <View style="@style/line_o_style"/>
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/mar_34"
+                        android:orientation="horizontal">
+                        <TextView
+                            android:text="下出网"
+                            android:layout_width="@dimen/mar_65"
+                            style="@style/text_style"/>
+                        <View
+                            style="@style/line_style"/>
+                        <TextView
+                            android:id="@+id/SL2_XCWL_A"
+                            android:layout_width="0dp"
+                            android:layout_weight="1"
+                            style="@style/text_edit_style"/>
+                        <View
+                            style="@style/line_style"/>
+                        <TextView
+                            android:id="@+id/SL2_XCWL_B"
+                            android:layout_width="0dp"
+                            android:layout_weight="1"
+                            style="@style/text_edit_style"/>
+                    </LinearLayout>
+                    <View style="@style/line_o_style"/>
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/mar_34"
+                        android:orientation="horizontal">
+                        <TextView
+                            android:text="线速度"
+                            android:layout_width="@dimen/mar_65"
+                            style="@style/text_style"/>
+                        <View
+                            style="@style/line_style"/>
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_weight="1"
+                            style="@style/text_edit_style"/>
+                        <View
+                            style="@style/line_style"/>
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_weight="1"
+                            style="@style/text_edit_style"/>
+                    </LinearLayout>
+                    <View style="@style/line_o_style"/>
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/mar_34"
+                        android:orientation="horizontal">
+                        <TextView
+                            android:text="吹气风机1"
+                            android:layout_width="@dimen/mar_65"
+                            style="@style/text_style"/>
+                        <View
+                            style="@style/line_style"/>
+                        <TextView
+                            android:id="@+id/SL2_CQFJ1_A"
+                            android:layout_width="0dp"
+                            android:layout_weight="1"
+                            style="@style/text_edit_style"/>
+                        <View
+                            style="@style/line_style"/>
+                        <TextView
+                            android:id="@+id/SL2_CQFJ1_B"
+                            android:layout_width="0dp"
+                            android:layout_weight="1"
+                            style="@style/text_edit_style"/>
+                    </LinearLayout>
+                    <View style="@style/line_o_style"/>
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/mar_34"
+                        android:orientation="horizontal">
+                        <TextView
+                            android:text="吹气风机2"
+                            android:layout_width="@dimen/mar_65"
+                            style="@style/text_style"/>
+                        <View
+                            style="@style/line_style"/>
+                        <TextView
+                            android:id="@+id/SL2_CQFJ2_A"
+                            android:layout_width="0dp"
+                            android:layout_weight="1"
+                            style="@style/text_edit_style"/>
+                        <View
+                            style="@style/line_style"/>
+                        <TextView
+                            android:id="@+id/SL2_CQFJ2_B"
+                            android:layout_width="0dp"
+                            android:layout_weight="1"
+                            style="@style/text_edit_style"/>
+                    </LinearLayout>
+                    <View style="@style/line_o_style"/>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/mar_34"
+                        android:orientation="horizontal">
+                        <TextView
+                            android:text="末道给棉"
+                            android:layout_width="@dimen/mar_65"
+                            style="@style/text_style"/>
+                        <View
+                            style="@style/line_style"/>
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_weight="1"
+                            style="@style/text_edit_style"/>
+                        <View
+                            style="@style/line_style"/>
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_weight="1"
+                            style="@style/text_edit_style"/>
+                    </LinearLayout>
+                    <View style="@style/line_o_style"/>
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/mar_34"
+                        android:orientation="horizontal">
+                        <TextView
+                            android:text="棉箱喂棉"
+                            android:layout_width="@dimen/mar_65"
+                            style="@style/text_style"/>
+                        <View
+                            style="@style/line_style"/>
+                        <TextView
+                            android:id="@+id/SL2_MXJM_A"
+                            android:layout_width="0dp"
+                            android:layout_weight="1"
+                            style="@style/text_edit_style"/>
+                        <View
+                            style="@style/line_style"/>
+                        <TextView
+                            android:id="@+id/SL2_MXGM_B"
+                            android:layout_width="0dp"
+                            android:layout_weight="1"
+                            style="@style/text_edit_style"/>
+                    </LinearLayout>
+                    <View style="@style/line_o_style"/>
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/mar_34"
+                        android:orientation="horizontal">
+                        <TextView
+                            android:text="棉箱风机"
+                            android:layout_width="@dimen/mar_65"
+                            style="@style/text_style"/>
+                        <View
+                            style="@style/line_style"/>
+                        <TextView
+                            android:id="@+id/SL2_MXFJ1_A"
+                            android:layout_width="0dp"
+                            android:layout_weight="1"
+                            style="@style/text_edit_style"/>
+                        <View
+                            style="@style/line_style"/>
+                        <TextView
+                            android:id="@+id/SL2_MXFJ1_B"
+                            android:layout_width="0dp"
+                            android:layout_weight="1"
+                            style="@style/text_edit_style"/>
+                    </LinearLayout>
+
+                    <View style="@style/line_o_style"/>
+                </LinearLayout>
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+            <View
+                android:id="@+id/line5"
+                style="@style/line_o_style"/>
+
+            <View
+                android:id="@+id/line6"
+                style="@style/line_o_style"
+                  android:layout_marginTop="@dimen/mar_3"/>
+
+        <LinearLayout
+            android:id="@+id/shuiciji"
+            android:layout_width="match_parent"
+            android:orientation="horizontal"
+            android:layout_height="@dimen/mar_805">
+            <TextView
+                android:text="水刺机"
+                android:visibility="gone"
+                style="@style/text_style"/>
+            <View
+                style="@style/line_style"/>
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:orientation="vertical"
+                android:layout_weight="1"
+                android:layout_height="match_parent">
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/mar_34"
+                    android:orientation="horizontal">
+                    <TextView
+                        style="@style/text_style"
+                        android:layout_width="@dimen/mar_70"
+                        />
+                    <View
+                        style="@style/line_style"/>
+                    <TextView
+                        style="@style/text_style"
+                        android:layout_weight="1"
+                        android:layout_width="0dp"
+                        android:text="线速度"
+                        />
+                    <View
+                        style="@style/line_style"/>
+                    <TextView
+                        style="@style/text_style"
+                        android:layout_weight="1"
+                        android:layout_width="0dp"
+                        android:text="长帘"
+                        />
+                    <View style="@style/line_style"/>
+                    <TextView
+                        style="@style/text_style"
+                        android:layout_weight="1"
+                        android:layout_width="0dp"
+                        android:text="拖网"
+                        />
+                </LinearLayout>
+                <View style="@style/line_o_style"/>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/mar_34"
+                    android:orientation="horizontal">
+                    <TextView
+                        android:text="牵引比%"
+                        style="@style/text_style"
+                        android:layout_width="@dimen/mar_70"
+                        />
+                    <View
+                        style="@style/line_style"/>
+                    <TextView
+                        style="@style/text_edit_style"
+                        android:layout_weight="1"
+                        android:layout_width="0dp"
+                        />
+                    <View
+                        style="@style/line_style"/>
+                    <TextView
+                        android:id="@+id/SC_CL_B"
+                        style="@style/text_edit_style"
+                        android:layout_weight="1"
+                        android:layout_width="0dp"
+                        />
+                    <View style="@style/line_style"/>
+                    <TextView
+                        android:id="@+id/SC_TW1_B"
+                        style="@style/text_edit_style"
+                        android:layout_weight="1"
+                        android:layout_width="0dp"
+                        />
+                </LinearLayout>
+                <View style="@style/line_o_style"/>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/mar_34"
+                    android:orientation="horizontal">
+                    <TextView
+                        android:text="速度m/min"
+                        style="@style/text_style"
+                        android:layout_width="@dimen/mar_70"
+                        />
+                    <View
+                        style="@style/line_style"/>
+                    <TextView
+                        android:id="@+id/text_surface_speed"
+                        style="@style/text_edit_style"
+                        android:layout_weight="1"
+                        android:layout_width="0dp"
+                        />
+                    <View
+                        style="@style/line_style"/>
+                    <TextView
+                        android:id="@+id/text_long_curtain"
+                        style="@style/text_edit_style"
+                        android:layout_weight="1"
+                        android:layout_width="0dp"
+                        />
+                    <View style="@style/line_style"/>
+                    <TextView
+                        android:id="@+id/text_trawl"
+                        style="@style/text_edit_style"
+                        android:layout_weight="1"
+                        android:layout_width="0dp"
+                        />
+                </LinearLayout>
+                <View style="@style/line_o_style"/>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/mar_34"
+                    android:orientation="horizontal">
+                    <TextView
+                        style="@style/text_style"
+                        android:layout_width="@dimen/mar_70"
+                        />
+                    <View
+                        style="@style/line_style"/>
+                    <TextView
+                        style="@style/text_style"
+                        android:layout_weight="1"
+                        android:layout_width="0dp"
+                        android:text="辊筒1"
+                        />
+                    <View
+                        style="@style/line_style"/>
+                    <TextView
+                        style="@style/text_style"
+                        android:layout_weight="1"
+                        android:layout_width="0dp"
+                        android:text="辊筒2"
+                        />
+                    <View style="@style/line_style"/>
+                    <TextView
+                        style="@style/text_style"
+                        android:layout_weight="1"
+                        android:layout_width="0dp"
+                        android:text="辊筒3"
+                        />
+                </LinearLayout>
+                <View style="@style/line_o_style"/>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/mar_34"
+                    android:orientation="horizontal">
+                    <TextView
+                        android:text="牵引比%"
+                        style="@style/text_style"
+                        android:layout_width="@dimen/mar_70"
+                        />
+                    <View
+                        style="@style/line_style"/>
+                    <TextView
+                        android:id="@+id/SC_GT1_B"
+                        style="@style/text_edit_style"
+                        android:layout_weight="1"
+                        android:layout_width="0dp"
+                        />
+                    <View
+                        style="@style/line_style"/>
+                    <TextView
+                        android:id="@+id/SC_GT2_B"
+                        style="@style/text_edit_style"
+                        android:layout_weight="1"
+                        android:layout_width="0dp"
+                        />
+                    <View style="@style/line_style"/>
+                    <TextView
+                        android:id="@+id/SC_GT3_B"
+                        style="@style/text_edit_style"
+                        android:layout_weight="1"
+                        android:layout_width="0dp"
+                        />
+                </LinearLayout>
+                <View style="@style/line_o_style"/>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/mar_34"
+                    android:orientation="horizontal">
+                    <TextView
+                        android:text="速度m/min"
+                        style="@style/text_style"
+                        android:layout_width="@dimen/mar_70"
+                        />
+                    <View
+                        style="@style/line_style"/>
+                    <TextView
+                        android:id="@+id/text_roller1"
+                        style="@style/text_edit_style"
+                        android:layout_weight="1"
+                        android:layout_width="0dp"
+                        />
+                    <View
+                        style="@style/line_style"/>
+                    <TextView
+                        android:id="@+id/text_roller2"
+                        style="@style/text_edit_style"
+                        android:layout_weight="1"
+                        android:layout_width="0dp"
+                        />
+                    <View style="@style/line_style"/>
+                    <TextView
+                        android:id="@+id/text_roller3"
+                        style="@style/text_edit_style"
+                        android:layout_weight="1"
+                        android:layout_width="0dp"
+                        />
+                </LinearLayout>
+                <View style="@style/line_o_style"/>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/mar_34"
+                    android:orientation="horizontal">
+                    <TextView
+                        style="@style/text_style"
+                        android:layout_width="@dimen/mar_70"
+                        />
+                    <View
+                        style="@style/line_style"/>
+                    <TextView
+                        style="@style/text_style"
+                        android:layout_weight="1"
+                        android:layout_width="0dp"
+                        android:text="拖网2"
+                        />
+                    <View
+                        style="@style/line_style"/>
+                    <TextView
+                        style="@style/text_style"
+                        android:layout_weight="1"
+                        android:layout_width="0dp"
+                        android:text="轧车"
+                        />
+                    <View style="@style/line_style"/>
+                    <TextView
+                        style="@style/text_style"
+                        android:layout_weight="1"
+                        android:layout_width="0dp"
+                        android:text="压网"
+                        />
+                </LinearLayout>
+                <View style="@style/line_o_style"/>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/mar_34"
+                    android:orientation="horizontal">
+                    <TextView
+                        android:text="牵引比%"
+                        style="@style/text_style"
+                        android:layout_width="@dimen/mar_70"
+                        />
+                    <View
+                        style="@style/line_style"/>
+                    <TextView
+                        android:id="@+id/SC_TW2_B"
+                        style="@style/text_edit_style"
+                        android:layout_weight="1"
+                        android:layout_width="0dp"
+                        />
+                    <View
+                        style="@style/line_style"/>
+                    <TextView
+                        android:id="@+id/SC_YC_B"
+                        style="@style/text_edit_style"
+                        android:layout_weight="1"
+                        android:layout_width="0dp"
+                        />
+                    <View style="@style/line_style"/>
+                    <TextView
+                        android:id="@+id/SC_YW_B"
+                        style="@style/text_edit_style"
+                        android:layout_weight="1"
+                        android:layout_width="0dp"
+                        />
+                </LinearLayout>
+                <View style="@style/line_o_style"/>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/mar_34"
+                    android:orientation="horizontal">
+                    <TextView
+                        android:text="速度m/min"
+                        style="@style/text_style"
+                        android:layout_width="@dimen/mar_70"
+                        />
+                    <View
+                        style="@style/line_style"/>
+                    <TextView
+                        android:id="@+id/text_trawl2"
+                        style="@style/text_edit_style"
+                        android:layout_weight="1"
+                        android:layout_width="0dp"
+                        />
+                    <View
+                        style="@style/line_style"/>
+                    <TextView
+                        android:id="@+id/text_padder"
+                        style="@style/text_edit_style"
+                        android:layout_weight="1"
+                        android:layout_width="0dp"
+                        />
+                    <View style="@style/line_style"/>
+                    <TextView
+                        android:id="@+id/text_press_net"
+                        style="@style/text_edit_style"
+                        android:layout_weight="1"
+                        android:layout_width="0dp"
+                        />
+                </LinearLayout>
+                <View style="@style/line_o_style"/>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/mar_34"
+                    android:orientation="horizontal">
+                    <TextView
+                        style="@style/text_style"
+                        android:layout_width="@dimen/mar_70"
+                        />
+                    <View
+                        style="@style/line_style"/>
+                    <TextView
+                        style="@style/text_style"
+                        android:layout_weight="1"
+                        android:layout_width="0dp"
+                        android:text="压网辊"
+                        />
+                    <View
+                        style="@style/line_style"/>
+                    <TextView
+                        style="@style/text_style"
+                        android:layout_weight="1"
+                        android:layout_width="0dp"
+                        android:text=""
+                        />
+                    <View style="@style/line_style"/>
+                    <TextView
+                        style="@style/text_style"
+                        android:layout_weight="1"
+                        android:layout_width="0dp"
+                        android:text=""
+                        />
+                </LinearLayout>
+                <View style="@style/line_o_style"/>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/mar_34"
+                    android:orientation="horizontal">
+                    <TextView
+                        android:text="牵引比%"
+                        style="@style/text_style"
+                        android:layout_width="@dimen/mar_70"
+                        />
+                    <View
+                        style="@style/line_style"/>
+                    <TextView
+                        android:id="@+id/SC_YWG_B"
+                        style="@style/text_edit_style"
+                        android:layout_weight="1"
+                        android:layout_width="0dp"
+                        />
+                    <View
+                        style="@style/line_style"/>
+                    <TextView
+                        style="@style/text_edit_style"
+                        android:layout_weight="1"
+                        android:layout_width="0dp"
+                        />
+                    <View style="@style/line_style"/>
+                    <TextView
+                        style="@style/text_edit_style"
+                        android:layout_weight="1"
+                        android:layout_width="0dp"
+                        />
+                </LinearLayout>
+                <View style="@style/line_o_style"/>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/mar_34"
+                    android:orientation="horizontal">
+                    <TextView
+                        android:text="速度m/min"
+                        style="@style/text_style"
+                        android:layout_width="@dimen/mar_70"
+                        />
+                    <View
+                        style="@style/line_style"/>
+                    <TextView
+                        android:id="@+id/text_press_net_kun"
+                        style="@style/text_edit_style"
+                        android:layout_weight="1"
+                        android:layout_width="0dp"
+                        />
+                    <View
+                        style="@style/line_style"/>
+                    <TextView
+                        style="@style/text_edit_style"
+                        android:layout_weight="1"
+                        android:layout_width="0dp"
+                        />
+                    <View style="@style/line_style"/>
+                    <TextView
+                        style="@style/text_edit_style"
+                        android:layout_weight="1"
+                        android:layout_width="0dp"
+                        />
+                </LinearLayout>
+                <View style="@style/line_o_style"/>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/mar_34"
+                    android:orientation="horizontal">
+                    <TextView
+                        style="@style/text_style"
+                        android:layout_width="@dimen/mar_70"
+                        />
+                    <View
+                        style="@style/line_style"/>
+                    <TextView
+                        style="@style/text_style"
+                        android:layout_weight="1"
+                        android:layout_width="0dp"
+                        android:text="高压泵1#"
+                        />
+                    <View
+                        style="@style/line_style"/>
+                    <TextView
+                        style="@style/text_style"
+                        android:layout_weight="1"
+                        android:layout_width="0dp"
+                        android:text="高压泵2#"
+                        />
+                    <View style="@style/line_style"/>
+                    <TextView
+                        style="@style/text_style"
+                        android:layout_weight="1"
+                        android:layout_width="0dp"
+                        android:text="高压泵3#"
+                        />
+                </LinearLayout>
+                <View style="@style/line_o_style"/>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/mar_34"
+                    android:orientation="horizontal">
+                    <TextView
+                        android:text="泵压Bar"
+                        style="@style/text_style"
+                        android:layout_width="@dimen/mar_70"
+                        />
+                    <View
+                        style="@style/line_style"/>
+                    <TextView
+                        android:id="@+id/SC_B1YL_B"
+                        style="@style/text_edit_style"
+                        android:layout_weight="1"
+                        android:layout_width="0dp"
+                        />
+                    <View
+                        style="@style/line_style"/>
+                    <TextView
+                        android:id="@+id/SC_B2YL_B"
+                        style="@style/text_edit_style"
+                        android:layout_weight="1"
+                        android:layout_width="0dp"
+                        />
+                    <View style="@style/line_style"/>
+                    <TextView
+                        android:id="@+id/SC_B3YL_B"
+                        style="@style/text_edit_style"
+                        android:layout_weight="1"
+                        android:layout_width="0dp"
+                        />
+                </LinearLayout>
+                <View style="@style/line_o_style"/>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/mar_34"
+                    android:orientation="horizontal">
+                    <TextView
+                        style="@style/text_style"
+                        android:layout_width="@dimen/mar_70"
+                        />
+                    <View
+                        style="@style/line_style"/>
+                    <TextView
+                        style="@style/text_style"
+                        android:layout_weight="1"
+                        android:layout_width="0dp"
+                        android:text="高压泵4#"
+                        />
+                    <View
+                        style="@style/line_style"/>
+                    <TextView
+                        style="@style/text_style"
+                        android:layout_weight="1"
+                        android:layout_width="0dp"
+                        android:text="高压泵5#"
+                        />
+                    <View style="@style/line_style"/>
+                    <TextView
+                        style="@style/text_style"
+                        android:layout_weight="1"
+                        android:layout_width="0dp"
+                        android:text="高压泵6#"
+                        />
+                </LinearLayout>
+                <View style="@style/line_o_style"/>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/mar_34"
+                    android:orientation="horizontal">
+                    <TextView
+                        android:text="泵压Bar"
+                        style="@style/text_style"
+                        android:layout_width="@dimen/mar_70"
+                        />
+                    <View
+                        style="@style/line_style"/>
+                    <TextView
+                        android:id="@+id/SC_B4YL_B"
+                        style="@style/text_edit_style"
+                        android:layout_weight="1"
+                        android:layout_width="0dp"
+                        />
+                    <View
+                        style="@style/line_style"/>
+                    <TextView
+                        android:id="@+id/SC_B5YL_B"
+                        style="@style/text_edit_style"
+                        android:layout_weight="1"
+                        android:layout_width="0dp"
+                        />
+                    <View style="@style/line_style"/>
+                    <TextView
+                        android:id="@+id/SC_B6YL_B"
+                        style="@style/text_edit_style"
+                        android:layout_weight="1"
+                        android:layout_width="0dp"
+                        />
+                </LinearLayout>
+                <View style="@style/line_o_style"/>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/mar_34"
+                    android:orientation="horizontal">
+                    <TextView
+                        style="@style/text_style"
+                        android:layout_width="@dimen/mar_70"
+                        />
+                    <View
+                        style="@style/line_style"/>
+                    <TextView
+                        style="@style/text_style"
+                        android:layout_weight="1"
+                        android:layout_width="0dp"
+                        android:text="高压泵7#"
+                        />
+                    <View
+                        style="@style/line_style"/>
+                    <TextView
+                        style="@style/text_style"
+                        android:layout_weight="1"
+                        android:layout_width="0dp"
+                        android:text="高压泵8#"
+                        />
+                    <View style="@style/line_style"/>
+                    <TextView
+                        style="@style/text_style"
+                        android:layout_weight="1"
+                        android:layout_width="0dp"
+                        android:text="高压泵9#"
+                        />
+                </LinearLayout>
+                <View style="@style/line_o_style"/>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/mar_34"
+                    android:orientation="horizontal">
+                    <TextView
+                        android:text="泵压Bar"
+                        style="@style/text_style"
+                        android:layout_width="@dimen/mar_70"
+                        />
+                    <View
+                        style="@style/line_style"/>
+                    <TextView
+                        android:id="@+id/SC_B7YL_B"
+                        style="@style/text_edit_style"
+                        android:layout_weight="1"
+                        android:layout_width="0dp"
+                        />
+                    <View
+                        style="@style/line_style"/>
+                    <TextView
+                        android:id="@+id/SC_B8YL_B"
+                        style="@style/text_edit_style"
+                        android:layout_weight="1"
+                        android:layout_width="0dp"
+                        />
+                    <View style="@style/line_style"/>
+                    <TextView
+                        style="@style/text_edit_style"
+                        android:layout_weight="1"
+                        android:layout_width="0dp"
+                        />
+                </LinearLayout>
+                <View style="@style/line_o_style"/>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/mar_34"
+                    android:orientation="horizontal">
+                    <TextView
+                        android:text="风机"
+                        style="@style/text_style"
+                        android:layout_width="@dimen/mar_70"
+                        />
+                    <View
+                        style="@style/line_style"/>
+                    <TextView
+                        style="@style/text_style"
+                        android:layout_weight="1"
+                        android:layout_width="0dp"
+                        android:text="1#"
+                        />
+                    <View
+                        style="@style/line_style"/>
+                    <TextView
+                        style="@style/text_style"
+                        android:layout_weight="1"
+                        android:layout_width="0dp"
+                        android:text="2#"
+                        />
+                    <View style="@style/line_style"/>
+                    <TextView
+                        style="@style/text_style"
+                        android:layout_weight="1"
+                        android:layout_width="0dp"
+                        android:text="3#"
+                        />
+                </LinearLayout>
+                <View style="@style/line_o_style"/>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/mar_34"
+                    android:orientation="horizontal">
+                    <TextView
+                        android:text="频率Hz"
+                        style="@style/text_style"
+                        android:layout_width="@dimen/mar_70"
+                        />
+                    <View
+                        style="@style/line_style"/>
+                    <TextView
+                        android:id="@+id/SC_CXFJ1_B"
+                        style="@style/text_edit_style"
+                        android:layout_weight="1"
+                        android:layout_width="0dp"
+                        />
+                    <View
+                        style="@style/line_style"/>
+                    <TextView
+                        android:id="@+id/SC_CXFJ2_B"
+                        style="@style/text_edit_style"
+                        android:layout_weight="1"
+                        android:layout_width="0dp"
+                        />
+                    <View style="@style/line_style"/>
+                    <TextView
+                        android:id="@+id/SC_CXFJ3_B"
+                        style="@style/text_edit_style"
+                        android:layout_weight="1"
+                        android:layout_width="0dp"
+                        />
+                </LinearLayout>
+                <View style="@style/line_o_style"/>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/mar_34"
+                    android:orientation="horizontal">
+                    <TextView
+                        android:text="负压Pa"
+                        style="@style/text_style"
+                        android:layout_width="@dimen/mar_70"
+                        />
+                    <View
+                        style="@style/line_style"/>
+                    <TextView
+                        android:id="@+id/SC_CXFJ1ZKD_A"
+                        style="@style/text_edit_style"
+                        android:layout_weight="1"
+                        android:layout_width="0dp"
+                        />
+                    <View
+                        style="@style/line_style"/>
+                    <TextView
+                        android:id="@+id/SC_CXFJ2ZKD_A"
+                        style="@style/text_edit_style"
+                        android:layout_weight="1"
+                        android:layout_width="0dp"
+                        />
+                    <View style="@style/line_style"/>
+                    <TextView
+                        android:id="@+id/SC_CXFJ3PL_A"
+                        style="@style/text_edit_style"
+                        android:layout_weight="1"
+                        android:layout_width="0dp"
+                        />
+                </LinearLayout>
+                <View style="@style/line_o_style"/>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/mar_34"
+                    android:orientation="horizontal">
+                    <TextView
+                        android:text="排污泵"
+                        style="@style/text_style"
+                        android:layout_width="@dimen/mar_70"
+                        />
+                    <View
+                        style="@style/line_style"/>
+                    <TextView
+                        style="@style/text_style"
+                        android:layout_weight="1"
+                        android:layout_width="0dp"
+                        android:text="1#"
+                        />
+                    <View
+                        style="@style/line_style"/>
+                    <TextView
+                        style="@style/text_style"
+                        android:layout_weight="1"
+                        android:layout_width="0dp"
+                        android:text="2#"
+                        />
+                    <View style="@style/line_style"/>
+                    <TextView
+                        style="@style/text_style"
+                        android:layout_weight="1"
+                        android:layout_width="0dp"
+                        android:text="3#"
+                        />
+                </LinearLayout>
+                <View style="@style/line_o_style"/>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/mar_34"
+                    android:orientation="horizontal">
+                    <TextView
+                        android:text="频率Hz"
+                        style="@style/text_style"
+                        android:layout_width="@dimen/mar_70"
+                        />
+                    <View
+                        style="@style/line_style"/>
+                    <TextView
+                        android:id="@+id/SC_HSP1_B"
+                        style="@style/text_edit_style"
+                        android:layout_weight="1"
+                        android:layout_width="0dp"
+                        />
+                    <View
+                        style="@style/line_style"/>
+                    <TextView
+                        android:id="@+id/SC_HSP2_B"
+                        style="@style/text_edit_style"
+                        android:layout_weight="1"
+                        android:layout_width="0dp"
+                        />
+                    <View style="@style/line_style"/>
+                    <TextView
+                        android:id="@+id/SC_HSP3_B"
+                        style="@style/text_edit_style"
+                        android:layout_weight="1"
+                        android:layout_width="0dp"
+                        />
+                </LinearLayout>
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+            <View
+                android:id="@+id/line7"
+                style="@style/line_o_style"/>
+
+            <View
+                android:id="@+id/line8"
+                style="@style/line_o_style"
+                  android:layout_marginTop="@dimen/mar_3"/>
+
+            <LinearLayout
+                android:id="@+id/yuanwang"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/mar_210"
+                android:orientation="horizontal">
+                <TextView
+                    android:visibility="gone"
+                    style="@style/text_style"
+                    android:text="圆网烘干"/>
+                <View style="@style/line_style"/>
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:orientation="vertical"
+                    android:layout_weight="1"
+                    android:layout_height="match_parent">
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/mar_34"
+                        android:orientation="horizontal">
+                        <TextView
+                            style="@style/text_style"
+                            android:layout_width="@dimen/mar_50"
+                            />
+                        <View
+                            style="@style/line_style"/>
+                        <TextView
+                            style="@style/text_style"
+                            android:layout_weight="1"
+                            android:layout_width="0dp"
+                            android:text="线速度"
+                            />
+                        <View
+                            style="@style/line_style"/>
+                        <TextView
+                            style="@style/text_style"
+                            android:layout_weight="1"
+                            android:layout_width="0dp"
+                            android:text="排风"
+                            />
+                        <View style="@style/line_style"/>
+                        <TextView
+                            style="@style/text_style"
+                            android:layout_weight="1"
+                            android:layout_width="0dp"
+                            android:text="风机1#"
+                            />
+                    </LinearLayout>
+                    <View style="@style/line_o_style"/>
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/mar_34"
+                        android:orientation="horizontal">
+                        <TextView
+                            android:text="参数"
+                            style="@style/text_style"
+                            android:layout_width="@dimen/mar_50"
+                            />
+                        <View
+                            style="@style/line_style"/>
+                        <TextView
+                            android:id="@+id/JR_HGJZCDSD_A"
+                            style="@style/text_edit_style"
+                            android:layout_weight="1"
+                            android:layout_width="0dp"
+                            />
+                        <View
+                            style="@style/line_style"/>
+                        <TextView
+                            style="@style/text_edit_style"
+                            android:layout_weight="1"
+                            android:layout_width="0dp"
+                            />
+                        <View style="@style/line_style"/>
+                        <TextView
+                            style="@style/text_edit_style"
+                            android:layout_weight="1"
+                            android:layout_width="0dp"
+                            />
+                    </LinearLayout>
+                    <View style="@style/line_o_style"/>
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/mar_34"
+                        android:orientation="horizontal">
+                        <TextView
+                            style="@style/text_style"
+                            android:layout_width="@dimen/mar_50"
+                            />
+                        <View
+                            style="@style/line_style"/>
+                        <TextView
+                            style="@style/text_style"
+                            android:layout_weight="1"
+                            android:layout_width="0dp"
+                            android:text="风机2#"
+                            />
+                        <View
+                            style="@style/line_style"/>
+                        <TextView
+                            style="@style/text_style"
+                            android:layout_weight="1"
+                            android:layout_width="0dp"
+                            android:text="温度1区"
+                            />
+                        <View style="@style/line_style"/>
+                        <TextView
+                            style="@style/text_style"
+                            android:layout_weight="1"
+                            android:layout_width="0dp"
+                            android:text="温度2区"
+                            />
+                    </LinearLayout>
+                    <View style="@style/line_o_style"/>
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/mar_34"
+                        android:orientation="horizontal">
+                        <TextView
+                            android:text="参数"
+                            style="@style/text_style"
+                            android:layout_width="@dimen/mar_50"
+                            />
+                        <View
+                            style="@style/line_style"/>
+                        <TextView
+                            style="@style/text_edit_style"
+                            android:layout_weight="1"
+                            android:layout_width="0dp"
+                            />
+                        <View
+                            style="@style/line_style"/>
+                        <TextView
+                            style="@style/text_edit_style"
+                            android:layout_weight="1"
+                            android:layout_width="0dp"
+                            />
+                        <View style="@style/line_style"/>
+                        <TextView
+                            style="@style/text_edit_style"
+                            android:layout_weight="1"
+                            android:layout_width="0dp"
+                            />
+                    </LinearLayout>
+                    <View style="@style/line_o_style"/>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/mar_34"
+                        android:orientation="horizontal">
+                        <TextView
+                            style="@style/text_style"
+                            android:layout_width="@dimen/mar_50"
+                            />
+                        <View
+                            style="@style/line_style"/>
+                        <TextView
+                            style="@style/text_style"
+                            android:layout_weight="1"
+                            android:layout_width="0dp"
+                            android:text="补风1"
+                            />
+                        <View
+                            style="@style/line_style"/>
+                        <TextView
+                            style="@style/text_style"
+                            android:layout_weight="1"
+                            android:layout_width="0dp"
+                            android:text="补风2"
+                            />
+                        <View style="@style/line_style"/>
+                        <TextView
+                            style="@style/text_style"
+                            android:layout_weight="1"
+                            android:layout_width="0dp"
+                            android:text=""
+                            />
+                    </LinearLayout>
+                    <View style="@style/line_o_style"/>
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/mar_34"
+                        android:orientation="horizontal">
+                        <TextView
+                            android:text="参数"
+                            style="@style/text_style"
+                            android:layout_width="@dimen/mar_50"
+                            />
+                        <View
+                            style="@style/line_style"/>
+                        <TextView
+                            style="@style/text_edit_style"
+                            android:layout_weight="1"
+                            android:layout_width="0dp"
+                            />
+                        <View
+                            style="@style/line_style"/>
+                        <TextView
+                            style="@style/text_edit_style"
+                            android:layout_weight="1"
+                            android:layout_width="0dp"
+                            />
+                        <View style="@style/line_style"/>
+                        <TextView
+                            style="@style/text_edit_style"
+                            android:layout_weight="1"
+                            android:layout_width="0dp"
+                            />
+                    </LinearLayout>
+
+            </LinearLayout>
+
+            </LinearLayout>
+            <View
+                android:id="@+id/line9"
+                style="@style/line_o_style"/>
+
+            <View
+                android:id="@+id/line10"
+                style="@style/line_o_style"
+                  android:layout_marginTop="@dimen/mar_3"/>
+
+            <LinearLayout
+                android:id="@+id/juanrao"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/mar_210"
+                android:orientation="horizontal">
+                <TextView
+                    style="@style/text_style"
+                    android:text="卷绕"/>
+                <View style="@style/line_style"/>
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:orientation="vertical"
+                    android:layout_weight="1"
+                    android:layout_height="match_parent">
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/mar_34"
+                        android:orientation="horizontal">
+                        <TextView
+                            android:text="速度m/min"
+                            style="@style/text_style"
+                            android:layout_width="0dp"
+                            android:layout_weight="1"
+                            />
+                        <View
+                            style="@style/line_style"/>
+                        <TextView
+                            style="@style/text_style"
+                            android:layout_weight="1"
+                            android:layout_width="0dp"
+                            android:text="张力N"
+                            />
+                        <View
+                            style="@style/line_style"/>
+                        <TextView
+                            style="@style/text_style"
+                            android:layout_weight="1"
+                            android:layout_width="0dp"
+                            android:text="毛边mm"
+                            />
+                        <View style="@style/line_style"/>
+                        <TextView
+                            style="@style/text_style"
+                            android:layout_weight="1"
+                            android:layout_width="0dp"
+                            android:text="M/卷"
+                            />
+                    </LinearLayout>
+                    <View style="@style/line_o_style"/>
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/mar_34"
+                        android:orientation="horizontal">
+                        <TextView
+                            android:id="@+id/JR_JRSD_A"
+                            style="@style/text_edit_style"
+                            android:layout_width="0dp"
+                            android:layout_weight="1"
+                            />
+                        <View
+                            style="@style/line_style"/>
+                        <TextView
+                            android:id="@+id/JR_ZLSD_B"
+                            style="@style/text_edit_style"
+                            android:layout_weight="1"
+                            android:layout_width="0dp"
+                            />
+                        <View
+                            style="@style/line_style"/>
+                        <TextView
+                            style="@style/text_edit_style"
+                            android:layout_weight="1"
+                            android:layout_width="0dp"
+                            />
+                        <View style="@style/line_style"/>
+                        <TextView
+                            style="@style/text_edit_style"
+                            android:layout_weight="1"
+                            android:layout_width="0dp"
+                            />
+                    </LinearLayout>
+                    <View style="@style/line_o_style"/>
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/mar_34"
+                        android:orientation="horizontal">
+                        <TextView
+                            android:text="定长"
+                            style="@style/text_style"
+                            android:layout_width="0dp"
+                            android:layout_weight="1"
+                            />
+                        <View
+                            style="@style/line_style"/>
+                        <TextView
+                            style="@style/text_style"
+                            android:layout_weight="1"
+                            android:layout_width="0dp"
+                            android:text="分切卷径"
+                            />
+                        <View
+                            style="@style/line_style"/>
+                        <TextView
+                            style="@style/text_style"
+                            android:layout_weight="1"
+                            android:layout_width="0dp"
+                            android:text="包装卷径"
+                            />
+                        <View style="@style/line_style"/>
+                        <TextView
+                            style="@style/text_style"
+                            android:layout_weight="1"
+                            android:layout_width="0dp"
+                            android:text="分切前厚度"
+                            />
+                    </LinearLayout>
+                    <View style="@style/line_o_style"/>
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/mar_34"
+                        android:orientation="horizontal">
+                        <TextView
+                            style="@style/text_edit_style"
+                            android:layout_width="0dp"
+                            android:layout_weight="1"
+                            />
+                        <View
+                            style="@style/line_style"/>
+                        <TextView
+                            style="@style/text_edit_style"
+                            android:layout_weight="1"
+                            android:layout_width="0dp"
+                            />
+                        <View
+                            style="@style/line_style"/>
+                        <TextView
+                            style="@style/text_edit_style"
+                            android:layout_weight="1"
+                            android:layout_width="0dp"
+                            />
+                        <View style="@style/line_style"/>
+                        <TextView
+                            style="@style/text_edit_style"
+                            android:layout_weight="1"
+                            android:layout_width="0dp"
+                            />
+                    </LinearLayout>
+                    <View style="@style/line_o_style"/>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/mar_34"
+                        android:orientation="horizontal">
+                        <TextView
+                            android:text="分切后厚度"
+                            style="@style/text_style"
+                            android:layout_width="0dp"
+                            android:layout_weight="1"
+                            />
+                        <View
+                            style="@style/line_style"/>
+                        <TextView
+                            style="@style/text_style"
+                            android:layout_weight="1"
+                            android:layout_width="0dp"
+                            android:text="纵向强力"
+                            />
+                        <View
+                            style="@style/line_style"/>
+                        <TextView
+                            style="@style/text_style"
+                            android:layout_weight="1"
+                            android:layout_width="0dp"
+                            android:text="横向强力"
+                            />
+                        <View style="@style/line_style"/>
+                        <TextView
+                            style="@style/text_style"
+                            android:layout_weight="1"
+                            android:layout_width="0dp"
+                            android:text=""
+                            />
+                    </LinearLayout>
+                    <View style="@style/line_o_style"/>
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/mar_34"
+                        android:orientation="horizontal">
+                        <TextView
+                            style="@style/text_edit_style"
+                            android:layout_width="0dp"
+                            android:layout_weight="1"
+                            />
+                        <View
+                            style="@style/line_style"/>
+                        <TextView
+                            style="@style/text_edit_style"
+                            android:layout_weight="1"
+                            android:layout_width="0dp"
+                            />
+                        <View
+                            style="@style/line_style"/>
+                        <TextView
+                            style="@style/text_edit_style"
+                            android:layout_weight="1"
+                            android:layout_width="0dp"
+                            />
+                        <View style="@style/line_style"/>
+                        <TextView
+                            style="@style/text_edit_style"
+                            android:layout_weight="1"
+                            android:layout_width="0dp"
+                            />
+                    </LinearLayout>
+
+                </LinearLayout>
+
+            </LinearLayout>
+            <View
+                android:id="@+id/line11"
+                style="@style/line_o_style"/>
+
+        </LinearLayout>
+    </ScrollView>
+
+</LinearLayout>

@@ -1,0 +1,357 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              xmlns:app="http://schemas.android.com/apk/res-auto"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:background="@color/white"
+              android:fitsSystemWindows="true"
+              android:orientation="vertical">
+
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/mar_45"
+        android:background="@color/white"
+        android:elevation="0dp"
+        android:gravity="left"
+        android:minHeight="@dimen/mar_45"
+        app:navigationIcon="@mipmap/back_black"
+        app:title="">
+
+        <TextView
+            android:id="@+id/mTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="@string/activity_process_type"
+            android:textColor="@color/activity_txt"
+            android:textSize="@dimen/text_16"/>
+    </android.support.v7.widget.Toolbar>
+
+    <View
+        style="@style/line_o_style"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/mar_35"
+        android:orientation="horizontal">
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="@dimen/mar_35"
+            android:layout_weight="1"
+            android:orientation="horizontal">
+
+            <TextView
+                style="@style/text_style"
+                android:layout_width="@dimen/mar_60"
+                android:text="批号"/>
+
+            <View
+                style="@style/line_style"/>
+
+            <TextView
+                android:id="@+id/text_1_1"
+                style="@style/text_edit_style"/>
+
+            <View
+                style="@style/line_style"/>
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="@dimen/mar_35"
+            android:layout_weight="1"
+            android:orientation="horizontal">
+
+            <View
+                style="@style/line_style"/>
+
+            <TextView
+
+                style="@style/text_style"
+                android:layout_width="@dimen/mar_70"
+                android:text="物料编号"/>
+
+            <View
+                style="@style/line_style"/>
+
+            <TextView
+                android:id="@+id/ZX_CPGG_A"
+                style="@style/text_edit_style"/>
+
+
+        </LinearLayout>
+    </LinearLayout>
+
+    <View
+        style="@style/line_o_style"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/mar_35"
+        android:orientation="horizontal">
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="@dimen/mar_35"
+            android:layout_weight="1"
+            android:orientation="horizontal">
+
+
+            <TextView
+                style="@style/text_style"
+                android:layout_width="@dimen/mar_60"
+                android:text="克重g/㎡"
+                />
+
+            <View
+                style="@style/line_style"/>
+
+            <TextView
+                android:id="@+id/ZX_CPKZ_A"
+                style="@style/text_edit_style"/>
+
+            <View
+                style="@style/line_style"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="@dimen/mar_35"
+            android:layout_weight="1"
+            android:orientation="horizontal">
+
+            <View
+                style="@style/line_style"/>
+
+            <TextView
+                style="@style/text_style"
+                android:layout_width="@dimen/mar_70"
+                android:text="幅宽"
+                />
+
+            <View
+                style="@style/line_style"/>
+
+            <TextView
+                android:id="@+id/ZX_CPFK_A"
+                style="@style/text_edit_style"
+                />
+        </LinearLayout>
+    </LinearLayout>
+
+    <View
+        style="@style/line_o_style"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/mar_35"
+        android:orientation="horizontal">
+        <TextView
+            style="@style/text_style"
+            android:layout_width="@dimen/mar_60"
+            android:text="原料配比："/>
+
+        <View
+            style="@style/line_style"/>
+
+        <TextView
+            android:id="@+id/text_1_5"
+            style="@style/text_edit_style"/>
+
+
+    </LinearLayout>
+
+    <View style="@style/line_o_style"/>
+
+    <View
+        android:layout_marginTop="@dimen/mar_5"
+        android:id="@+id/view_"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_below="@+id/toolbar"
+        android:background="@color/line"/>
+
+    <LinearLayout
+        android:id="@+id/ll_base"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/mar_45"
+        android:orientation="horizontal"
+        android:paddingLeft="@dimen/mar_15"
+        android:paddingRight="@dimen/mar_15">
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="center|left"
+            android:text="开清"
+            android:textSize="@dimen/text_16"/>
+
+        <ImageView
+            android:layout_width="@dimen/mar_15"
+            android:layout_height="@dimen/mar_15"
+            android:layout_gravity="center"
+            android:src="@mipmap/go"/>
+
+    </LinearLayout>
+
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_below="@+id/toolbar"
+        android:background="@color/line"/>
+
+    <LinearLayout
+        android:id="@+id/ll_shuliji1"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/mar_45"
+        android:orientation="horizontal"
+        android:paddingLeft="@dimen/mar_15"
+        android:paddingRight="@dimen/mar_15">
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="center|left"
+            android:text="1#梳理机"
+            android:textSize="@dimen/text_16"/>
+
+        <ImageView
+            android:layout_width="@dimen/mar_15"
+            android:layout_height="@dimen/mar_15"
+            android:layout_gravity="center"
+            android:src="@mipmap/go"/>
+
+    </LinearLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_below="@+id/toolbar"
+        android:background="@color/line"/>
+
+    <LinearLayout
+        android:id="@+id/ll_shuliji2"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/mar_45"
+        android:orientation="horizontal"
+        android:paddingLeft="@dimen/mar_15"
+        android:paddingRight="@dimen/mar_15">
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="center|left"
+            android:text="2#梳理机"
+            android:textSize="@dimen/text_16"/>
+
+        <ImageView
+            android:layout_width="@dimen/mar_15"
+            android:layout_height="@dimen/mar_15"
+            android:layout_gravity="center"
+            android:src="@mipmap/go"/>
+
+    </LinearLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_below="@+id/toolbar"
+        android:background="@color/line"/>
+
+    <LinearLayout
+        android:id="@+id/ll_shuiciji"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/mar_45"
+        android:orientation="horizontal"
+        android:paddingLeft="@dimen/mar_15"
+        android:paddingRight="@dimen/mar_15">
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="center|left"
+            android:text="水刺机"
+            android:textSize="@dimen/text_16"/>
+
+        <ImageView
+            android:layout_width="@dimen/mar_15"
+            android:layout_height="@dimen/mar_15"
+            android:layout_gravity="center"
+            android:src="@mipmap/go"/>
+
+    </LinearLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_below="@+id/toolbar"
+        android:background="@color/line"/>
+
+    <LinearLayout
+        android:id="@+id/ll_yuanwang"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/mar_45"
+        android:orientation="horizontal"
+        android:paddingLeft="@dimen/mar_15"
+        android:paddingRight="@dimen/mar_15">
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="center|left"
+            android:text="圆网烘干"
+            android:textSize="@dimen/text_16"/>
+
+        <ImageView
+            android:layout_width="@dimen/mar_15"
+            android:layout_height="@dimen/mar_15"
+            android:layout_gravity="center"
+            android:src="@mipmap/go"/>
+
+    </LinearLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_below="@+id/toolbar"
+        android:background="@color/line"/>
+    <LinearLayout
+        android:id="@+id/ll_juanrao"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/mar_45"
+        android:orientation="horizontal"
+        android:paddingLeft="@dimen/mar_15"
+        android:paddingRight="@dimen/mar_15">
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="center|left"
+            android:text="卷绕"
+            android:textSize="@dimen/text_16"/>
+
+        <ImageView
+            android:layout_width="@dimen/mar_15"
+            android:layout_height="@dimen/mar_15"
+            android:layout_gravity="center"
+            android:src="@mipmap/go"/>
+
+    </LinearLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_below="@+id/toolbar"
+        android:background="@color/line"/>
+
+</LinearLayout>

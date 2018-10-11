@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              xmlns:app="http://schemas.android.com/apk/res-auto"
+              xmlns:tools="http://schemas.android.com/tools"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:orientation="vertical">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/mar_20"
+        android:background="@drawable/status_background"></RelativeLayout>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:background="#ffffff"
+        android:gravity="center"
+        android:text="消息"
+        android:textSize="@dimen/text_18"/>
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/mar_1"
+        android:background="@color/line_color"/>
+    <com.gao.intelligent.view.pulltorefresh.extral.PullToRefreshRecyclerView
+        android:layout_below="@id/line"
+        android:id="@+id/pullToRefreshRecyclerView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/white"
+        android:choiceMode="singleChoice"
+        android:divider="@null"
+        android:fadingEdge="none"
+        android:listSelector="@android:color/transparent"
+        android:scrollbarStyle="outsideOverlay"
+        android:scrollbars="none"
+        app:ptrDrawableEnd="@drawable/progress_wave_large"
+        app:ptrDrawableStart="@drawable/progress_wave_large"
+        app:ptrHeaderBackground="@color/white"
+        app:ptrHeaderLayout="@layout/pull_to_refresh_header1"
+        app:ptrHeaderTextColor="@color/activity_txt"
+        app:ptrMode="both"
+        app:ptrScrollingWhileRefreshingEnabled="false" />
+
+    <include
+        android:layout_marginTop="@dimen/mar_40"
+        android:id="@+id/no_internet"
+        layout="@layout/no_internet"
+        android:layout_below="@id/lineView1"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:visibility="gone" />
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center"
+        android:text="暂无消息"
+        android:textSize="@dimen/text_16"/>
+
+</LinearLayout>

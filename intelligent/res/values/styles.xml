@@ -1,0 +1,170 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+
+    <!-- Base application theme. -->
+    <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item>
+    </style>
+    <!-- Application theme. -->
+    <style name="IntelligentTheme" parent="Theme.AppCompat.Light.NoActionBar">
+        <!-- All customizations that are NOT specific to a particular API-level can go here. -->
+        <item name="windowActionBar">false</item>
+        <item name="android:windowNoTitle">true</item>
+        <item name="android:windowAnimationStyle">@style/ActivityAnimation</item>
+        <item name="actionMenuTextColor">@color/black</item>
+        <item name="colorPrimary">@color/style_color_primary</item>
+        <item name="colorPrimaryDark">@color/lock_status_alpha</item>
+        <item name="colorAccent">@color/style_color_accent</item>
+        <item name="colorControlHighlight">@color/activity_txt</item>
+        <item name="actionBarSize">50dp</item>
+        <item name="android:windowBackground">@color/window_bg</item>
+
+        <item name="colorControlActivated">@color/main_style_color</item>
+        <!-- Inactive thumb color switch关闭时的拇指按钮的颜色 -->
+        <item name="colorSwitchThumbNormal">#ececec</item>
+        <!-- Inactive track color(30% transparency) switch关闭时的轨迹的颜色  30%这个颜色 -->
+        <item name="android:colorForeground">#b2b2b2</item>
+
+    </style>
+
+    <style name="ActivityAnimation">
+        <item name="android:activityOpenEnterAnimation">@anim/activity_open_in_anim</item>
+        <item name="android:activityOpenExitAnimation">@anim/activity_open_out_anim</item>
+        <item name="android:activityCloseEnterAnimation">@anim/activity_close_in_anim</item>
+        <item name="android:activityCloseExitAnimation">@anim/activity_close_out_anim</item>
+    </style>
+
+    <style name="custom_dialog" parent="@android:style/Theme.Holo.Light.Dialog">
+        <item name="android:windowBackground">@android:color/transparent</item>
+        <item name="android:windowNoTitle">true</item>
+        <item name="android:windowIsFloating">true</item>
+        <item name="android:windowIsTranslucent">true</item>
+        <item name="android:background">@android:color/transparent</item>
+        <item name="android:windowFullscreen">true</item>
+    </style>
+    <style name="MD_Dark" parent="Theme.AppCompat.Dialog.Alert">
+        <item name="md_divider">@color/md_divider_white</item>
+        <item name="md_list_selector">@drawable/md_selector_dark</item>
+        <item name="md_btn_stacked_selector">@drawable/md_selector_dark</item>
+        <item name="md_btn_positive_selector">@drawable/md_btn_selector_dark</item>
+        <item name="md_btn_neutral_selector">@drawable/md_btn_selector_dark</item>
+        <item name="md_btn_negative_selector">@drawable/md_btn_selector_dark</item>
+
+        <item name="android:windowAnimationStyle">@style/MD_WindowAnimation</item>
+        <item name="android:backgroundDimEnabled">true</item>
+    </style>
+    <style name="MD_Light" parent="Theme.AppCompat.Light.Dialog.Alert">
+        <item name="md_divider">@color/md_divider_black</item>
+        <item name="md_list_selector">@drawable/md_selector</item>
+        <item name="md_btn_stacked_selector">@drawable/md_selector</item>
+        <item name="md_btn_positive_selector">@drawable/md_btn_selector</item>
+        <item name="md_btn_neutral_selector">@drawable/md_btn_selector</item>
+        <item name="md_btn_negative_selector">@drawable/md_btn_selector</item>
+
+        <item name="android:windowAnimationStyle">@style/MD_WindowAnimation</item>
+        <item name="android:backgroundDimEnabled">true</item>
+    </style>
+    <style name="MD_WindowAnimation">
+        <item name="android:windowEnterAnimation">@anim/popup_enter</item>
+        <item name="android:windowExitAnimation">@anim/popup_exit</item>
+    </style>
+
+    <style name="MD_ActionButton">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">@dimen/md_button_height</item>
+        <item name="android:layout_gravity">center_vertical</item>
+        <item name="android:focusable">true</item>
+    </style>
+
+    <style name="MD_ActionButton.Text" tools:ignore="NewApi">
+        <item name="android:textSize">@dimen/md_button_textsize</item>
+        <item name="android:singleLine">true</item>
+        <item name="android:layout_gravity">center_vertical</item>
+        <item name="android:gravity">center</item>
+        <item name="android:stateListAnimator">@null</item>
+        <item name="android:background">@null</item>
+        <item name="android:minWidth">@dimen/md_button_min_width</item>
+        <item name="android:paddingLeft">@dimen/md_button_textpadding_horizontal</item>
+        <item name="android:paddingRight">@dimen/md_button_textpadding_horizontal</item>
+    </style>
+    <style name="time_and_order_menu">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">@dimen/mar_40</item>
+        <item name="android:drawablePadding">@dimen/mar_10</item>
+        <item name="android:gravity">center</item>
+        <item name="android:textColor">@color/title_font_color</item>
+        <item name="android:textSize">@dimen/text_16</item>
+    </style>
+
+    <declare-styleable name="PullToRefresh">
+        <attr name="ptrRefreshableViewBackground" format="reference|color"/>
+        <attr name="ptrHeaderBackground" format="reference|color"/>
+        <attr name="ptrHeaderTextColor" format="reference|color"/>
+        <attr name="ptrHeaderSubTextColor" format="reference|color"/>
+        <attr name="ptrMode">
+            <flag name="disabled" value="0x0"/>
+            <flag name="pullFromStart" value="0x1"/>
+            <flag name="pullFromEnd" value="0x2"/>
+            <flag name="both" value="0x3"/>
+            <flag name="manualOnly" value="0x4"/>
+            <flag name="pullDownFromTop" value="0x1"/>
+            <flag name="pullUpFromBottom" value="0x2"/>
+        </attr>
+        <attr name="ptrShowIndicator" format="reference|boolean"/>
+        <attr name="ptrDrawable" format="reference"/>
+        <attr name="ptrDrawableStart" format="reference"/>
+        <attr name="ptrDrawableEnd" format="reference"/>
+        <attr name="ptrOverScroll" format="reference|boolean"/>
+        <attr name="ptrHeaderTextAppearance" format="reference"/>
+        <attr name="ptrSubHeaderTextAppearance" format="reference"/>
+        <attr name="ptrAnimationStyle">
+            <flag name="rotate" value="0x0"/>
+            <flag name="flip" value="0x1"/>
+        </attr>
+        <attr name="ptrScrollingWhileRefreshingEnabled" format="reference|boolean"/>
+        <attr name="ptrListViewExtrasEnabled" format="reference|boolean"/>
+        <attr name="ptrRotateDrawableWhilePulling" format="reference|boolean"/>
+        <attr name="ptrAdapterViewBackground" format="reference|color"/>
+        <attr name="ptrDrawableTop" format="reference"/>
+        <attr name="ptrDrawableBottom" format="reference"/>
+        <attr name="ptrHeaderLayout" format="reference"/>
+        <attr name="ptrFooterLayout" format="reference"/>
+    </declare-styleable>
+    <style name="Toolbar.TitleText" parent="TextAppearance.Widget.AppCompat.Toolbar.Title">
+        <item name="android:textSize">@dimen/text_16</item>
+        <item name="contentInsetStart">0dp</item>
+        <item name="contentInsetStartWithNavigation">-30dp</item>
+    </style>
+    <style name="text_style">
+        <item name="android:layout_marginLeft">@dimen/mar_5</item>
+        <item name="android:layout_marginRight">@dimen/mar_5</item>
+        <item name="android:textColor">#000000</item>
+        <item name=" android:gravity">center</item>
+        <item name="android:layout_gravity">center</item>
+        <item name="android:textSize">@dimen/text_14</item>
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">@dimen/mar_34</item>
+    </style>
+    <style name="text_edit_style">
+        <item name="android:layout_marginLeft">@dimen/mar_5</item>
+        <item name="android:layout_marginRight">@dimen/mar_5</item>
+        <item name="android:textColor">@color/activity_red</item>
+        <item name=" android:gravity">center</item>
+        <item name="android:layout_gravity">center|left</item>
+        <item name="android:textSize">@dimen/text_14</item>
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">match_parent</item>
+    </style>
+    <style name="line_style">
+        <item name=" android:background">@color/black</item>
+        <item name="android:layout_width">@dimen/mar_1</item>
+        <item name="android:layout_height">match_parent</item>
+    </style>
+    <style name="line_o_style">
+        <item name=" android:background">@color/black</item>
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">@dimen/mar_1</item>
+    </style>
+</resources>

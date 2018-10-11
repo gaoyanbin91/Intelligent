@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.gao.intelligent.view.SquareItemLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    >
+  <ImageView
+      android:padding="1dip"
+      android:layout_gravity="center"
+      android:id="@+id/iv_photo"
+      android:scaleType="centerCrop"
+      android:layout_width="match_parent"
+      android:layout_height="match_parent"
+      android:adjustViewBounds="true"
+      />
+  <!--android:background="@drawable/photo_bg"-->
+  <View
+      android:id="@+id/iv_b"
+      android:layout_width="match_parent"
+      android:layout_height="match_parent"
+      android:visibility="gone"
+      android:background="@color/transparent50"/>
+  <CheckBox
+      android:id="@+id/iv_check"
+      android:layout_width="16dp"
+      android:layout_height="16dp"
+      android:layout_alignParentEnd="true"
+      android:layout_alignParentRight="true"
+      android:button="@null"
+      android:checked="false"
+      android:background="@drawable/cart_check_selector"
+      android:layout_marginRight="7dp"
+      android:layout_marginTop="7dp"
+      android:layout_alignParentTop="true"/>
+
+</com.gao.intelligent.view.SquareItemLayout>

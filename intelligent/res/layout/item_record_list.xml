@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v7.widget.CardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_marginBottom="@dimen/mar_3"
+    android:layout_height="wrap_content"
+    android:background="@color/white">
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:id="@+id/rootLayout"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/mar_45">
+
+        <TextView
+            android:id="@+id/text_classes"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:layout_height="wrap_content"
+            android:textColor="@color/black"
+            android:layout_marginBottom="@dimen/mar_15"
+            android:textSize="@dimen/text_14"
+            android:layout_marginTop="@dimen/mar_10"
+            tools:text="班次" />
+        <TextView
+            android:gravity="center"
+            android:id="@+id/text_record_time"
+            android:layout_width="0dp"
+            android:layout_weight="2"
+            android:layout_height="wrap_content"
+            android:textColor="@color/black"
+            android:layout_marginBottom="@dimen/mar_15"
+            android:textSize="@dimen/text_14"
+            android:layout_marginTop="@dimen/mar_10"
+            tools:text="2018 10" />
+
+
+        <TextView
+            android:id="@+id/text_product"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:textColor="@color/black"
+            android:layout_marginBottom="@dimen/mar_15"
+            android:textSize="@dimen/text_14"
+            android:gravity="center"
+            android:layout_marginTop="@dimen/mar_10"
+            tools:text="产品" />
+        <TextView
+            android:id="@+id/text_runtime_length"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:layout_height="wrap_content"
+            android:textColor="@color/black"
+            android:layout_marginBottom="@dimen/mar_15"
+            android:textSize="@dimen/text_14"
+            android:layout_marginTop="@dimen/mar_10"
+            tools:text="运行时长" />
+
+        <TextView
+            android:id="@+id/text_downtime_length"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:layout_height="wrap_content"
+            android:textColor="@color/black"
+            android:layout_marginBottom="@dimen/mar_15"
+            android:textSize="@dimen/text_14"
+            android:layout_marginTop="@dimen/mar_10"
+            tools:text="停机时长" />
+    </LinearLayout>
+
+</android.support.v7.widget.CardView>
+
