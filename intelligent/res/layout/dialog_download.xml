@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:layout_width="280dp"
+              android:layout_height="match_parent"
+              android:layout_marginBottom="@dimen/mar_50"
+              android:layout_gravity="center"
+              android:background="@drawable/update_dialogbg"
+              android:orientation="vertical">
+
+    <TextView
+        android:layout_marginTop="@dimen/mar_25"
+        android:id="@+id/dialog_title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:padding="10dp"
+        android:text="正在下载"
+        android:textColor="@color/theme_color"
+        android:textSize="@dimen/text_16"/>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="2dp"
+        android:background="@color/theme_color"/>
+
+    <TextView
+        android:id="@+id/dialog_content"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:gravity="center"
+        android:text=""
+        android:textColor="@color/darkgray"
+        android:textSize="@dimen/text_14"/>
+    <!--进度条-->
+    <com.gao.intelligent.view.WDSeekBar
+        android:id="@+id/pb_product_progress"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/mar_20"
+        android:max="100"
+        android:maxHeight="5dp"
+        android:minHeight="5dp"
+        android:progressDrawable="@drawable/loan_pb_bg"
+        android:thumb="@drawable/shape_pb_circle"
+        android:thumbOffset="1dp"/>
+
+    <View
+        android:visibility="gone"
+        android:layout_width="match_parent"
+        android:layout_height="1px"
+        android:layout_marginTop="@dimen/mar_10"
+        android:background="@color/theme_color"/>
+
+</LinearLayout>

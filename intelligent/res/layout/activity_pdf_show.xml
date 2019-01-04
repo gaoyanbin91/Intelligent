@@ -25,15 +25,21 @@
             android:textColor="@color/activity_txt"
             android:textSize="@dimen/text_16" />
         <TextView
+            android:id="@+id/txvSignName"
             android:visibility="gone"
-            android:id="@+id/tv_page_size"
-            android:gravity="center"
-            android:layout_gravity="right"
-            android:paddingRight="@dimen/mar_20"
-            android:textSize="@dimen/text_14"
             android:layout_width="wrap_content"
-            android:layout_height="@dimen/mar_40"
-           />
+            android:paddingLeft="@dimen/mar_20"
+            android:paddingRight="@dimen/mar_20"
+            android:layout_height="@dimen/mar_35"
+            android:layout_centerInParent="true"
+            android:layout_margin="@dimen/heihgt_8dp"
+            android:background="@drawable/bg_btn_face_enable"
+            android:enabled="true"
+            android:gravity="center"
+            android:layout_gravity="right|center"
+            android:text="签字"
+            android:textColor="@color/white"
+            android:textSize="16sp"/>
     </android.support.v7.widget.Toolbar>
     <View
         android:layout_below="@id/toolbar"

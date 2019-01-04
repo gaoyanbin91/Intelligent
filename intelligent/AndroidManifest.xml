@@ -8,22 +8,113 @@
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
     <uses-permission android:name="android.permission.ACCESS_WIFI_STATE"/>
     <uses-permission android:name="android.permission.CAMERA"/>
+    <uses-permission android:name="android.permission.REQUEST_INSTALL_PACKAGES" />
+    <!--阿里移动推送相关权限-->
+    <!--Android 6.0版本可去除，用于选举信息（通道复用）的同步-->
+    <uses-permission android:name="android.permission.WRITE_SETTINGS" />
+    <!--进行网络访问和网络状态监控相关的权限声明-->
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+    <!--允许对sd卡进行读写操作-->
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <!--网络库使用，当网络操作时需要确保事务完成不被杀掉-->
+    <uses-permission android:name="android.permission.WAKE_LOCK" />
+    <!--用于读取手机硬件信息等，用于机型过滤-->
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+    <!--选举使用，当应用有删除或者更新时需要重新选举，复用推送通道-->
+    <uses-permission android:name="android.permission.BROADCAST_PACKAGE_CHANGED" />
+    <uses-permission android:name="android.permission.BROADCAST_PACKAGE_REPLACED" />
+    <uses-permission android:name="android.permission.RESTART_PACKAGES" />
+    <!--补偿通道小米PUSH使用，不用可去除-->
+    <uses-permission android:name="android.permission.GET_TASKS" />
+    <!--补偿通道GCM使用，不使用可去除-->
+    <uses-permission android:name="android.permission.GET_ACCOUNTS" />
+    <!--允许监听启动完成事件-->
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
+    <!--允许访问震动器-->
+    <uses-permission android:name="android.permission.VIBRATE" />
+    <!-- 允许task重排序 -->
+    <uses-permission android:name="android.permission.REORDER_TASKS" />
+
     <application
         android:name=".MyApp"
         android:allowBackup="true"
-        android:icon="@mipmap/icon_app"
+        android:icon="@mipmap/champagne_bin"
         android:label="@string/app_name"
         android:supportsRtl="true"
         android:theme="@style/IntelligentTheme">
+        <!-- 7.0以上配置文件存储位置 -->
+        <provider
+            android:name="android.support.v4.content.FileProvider"
+            android:authorities="com.gao.intelligent.fileprovider"
+            android:exported="false"
+            android:grantUriPermissions="true">
+            <meta-data
+                android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/file_paths"/>
+        </provider>
+
+            <meta-data android:name="com.alibaba.app.appkey" android:value="25283217"/> <!-- 请填写你自己的- appKey -->
+            <meta-data android:name="com.alibaba.app.appsecret" android:value="7192077456345e545b007926017ccdd2"/> <!-- 请填写你自己的appSecret -->
+
         <meta-data
             android:name="android.max_aspect"
-            android:value="2.1" />
+            android:value="2.1"/>
 
         <activity android:name=".activity.MainActivity">
 
         </activity>
-        <activity android:name=".activity.SplashActivity"
-                  android:screenOrientation="portrait">
+
+
+
+        <service android:name="com.alibaba.sdk.android.push.channel.TaobaoRecvService" android:exported="true">
+            <intent-filter>
+                <action android:name="org.android.agoo.client.MessageReceiverService"/>
+            </intent-filter>
+        </service>
+        <!-- 消息接收服务 -->
+        <service android:name="com.alibaba.sdk.android.push.MsgService"
+                 android:exported="false">
+            <intent-filter>
+                <action android:name="com.taobao.accs.intent.action.RECEIVE" />
+            </intent-filter>
+            <intent-filter>
+                <action android:name="com.alibaba.sdk.android.push.NOTIFY_ACTION" />
+            </intent-filter>
+        </service>
+        <!-- 通道保持服务 -->
+        <service android:name="com.alibaba.sdk.android.push.ChannelService"
+                 android:exported="true" android:process=":channel">
+            <intent-filter>
+                <action android:name="com.taobao.accs.intent.action.SERVICE"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="org.agoo.android.intent.action.PING_V4" />
+                <category android:name="taobao" />
+            </intent-filter>
+        </service>
+
+        <!-- 消息接收监听器 （用户可自主扩展） -->
+        <receiver
+            android:name=".reciver.MyMessageReceiver"
+            android:exported="false">
+            <intent-filter>
+                <action android:name="com.alibaba.push2.action.NOTIFICATION_OPENED" />
+            </intent-filter>
+            <intent-filter>
+                <action android:name="com.alibaba.push2.action.NOTIFICATION_REMOVED" />
+            </intent-filter>
+            <intent-filter>
+                <action android:name="com.alibaba.sdk.android.push.RECEIVE" />
+            </intent-filter>
+        </receiver>
+
+
+
+        <activity
+            android:name=".activity.SplashActivity"
+            android:screenOrientation="portrait">
 
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
@@ -32,83 +123,58 @@
             </intent-filter>
 
         </activity>
-    <activity android:name=".activity.LoginActivity"/>
-    <activity android:name=".activity.ImageActivity"
-              android:configChanges="locale|orientation|keyboardHidden"
-              android:screenOrientation="portrait"/>
-        <activity android:name=".activity.DemandDetailActivity"
-                  android:configChanges="locale|orientation|keyboardHidden"
-                  android:screenOrientation="portrait"/>
-        <activity android:name=".activity.DemandServiceActivity"
-                  android:configChanges="locale|orientation|keyboardHidden"
-                  android:screenOrientation="portrait"/>
+        <activity android:name=".activity.LoginActivity"/>
         <activity
-            android:name=".activity.ServiceReplyActivity"
-            android:configChanges="orientation|keyboardHidden|screenSize"
-            android:label="选取图片"
-            android:launchMode="singleTop"
-            android:screenOrientation="portrait"
-            android:theme="@android:style/Theme.Translucent.NoTitleBar" />
-        <activity android:name=".activity.ShowBigImageActivity"/>
-        <activity
-             android:name=".view.photo.PhotoPickerActivity"
+            android:name=".activity.ImageActivity"
             android:configChanges="locale|orientation|keyboardHidden"
             android:screenOrientation="portrait"/>
-        <activity android:name=".activity.ProcessParamActivity"
-                  android:configChanges="locale|orientation|keyboardHidden"
-                  android:screenOrientation="portrait"/>
+        <activity android:name=".activity.ShowBigImageActivity"/>
+        <activity
+            android:name=".view.photo.PhotoPickerActivity"
+            android:configChanges="locale|orientation|keyboardHidden"
+            android:screenOrientation="portrait"/>
         <activity
             android:name=".activity.AboutActivity"
             android:configChanges="locale|orientation|keyboardHidden"
             android:screenOrientation="portrait"/>
-        <activity android:name=".activity.LanguageActivity"
-                  android:configChanges="locale|orientation|keyboardHidden"
-                  android:screenOrientation="portrait"/>
-        <activity android:name=".activity.NewFeedBackActivity"
-                  android:configChanges="locale|orientation|keyboardHidden"
-                  android:screenOrientation="portrait"/>
-        <activity android:name=".activity.SetActivity"
-                  android:configChanges="locale|orientation|keyboardHidden"
-                  android:screenOrientation="portrait"/>
-        <activity android:name=".activity.UserInfoActivity"
-                  android:configChanges="locale|orientation|keyboardHidden"
-                  android:screenOrientation="portrait"/>
+        <activity
+            android:name=".activity.LanguageActivity"
+            android:configChanges="locale|orientation|keyboardHidden"
+            android:screenOrientation="portrait"/>
+        <activity
+            android:name=".activity.NewFeedBackActivity"
+            android:configChanges="locale|orientation|keyboardHidden"
+            android:screenOrientation="portrait"/>
+        <activity
+            android:name=".activity.SetActivity"
+            android:configChanges="locale|orientation|keyboardHidden"
+            android:screenOrientation="portrait"/>
+        <activity
+            android:name=".activity.UserInfoActivity"
+            android:configChanges="locale|orientation|keyboardHidden"
+            android:screenOrientation="portrait"/>
 
-        <activity android:name=".activity.RecordListActivity"
-                  android:configChanges="locale|orientation|keyboardHidden"
-                  android:screenOrientation="portrait"></activity>
-        <activity android:name=".activity.RecordDetailActivity"
-                  android:configChanges="locale|orientation|keyboardHidden"
-                  android:screenOrientation="portrait"></activity>
-        <activity android:name=".activity.SupplementRecordActivity"
-                  android:windowSoftInputMode="stateAlwaysHidden"
-                  android:configChanges="locale|orientation|keyboardHidden"
-                  android:screenOrientation="portrait"/>
-        <activity android:name=".activity.ProcessTemplateActivity"
-                  android:configChanges="locale|orientation|keyboardHidden"
-                  android:screenOrientation="portrait"/>
-        <activity android:name=".activity.DeviceListActivity"
-                  android:configChanges="locale|orientation|keyboardHidden"
-                  android:screenOrientation="portrait"/>
-
-        <activity android:name=".activity.DrviceFilesActivity"
-                  android:configChanges="locale|orientation|keyboardHidden"
-                  android:screenOrientation="portrait"/>
-        <activity android:name=".activity.ShowPdfActivity"
-                  android:configChanges="locale|orientation|keyboardHidden"
-                  android:screenOrientation="portrait"/>
-        <activity android:name=".activity.ProcessTypeActivity"
-                  android:configChanges="locale|orientation|keyboardHidden"
-                  android:screenOrientation="portrait"/>
-        <activity android:name=".activity.RealtimeMonitorActivity"
-                  android:configChanges="locale|orientation|keyboardHidden"
-                  android:screenOrientation="portrait"/>
-        <activity android:name=".activity.ServiceLIstAty"
-                  android:configChanges="locale|orientation|keyboardHidden"
-                  android:screenOrientation="portrait"/>
-        <activity android:name=".activity.AddSeviceActivity"
-                  android:configChanges="locale|orientation|keyboardHidden"
-                  android:screenOrientation="portrait"/>
+        <activity
+            android:name=".activity.AddSeviceActivity"
+            android:configChanges="locale|orientation|keyboardHidden"
+            android:screenOrientation="portrait"/>
+        <activity
+            android:name=".activity.PasswordActivity"
+            android:configChanges="locale|orientation|keyboardHidden"
+            android:screenOrientation="portrait"/>
+        <activity
+            android:name=".activity.ForgetPsdActivity"
+            android:configChanges="locale|orientation|keyboardHidden"
+            android:screenOrientation="portrait"/>
+        <activity
+            android:name=".activity.ProblemDetailActivity"
+            android:configChanges="locale|orientation|keyboardHidden"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".activity.RealtimeMonitorActivity"/>
+        <activity android:name=".activity.SignActivity"
+                  android:configChanges="orientation|keyboardHidden"
+                  android:theme="@style/Theme.AppCompat.Light.NoActionBar"/>
+        <activity android:name=".activity.PDFShowActivity"/>
     </application>
 
 </manifest>

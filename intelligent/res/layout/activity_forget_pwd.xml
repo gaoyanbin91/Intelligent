@@ -1,0 +1,276 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              xmlns:app="http://schemas.android.com/apk/res-auto"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              xmlns:tools="http://schemas.android.com/tools"
+              android:fitsSystemWindows="true"
+              android:orientation="vertical">
+
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/mar_45"
+        android:background="@color/white"
+        android:elevation="0dp"
+        android:gravity="left"
+        android:minHeight="@dimen/mar_45"
+        app:navigationIcon="@mipmap/back_black"
+        app:title="">
+
+        <TextView
+            android:id="@+id/mTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="找回密码"
+            android:textColor="@color/activity_txt"
+            android:textSize="@dimen/text_16"/>
+
+
+        <TextView
+            android:id="@+id/saveButton"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_gravity="right"
+            android:layout_marginRight="10dp"
+            android:gravity="center"
+            android:text="@string/language_save"
+            android:textColor="@color/activity_txt"
+            android:textSize="14sp"
+            android:visibility="gone"/>
+    </android.support.v7.widget.Toolbar>
+
+
+
+        <LinearLayout
+            android:layout_marginLeft="@dimen/mar_10"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/mar_45"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:layout_width="@dimen/mar_25"
+                android:layout_height="@dimen/mar_25"
+                android:padding="@dimen/mar_3"
+                android:src="@mipmap/icon_phone"/>
+
+            <TextView
+                android:gravity="center|left"
+                android:id="@+id/register_phone"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/mar_45"
+                android:layout_marginLeft="@dimen/mar_5"
+                android:background="@android:color/transparent"
+                android:hint="@string/w_srsjh"
+                android:inputType="number"
+                android:maxLength="11"
+                android:text="15136783135"
+                android:textSize="@dimen/text_16"/>
+        </LinearLayout>
+
+        <TextView
+            android:layout_marginLeft="@dimen/mar_30"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@color/gray1_1"/>
+
+        <LinearLayout
+            android:layout_marginLeft="@dimen/mar_10"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/mar_45"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:layout_width="@dimen/mar_25"
+                android:layout_height="@dimen/mar_25"
+                android:padding="@dimen/mar_3"
+                android:src="@mipmap/icon_code_mix"/>
+
+            <EditText
+                android:id="@+id/register_msg"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="@dimen/mar_5"
+                android:layout_weight="1"
+                android:background="@android:color/transparent"
+                android:hint="@string/w_qsryzm"
+                android:inputType="number"
+                android:maxLength="6"
+                android:textSize="@dimen/text_14"/>
+
+            <TextView
+                android:paddingRight="@dimen/mar_5"
+                android:paddingLeft="@dimen/mar_5"
+                android:layout_marginRight="@dimen/mar_10"
+                android:id="@+id/register_msg_bt"
+                android:layout_width="wrap_content"
+                android:layout_height="30dp"
+                android:background="@drawable/background_newlogin_gobutton_orange"
+                android:gravity="center"
+                android:paddingTop="3dp"
+                android:paddingBottom="3dp"
+                android:text="@string/w_hqyzm"
+                android:textColor="@color/white"/>
+        </LinearLayout>
+
+        <TextView
+            android:layout_marginLeft="@dimen/mar_30"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@color/gray1_1"/>
+    <RelativeLayout
+        android:layout_marginLeft="@dimen/mar_13"
+        android:id="@+id/pwdVertifyLayout"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/mar_45"
+        android:layout_below="@id/nameLayout"
+        android:layout_centerHorizontal="true"
+        android:elevation="10dp"
+        tools:ignore="UnusedAttribute">
+
+        <RelativeLayout
+            android:id="@+id/vertifyLayout"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_toLeftOf="@+id/showpwd_imageview"
+            android:visibility="visible">
+            <EditText
+                android:id="@+id/pwd_edittext"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_alignParentLeft="true"
+                android:layout_toLeftOf="@+id/clear_pwd_imageview"
+                android:background="@null"
+                android:drawablePadding="@dimen/mar_10"
+                android:drawableLeft="@mipmap/password"
+                android:gravity="left|center_vertical"
+                android:hint="@string/login_input_password"
+                android:inputType=""
+                android:maxLines="1"
+                android:textColorHint="@color/normal_gray"
+                android:textSize="@dimen/text_14" />
+
+            <ImageView
+                android:id="@+id/clear_pwd_imageview"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:contentDescription="@null"
+                android:src="@mipmap/sign_btn_close"
+                android:visibility="gone" />
+
+
+        </RelativeLayout>
+
+        <ImageView
+            android:id="@+id/showpwd_imageview"
+            android:layout_width="wrap_content"
+            android:layout_marginRight="@dimen/mar_10"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:paddingLeft="8dp"
+            android:paddingRight="0dp"
+            android:src="@mipmap/btn_password_nodisplay"
+            android:visibility="gone" />
+
+
+    </RelativeLayout>
+
+        <TextView
+            android:layout_marginLeft="@dimen/mar_30"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@color/gray1_1"/>
+
+    <RelativeLayout
+        android:layout_marginLeft="@dimen/mar_13"
+        android:id="@+id/pwdVertifyLayout_2"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/mar_45"
+        android:layout_below="@id/nameLayout"
+        android:layout_centerHorizontal="true"
+        android:elevation="10dp"
+        tools:ignore="UnusedAttribute">
+
+        <RelativeLayout
+            android:id="@+id/vertifyLayout_2"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_toLeftOf="@+id/showpwd_imageview_2"
+            android:visibility="visible">
+            <EditText
+                android:id="@+id/pwd_edittext_2"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_alignParentLeft="true"
+                android:layout_toLeftOf="@+id/clear_pwd_imageview_2"
+                android:background="@null"
+                android:drawablePadding="@dimen/mar_10"
+                android:drawableLeft="@mipmap/password"
+                android:gravity="left|center_vertical"
+                android:hint="@string/w_qrmm"
+                android:inputType="number"
+                android:maxLines="1"
+                android:textColorHint="@color/normal_gray"
+                android:textSize="@dimen/text_14" />
+
+            <ImageView
+                android:id="@+id/clear_pwd_imageview_2"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:contentDescription="@null"
+                android:src="@mipmap/sign_btn_close"
+                android:visibility="gone" />
+
+
+        </RelativeLayout>
+
+        <ImageView
+            android:layout_marginRight="@dimen/mar_10"
+            android:id="@+id/showpwd_imageview_2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:paddingLeft="8dp"
+            android:paddingRight="0dp"
+            android:src="@mipmap/btn_password_nodisplay"
+            android:visibility="gone" />
+
+
+    </RelativeLayout>
+
+    <TextView
+        android:layout_marginLeft="@dimen/mar_30"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/gray1_1"/>
+
+        <TextView
+            android:layout_marginLeft="@dimen/mar_30"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@color/gray1_1"/>
+
+        <TextView
+            android:id="@+id/register_bt"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/mar_40"
+            android:layout_marginLeft="@dimen/mar_10"
+            android:layout_marginTop="@dimen/mar_30"
+            android:layout_marginRight="@dimen/mar_10"
+            android:background="@drawable/background_newlogin_gobutton_gray"
+            android:gravity="center"
+            android:orientation="horizontal"
+            android:text="@string/w_zhmm"
+            android:textColor="@color/white"
+            android:textSize="@dimen/text_16"/>
+
+</LinearLayout>

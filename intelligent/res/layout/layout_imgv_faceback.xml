@@ -1,13 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical"
+              android:padding="@dimen/mar_5"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
     <RelativeLayout
+        android:layout_gravity="center"
         android:id="@+id/rl_pic"
         android:layout_width="@dimen/heihgt_70dp"
-        android:layout_height="@dimen/heihgt_70dp"
-        android:layout_marginRight="@dimen/heihgt_10dp">
+        android:layout_height="@dimen/heihgt_70dp">
 
         <ImageView
             android:id="@+id/imgv_face"

@@ -3,10 +3,12 @@
               xmlns:app="http://schemas.android.com/apk/res-auto"
               android:layout_width="match_parent"
               android:layout_height="match_parent"
-              android:fitsSystemWindows="true"
               android:background="@color/white"
               android:orientation="vertical">
-
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/mar_20"
+        android:background="@color/theme_color"/>
     <android.support.v7.widget.Toolbar
         android:id="@+id/toolbar"
         android:layout_width="match_parent"
@@ -16,17 +18,29 @@
         android:gravity="left"
         android:minHeight="@dimen/mar_45"
         app:titleTextAppearance="@style/Toolbar.TitleText"
-        app:navigationIcon="@mipmap/back_black"
         app:title="">
-
-        <TextView
-            android:id="@+id/mTitle"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+        <LinearLayout
             android:layout_gravity="center"
-            android:text="@string/activity_real_time"
-            android:textColor="@color/activity_txt"
-            android:textSize="@dimen/text_16" />
+            android:id="@+id/ll_selection_lines"
+            android:layout_width="@dimen/mar_90"
+            android:layout_height="@dimen/mar_40"
+            android:gravity="center">
+
+            <TextView
+                android:layout_marginRight="@dimen/mar_8"
+                android:id="@+id/mTitle"
+                android:text="@string/activity_real_time"
+                android:layout_width="@dimen/mar_70"
+                style="@style/time_and_order_menu"
+                android:textSize="@dimen/text_16"
+                />
+            <ImageView
+                android:visibility="gone"
+                android:layout_width="@dimen/mar_10"
+                android:layout_height="@dimen/mar_10"
+                android:src="@mipmap/btn_nabla"/>
+        </LinearLayout>
+
      
     </android.support.v7.widget.Toolbar>
 <View
@@ -58,7 +72,6 @@
         android:layout_width="match_parent"
         android:layout_height="0.5dp"
         android:background="@color/gray1_1"/>
-
     <LinearLayout
         android:paddingLeft="@dimen/mar_10"
         android:layout_width="match_parent"

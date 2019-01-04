@@ -89,7 +89,6 @@ public class NoticeView extends ViewFlipper implements View.OnClickListener {
 
     /**
      * 设置通知点击监听器
-     *
      * @param onNoticeClickListener 通知点击监听器
      */
     public void setOnNoticeClickListener(OnNoticeClickListener onNoticeClickListener) {

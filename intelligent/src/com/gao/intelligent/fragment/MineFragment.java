@@ -46,8 +46,8 @@ public class MineFragment extends BaseFragment {
     }
 
     @Override
-    public void aidHandleMessage(int what, Object obj) {
-        super.aidHandleMessage(what, obj);
+    public void aidHandleMessage(int what, int type,Object obj) {
+        super.aidHandleMessage(what,type, obj);
         switch (what) {
             case 10004:
                 hideCustomProgressDialog();

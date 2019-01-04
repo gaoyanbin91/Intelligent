@@ -24,7 +24,7 @@
             android:layout_alignParentBottom="true"
             android:layout_centerHorizontal="true"
             android:layout_marginBottom="@dimen/mar_40"
-            android:src="@mipmap/icon_app" />
+            android:src="@mipmap/champagne_bin" />
 
     </RelativeLayout>
 </android.support.constraint.ConstraintLayout>

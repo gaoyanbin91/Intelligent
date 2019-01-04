@@ -23,20 +23,20 @@
             android:layout_gravity="center"
             android:text="@string/activity_set"
             android:textColor="@color/activity_txt"
-            android:textSize="@dimen/text_16" />
+            android:textSize="@dimen/text_16"/>
 
 
         <TextView
             android:id="@+id/saveButton"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
-            android:gravity="center"
             android:layout_gravity="right"
-            android:visibility="gone"
-            android:text="@string/language_save"
             android:layout_marginRight="10dp"
+            android:gravity="center"
+            android:text="@string/language_save"
             android:textColor="@color/activity_txt"
-            android:textSize="14sp"/>
+            android:textSize="14sp"
+            android:visibility="gone"/>
     </android.support.v7.widget.Toolbar>
 
 
@@ -52,9 +52,9 @@
         android:id="@+id/signout_button"
         android:layout_width="match_parent"
         android:layout_height="50dp"
-        android:layout_alignParentBottom="true"
-        android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentBottom="true"
         android:background="#e65047"
         android:orientation="horizontal">
 
@@ -154,15 +154,15 @@
                 android:lineSpacingExtra="6dp"
                 android:text="@string/set_clear_cache_des"
                 android:textColor="#655d58"
-                android:textSize="10sp"/>
+                android:textSize="12sp"/>
 
 
             <RelativeLayout
-                android:visibility="gone"
                 android:id="@+id/msgOnOffLayout"
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
-                android:background="@drawable/item_color_background">
+                android:background="@drawable/item_color_background"
+                android:visibility="gone">
 
                 <RelativeLayout
                     android:layout_width="match_parent"
@@ -331,16 +331,18 @@
                         android:background="@null"
                         android:scaleType="fitCenter"
                         android:src="@mipmap/go"/>
+
                     <ImageView
                         android:id="@+id/iv_red"
-                        android:visibility="gone"
-                        android:padding="@dimen/mar_8"
                         android:layout_width="@dimen/mar_25"
                         android:layout_height="@dimen/mar_25"
-                        android:src="@mipmap/icon_red_little"
+                        android:layout_alignParentRight="true"
                         android:layout_centerInParent="true"
                         android:layout_marginRight="@dimen/mar_25"
-                        android:layout_alignParentRight="true"/>
+                        android:padding="@dimen/mar_8"
+                        android:src="@mipmap/icon_red_little"
+                        android:visibility="gone"/>
+
                     <View
                         android:layout_width="match_parent"
                         android:layout_height="1dp"

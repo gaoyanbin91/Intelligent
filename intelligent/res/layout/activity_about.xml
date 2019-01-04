@@ -29,7 +29,7 @@
         android:id="@+id/iv_logo"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="@dimen/mar_70"
-        android:src="@mipmap/icon_app"
+        android:src="@mipmap/champagne_bin"
         android:layout_width="@dimen/mar_70"
         android:layout_height="@dimen/mar_70"/>
     <TextView

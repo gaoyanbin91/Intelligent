@@ -4,84 +4,26 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
-    >
+    android:orientation="vertical">
 
-    <android.support.v4.view.ViewPager
-        android:id="@+id/vp_content"
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
+    <FrameLayout
+        android:id="@+id/realtabcontent"
+        android:layout_width="fill_parent"
+        android:layout_height="0dip"
         android:layout_weight="1"
-        ></android.support.v4.view.ViewPager>
+        android:visibility="visible" />
 
-    <com.gao.intelligent.view.BottomBarLayout
-        android:id="@+id/bbl"
-        android:layout_width="match_parent"
-        android:layout_height="45dp"
-        android:layout_gravity="center"
-        android:background="@color/tab_gb"
-        android:gravity="center"
-        android:orientation="horizontal"
-        >
+    <com.gao.intelligent.view.FragmentTabHost
+        android:id="@android:id/tabhost"
+        android:layout_width="fill_parent"
+        android:layout_height="@dimen/mar_45"
+        android:background="@drawable/tab_background">
 
-        <com.gao.intelligent.view.BottomBarItem
+        <FrameLayout
+            android:id="@android:id/tabcontent"
             android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            app:iconNormal="@mipmap/tab_micro_normal"
-            app:iconSelected="@mipmap/tab_micro_selected"
-            app:itemMarginTop="-5dp"
-            app:itemText="@string/tab_message"
-            app:itemTextSize="12sp"
-            app:openTouchBg="true"
-            app:textColorNormal="@color/tab_normal_color"
-            app:textColorSelected="@color/theme_color"
-            app:touchDrawable="@drawable/selector_bg"
-            />
-        <com.gao.intelligent.view.BottomBarItem
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            app:iconNormal="@mipmap/tab_home_normal"
-            app:iconSelected="@mipmap/tab_home_selected"
-            app:itemMarginTop="-5dp"
-            app:itemText="@string/tab_home"
-            app:itemTextSize="12sp"
-            app:openTouchBg="true"
-            app:textColorNormal="@color/tab_normal_color"
-            app:textColorSelected="@color/theme_color"
-            app:touchDrawable="@drawable/selector_bg"
-            app:unreadThreshold="999"
-            />
+            android:layout_height="0dp"
+            android:layout_weight="0" />
 
-        <com.gao.intelligent.view.BottomBarItem
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            app:iconNormal="@mipmap/tab_video_normal"
-            app:iconSelected="@mipmap/tab_video_selected"
-            app:itemMarginTop="-5dp"
-            app:itemText="@string/tab_contact"
-            app:itemTextSize="12sp"
-            app:openTouchBg="true"
-            app:textColorNormal="@color/tab_normal_color"
-            app:textColorSelected="@color/theme_color"
-            app:touchDrawable="@drawable/selector_bg"
-            />
-        <com.gao.intelligent.view.BottomBarItem
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            app:iconNormal="@mipmap/tab_me_normal"
-            app:iconSelected="@mipmap/tab_me_selected"
-            app:itemMarginTop="-5dp"
-            app:itemText="@string/tab_mine"
-            app:itemTextSize="12sp"
-            app:openTouchBg="true"
-            app:textColorNormal="@color/tab_normal_color"
-            app:textColorSelected="@color/theme_color"
-            app:touchDrawable="@drawable/selector_bg"
-            />
-
-    </com.gao.intelligent.view.BottomBarLayout>
+    </com.gao.intelligent.view.FragmentTabHost>
 </LinearLayout>

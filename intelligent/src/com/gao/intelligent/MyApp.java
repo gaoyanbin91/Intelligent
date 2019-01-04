@@ -1,15 +1,22 @@
 package com.gao.intelligent;
 
 import android.app.Activity;
+import android.content.Context;
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
 import android.os.Handler;
 import android.telephony.TelephonyManager;
 import android.text.TextUtils;
 import android.util.DisplayMetrics;
+import android.util.Log;
 
+import com.alibaba.sdk.android.push.CloudPushService;
+import com.alibaba.sdk.android.push.CommonCallback;
+import com.alibaba.sdk.android.push.noonesdk.PushServiceFactory;
+import com.gao.intelligent.activity.MainActivity;
 import com.gao.intelligent.config.Comm;
 import com.gao.intelligent.config.Global;
+import com.gao.intelligent.utils.AppConfig;
 import com.gao.intelligent.utils.LogUtils;
 import com.gao.intelligent.utils.Utils;
 import com.yixia.camera.VCamera;
@@ -26,12 +33,23 @@ import java.util.Map;
 
 public class MyApp extends BaseApp {
     private static final String TAG = MyApp.class.getSimpleName();
-
+    private static MainActivity mainActivity = null;
     private static MyApp _context;
     public static MyApp mInstance = null;
     public static HashMap<String, Activity> activityHashMap;
     public Handler handler;
     public static String VIDEO_PATH = "/sdcard/zhengfangji/";
+    CloudPushService pushService;
+    private boolean type;
+
+    public boolean isType() {
+        return type;
+    }
+
+    public void setType(boolean type) {
+        this.type = type;
+    }
+
     @Override
     public void onCreate() {
         LogUtils.d( "","[ExampleApplication] onCreate");
@@ -50,10 +68,31 @@ public class MyApp extends BaseApp {
         VCamera.initialize(this);
 
         initScreent();
-
-        initLanguage();
+        initCloudChannel(this);
+//        initLanguage();
         //**************************************相关第三方SDK的初始化等操作*************************************************
+    }
 
+
+    /**
+     * 初始化云推送通道
+     * @param applicationContext
+     */
+    private void initCloudChannel(Context applicationContext) {
+        PushServiceFactory.init(applicationContext);
+            pushService = PushServiceFactory.getCloudPushService();
+             pushService.register(applicationContext, new CommonCallback() {
+            @Override
+            public void onSuccess(String response) {
+                Log.d(TAG, "init cloudchannel success");
+                Log.d(TAG+"getDeviceId", pushService.getDeviceId()+"");
+                AppConfig.getInstance().putString("deviceId",pushService.getDeviceId());
+            }
+            @Override
+            public void onFailed(String errorCode, String errorMessage) {
+                Log.d(TAG, "init cloudchannel failed -- errorcode:" + errorCode + " -- errorMessage:" + errorMessage);
+            }
+        });
     }
 
     private void initScreent() {

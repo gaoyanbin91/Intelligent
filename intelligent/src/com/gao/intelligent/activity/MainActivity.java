@@ -1,32 +1,45 @@
 package com.gao.intelligent.activity;
 
 import android.os.Build;
-import android.os.Bundle;
-import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
-import android.support.v4.app.FragmentStatePagerAdapter;
 import android.support.v4.view.ViewPager;
-import android.util.Log;
+import android.text.TextUtils;
+import android.view.LayoutInflater;
+import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
+import android.widget.ImageView;
+import android.widget.TabHost;
+import android.widget.TextView;
 
 import com.gao.intelligent.R;
 import com.gao.intelligent.base.BaseActivity;
-import com.gao.intelligent.fragment.ContactFragment;
-import com.gao.intelligent.fragment.HomeFragment;
-import com.gao.intelligent.fragment.MessageFragment;
-import com.gao.intelligent.fragment.MineFragment;
-import com.gao.intelligent.view.BottomBarItem;
-import com.gao.intelligent.view.BottomBarLayout;
+import com.gao.intelligent.fragment.DataShowFragment;
+import com.gao.intelligent.fragment.FaultSearchFragment;
+import com.gao.intelligent.fragment.MyFragment;
+import com.gao.intelligent.fragment.RealtimeFragment;
+import com.gao.intelligent.utils.AppConfig;
+import com.gao.intelligent.view.FragmentTabHost;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class MainActivity extends BaseActivity {
-    private ViewPager mVpContent;
-    private BottomBarLayout mBottomBarLayout;
-    private List<Fragment> mFragmentList = new ArrayList<>();
+import butterknife.BindView;
 
+public class MainActivity extends BaseActivity implements TabHost.OnTabChangeListener {
+
+    @BindView(android.R.id.tabhost)
+    FragmentTabHost tabhost;
+
+    private ViewPager mVpContent;
+    private String txvMenu[];
+    private int intImageViewArray2[];
+    /**
+     * 定义数组来存放Fragment界面
+     */
+    private Class fragmentArray[];
+
+    private List<View> badgeTargetList;
     @Override
     protected int provideContentViewId() {
         return R.layout.activity_main;
@@ -41,62 +54,48 @@ public class MainActivity extends BaseActivity {
                     WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS,
                     WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
         }
-        setSystemBar(false);
-        mVpContent =   findViewById(R.id.vp_content);
-        mBottomBarLayout =   findViewById(R.id.bbl);
-    }
-    public void initData() {
-        MessageFragment messageFragment = new MessageFragment();
-        Bundle bundle1 = new Bundle();
-        messageFragment.setArguments(bundle1);
-        mFragmentList.add(messageFragment);
-        HomeFragment homeFragment = new HomeFragment();
-        Bundle bundle2 = new Bundle();
-        homeFragment.setArguments(bundle2);
-        mFragmentList.add(homeFragment);
-        ContactFragment contactFragment = new ContactFragment();
-        Bundle bundle3 = new Bundle();
-        contactFragment.setArguments(bundle3);
-        mFragmentList.add(contactFragment);
-        MineFragment meFragment = new MineFragment();
-        Bundle bundle4 = new Bundle();
-        meFragment.setArguments(bundle4);
-        mFragmentList.add(meFragment);
-        initListener();
-    }
-    private void initListener() {
-        mVpContent.setAdapter(new MyAdapter(getSupportFragmentManager()));
+        setSystemBar(true);
+        if (TextUtils.isEmpty(AppConfig.getInstance().getString("type",""))){
+            intImageViewArray2 = new int[]{R.drawable.tab_home_bg, R.drawable.tab_fault_bg,   R.drawable.tab_my_bg};
+            fragmentArray = new Class[]{DataShowFragment.class,FaultSearchFragment.class,  MyFragment.class};
+            txvMenu = new String[]{getString(R.string.tab_home) ,getString(R.string.tab_fault),
+                    getString(R.string.tab_mine)};
 
-        mBottomBarLayout.setViewPager(mVpContent);
-        mBottomBarLayout.setCurrentItem(1);
-        mVpContent.setCurrentItem(1);
-       mBottomBarLayout.getBottomItem(0).setStatus(false);
-        mBottomBarLayout.setOnItemSelectedListener(new BottomBarLayout.OnItemSelectedListener() {
-            @Override
-            public void onItemSelected(final BottomBarItem bottomBarItem, int position) {
-                Log.i("TabActivity", "position: " + position);
-            }
-        });
+        }else {
+            intImageViewArray2 = new int[]{R.drawable.tab_home_bg,R.drawable.tab_fault_bg,R.drawable.tab_search_bg,    R.drawable.tab_my_bg};
+            fragmentArray = new Class[]{DataShowFragment.class,FaultSearchFragment.class, RealtimeFragment.class, MyFragment.class};
+            txvMenu = new String[]{getString(R.string.tab_home) ,getString(R.string.tab_fault),getString(R.string.tab_contact) ,
+                    getString(R.string.tab_mine)};
+        }
+        FragmentManager fragmentManager = getSupportFragmentManager();
+        int count = intImageViewArray2.length;
 
-        //   mBottomBarLayout.setUnread(0,20);//设置第一个页签的未读数为20
-        //  mBottomBarLayout.setUnread(1,1001);//设置第二个页签的未读数
-        //  mBottomBarLayout.showNotify(2);//设置第三个页签显示提示的小红点
-        //  mBottomBarLayout.setMsg(3,"NEW");//设置第四个页签显示NEW提示文字
-    }
-    class MyAdapter extends FragmentStatePagerAdapter {
-
-        public MyAdapter(FragmentManager fm) {
-            super(fm);
+        tabhost.setup(this, fragmentManager, R.id.realtabcontent);
+        badgeTargetList = new ArrayList<>();
+        for (int i = 0; i < count; i++) {
+            // 将Tab按钮添加进Tab选项卡中
+            View view = getTabItemView(i);
+            badgeTargetList.add(view);
+            tabhost.addTab(tabhost.newTabSpec(String.valueOf(i)).setIndicator(view), fragmentArray[i], null);
         }
 
-        @Override
-        public Fragment getItem(int position) {
-            return mFragmentList.get(position);
-        }
+        tabhost.getTabWidget().setDividerDrawable(getResources().getDrawable(R.color.white));
+        tabhost.setOnTabChangedListener(this);
 
-        @Override
-        public int getCount() {
-            return mFragmentList.size();
-        }
+    }
+
+
+
+    private View getTabItemView(int i) {
+        View view = LayoutInflater.from(this).inflate(R.layout.layout_tab_item, null);
+        ImageView mImageView = (ImageView) view.findViewById(R.id.icon);
+        TextView txv_menu = (TextView) view.findViewById(R.id.txv_menu);
+        txv_menu.setText(txvMenu[i]);
+        mImageView.setImageResource(intImageViewArray2[i]);
+        return view;
+    }
+    @Override
+    public void onTabChanged(String tabId) {
+
     }
 }

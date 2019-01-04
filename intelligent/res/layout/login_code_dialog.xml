@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content">
+
+    <LinearLayout
+        android:layout_marginRight="@dimen/mar_30"
+        android:background="@color/white"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/mar_30"
+        android:orientation="vertical"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true">
+         <TextView
+             android:layout_marginTop="@dimen/mar_10"
+             android:id="@+id/tv_dialog_title"
+             android:textSize="@dimen/text_18"
+             android:text="请输入手机验证码"
+             android:layout_width="match_parent"
+             android:layout_height="@dimen/mar_30"
+             android:gravity="center" />
+        <View
+            android:layout_marginTop="@dimen/mar_10"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="#E0E0E0"/>
+            <LinearLayout
+                android:id="@+id/lv1"
+                android:background="#EFEFF4"
+                android:layout_width="match_parent"
+                android:orientation="horizontal"
+                android:layout_height="@dimen/mar_40">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:text="验证码:"
+            android:textSize="@dimen/text_16"
+            android:gravity="center"
+            android:layout_marginLeft="@dimen/mar_10"
+            android:textColor="#929292"
+            />
+        <EditText
+            android:id="@+id/edtCodeNum"
+            android:layout_width="match_parent"
+            android:gravity="center|left"
+            android:textSize="@dimen/text_16"
+            android:textColor="@color/black"
+            android:background="@null"
+            android:maxLength="6"
+            android:inputType="number"
+            android:hint="请输入6位数字验证码"
+            android:layout_marginLeft="@dimen/mar_5"
+            android:layout_height="match_parent" />
+    </LinearLayout>
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="#E0E0E0"/>
+
+        <View
+            android:layout_marginTop="@dimen/mar_20"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="#E0E0E0"/>
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/mar_45">
+
+            <Button
+                android:id="@+id/btn_delete"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:textColor="#38ADFF"
+                android:textSize="@dimen/text_18"
+                android:background="@null"
+                android:text="退出应用"/>
+            <View
+                android:layout_width="1dp"
+                android:layout_height="match_parent"
+                android:background="#E0E0E0"/>
+            <Button
+                android:id="@+id/btn_submit"
+                android:background="@null"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:layout_height="match_parent"
+                android:text="重新登录"
+                android:textColor="#38ADFF"
+                android:textSize="@dimen/text_18" />
+        </LinearLayout>
+
+    </LinearLayout>
+</RelativeLayout>

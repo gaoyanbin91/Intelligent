@@ -1,6 +1,8 @@
 package com.gao.intelligent.activity;
 
 
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
@@ -18,34 +20,33 @@ import android.view.LayoutInflater;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.PopupWindow;
-import android.widget.RadioButton;
-import android.widget.RadioGroup;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.alibaba.fastjson.JSON;
+import com.gao.intelligent.MyApp;
 import com.gao.intelligent.R;
 import com.gao.intelligent.adapter.ImageViewVpAdapter;
 import com.gao.intelligent.api.ApiService;
 import com.gao.intelligent.base.BaseActivity;
 import com.gao.intelligent.config.Comm;
 import com.gao.intelligent.config.Global;
-import com.gao.intelligent.model.QueClassfiyBean;
+import com.gao.intelligent.model.EquipmentBean;
+import com.gao.intelligent.model.LeaderNameBean;
+import com.gao.intelligent.model.LineBean;
+import com.gao.intelligent.model.ResultBean;
 import com.gao.intelligent.utils.AppConfig;
 import com.gao.intelligent.utils.AppTools;
 import com.gao.intelligent.utils.FileUtil;
 import com.gao.intelligent.utils.GlideUtils;
 import com.gao.intelligent.utils.LogUtils;
 import com.gao.intelligent.utils.ToastUtils;
-import com.gao.intelligent.utils.UIUtils;
 import com.gao.intelligent.view.photo.PhotoPickerActivity;
 import com.gao.intelligent.view.photo.PhotoPickerIntent;
-import com.gao.intelligent.view.popupwindow.top.PopUpWindow;
 import com.yixia.camera.MediaRecorderBase;
 import com.zhaoshuang.weixinrecorded.MyVideoView;
 import com.zhaoshuang.weixinrecorded.RecordedActivity;
@@ -70,23 +71,14 @@ import okhttp3.Response;
 
 /**
  * Created by gaoyanbin on 2018/6/7.
- * 描述:
+ * 描述:新增问题页面
  */
-public class AddSeviceActivity extends BaseActivity implements   ImageViewVpAdapter.OnImageClick {
-    @BindView(R.id.btn_sound)
-    Button btn_sound;
+public class AddSeviceActivity extends BaseActivity implements ImageViewVpAdapter.OnImageClick {
+
     @BindView(R.id.edt_part_content)
     EditText mEditPartContents;
-    @BindView(R.id.edt_problem_name)
-    EditText edtProblemName;//问题名称
     @BindView(R.id.tex_classify)
-    TextView texClassify;//问题分类
-    @BindView(R.id.edt_code_num)
-    EditText edtCodeNum;//出厂编码
-    @BindView(R.id.edt_phone_num)
-    EditText edtPhoneNum;//手机号码
-    @BindView(R.id.rg_level)
-    RadioGroup rgLevel;//优先级
+    TextView texClassify;//问题设备
 
     @BindView(R.id.ll_imgv)
     LinearLayout mLinearLayout;
@@ -102,10 +94,21 @@ public class AddSeviceActivity extends BaseActivity implements   ImageViewVpAdap
     LinearLayout llClassFiy;
     @BindView(R.id.toolbar)
     Toolbar mToolbar;
+    @BindView(R.id.text_all)
+    TextView textAll;
+    @BindView(R.id.ll_line)
+    LinearLayout llLine;//选择产线
+    @BindView(R.id.tex_line_name)
+    TextView textLineName;//问题产线
+    @BindView(R.id.llPersonName)
+    LinearLayout llPersonName;
+    @BindView(R.id.texName)
+    TextView texName;
+    @BindView(R.id.edtTypeNum)
+            EditText edtTypeNum;
     String[] classfiyArray;
-    String videoPath, classfitID, levelID;//视频文件路劲
-    private RadioButton selectButton;//选中的优先级
-    private String levelText = "";//优先级
+    String[] lineArray;
+    String videoPath, classfitID,lineId,lineName,personSignID;//视频文件路劲
     private final static int IMAGE_CHOSE_REQUEST = 1000;
     private final static int IMAGE_CUT_REQUEST = 1001;
     private PopupWindow imagePopupWindow;
@@ -113,15 +116,19 @@ public class AddSeviceActivity extends BaseActivity implements   ImageViewVpAdap
     private TextView txv_page;
     private int vpNum = 0;
     private TextView mTittle;
-     private ImageViewVpAdapter imageViewVpAdapter;
+    private ImageViewVpAdapter imageViewVpAdapter;
     private List<String> imgvUrlList = new ArrayList<>();
     private List<File> imgFiles = new ArrayList<>();
     private static final MediaType MEDIA_TYPE_PNG = MediaType.parse("image/png");
     private static final MediaType MEDIA_VIDEO_TYPE_PNG = MediaType.parse("video/mp4");
-    private List<QueClassfiyBean> mLists = new ArrayList<>();
+    private List<EquipmentBean> mLists = new ArrayList<>();
+    private List<LineBean> mListLines = new ArrayList<>();
+    private List<LeaderNameBean.RowsBean> mListName = new ArrayList<>();
+    String[] mameArrays;
+
     @Override
     protected int provideContentViewId() {
-        return R.layout.activity_sound;
+        return R.layout.activity_add_service;
     }
 
     @Override
@@ -129,24 +136,57 @@ public class AddSeviceActivity extends BaseActivity implements   ImageViewVpAdap
         super.aidHandleMessage(what, type, obj);
         switch (what) {
             case 10004:
-                hideCustomProgressDialog();
-                LogUtils.d("LineDatas", obj);
-                if (obj.equals("401")) {
-                    ToastUtils.showShort("登录超时，请重新登录");
-                    startActivity(new Intent(this, LoginActivity.class));
-                    return;
-                }
-                LogUtils.i("分类数据", obj.toString());
-                mLists = JSON.parseArray(obj.toString(), QueClassfiyBean.class);
-                if (mLists.size() > 0) {
-                    // textViewLineName.setText(mList.get(0).getName());
-                    // lineID = mList.get(0).getId();
-                    classfiyArray = new String[mLists.size()];
-                    for (int i = 0; i < mLists.size(); i++) {
-                        classfiyArray[i] = mLists.get(i).getName();
-                    }
-                }
+                switch (type){
+                    case 10013:
+                        if (obj.equals("401")) {
+                            ToastUtils.showShort("登录超时，请重新登录");
+                            startActivity(new Intent(this, LoginActivity.class));
+                            return;
+                        }
+                        LogUtils.i("问题设备", obj.toString());
+                        mLists = JSON.parseArray(obj.toString(), EquipmentBean.class);
+                        if (mLists.size() > 0) {
+                            // textViewLineName.setText(mList.get(0).getName());
+                            // lineID = mList.get(0).getId();
+                            classfiyArray = new String[mLists.size()];
+                            for (int i = 0; i < mLists.size(); i++) {
+                                classfiyArray[i] = mLists.get(i).getName();
+                            }
+                        }
+                        break;
+                    case 10014:
+                        if (obj.equals("401")) {
+                            ToastUtils.showShort("登录超时，请重新登录");
+                            startActivity(new Intent(this, LoginActivity.class));
+                            return;
+                        }
+                        LogUtils.i("产线列表", obj.toString());
+                        mListLines = JSON.parseArray(obj.toString(), LineBean.class);
+                        if (mListLines.size() > 0) {
+                            // textViewLineName.setText(mList.get(0).getName());
+                            // lineID = mList.get(0).getId();
+                            lineArray = new String[mListLines.size()];
+                            for (int i = 0; i < mListLines.size(); i++) {
+                                lineArray[i] = mListLines.get(i).getName();
+                            }
+                        }
+                        break;
+                    case 10019:
+                        LogUtils.d("审批人列表", obj.toString());
 
+                        LeaderNameBean leaderNameBean = JSON.parseObject(obj.toString(), LeaderNameBean.class);
+                        if (leaderNameBean.getRows()!=null) {
+                            mListName = leaderNameBean.getRows();
+                            if (mListName.size()>0){
+                                mameArrays = new String[mListName.size()];
+                                for (int i=0;i<mListName.size();i++){
+                                    mameArrays[i] = mListName.get(i).getUserCname();
+                                }
+                            }
+                        }
+                        break;
+
+                }
                 break;
             case 10003:
                 // hideCustomProgressDialog();
@@ -154,8 +194,21 @@ public class AddSeviceActivity extends BaseActivity implements   ImageViewVpAdap
                 break;
         }
     }
+
     @Override
     public void initView() {
+        if (AppConfig.getInstance().getInt("lineSize",0)>0&&AppConfig.getInstance().getInt("lineSize",0)==1){
+            llLine.setVisibility(View.GONE);
+            lineId = AppConfig.getInstance().getString("lineId", "");
+            lineName = AppConfig.getInstance().getString("lineName", "");
+//            ToastUtils.showShort(lineId+"\n"+lineName);
+        }else {
+            llLine.setVisibility(View.VISIBLE);
+            HashMap<String, String> param1 = new HashMap<>();
+            param1.put("fjCustomerId",AppConfig.getInstance().getString("customerId",""));
+            sendHttpGet(ApiService.QUERY_LINE_DATAS, param1, 10014);
+        }
+        textAll.setText("0/300");
         mToolbar.setNavigationOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -163,28 +216,13 @@ public class AddSeviceActivity extends BaseActivity implements   ImageViewVpAdap
             }
         });
         HashMap<String, String> param = new HashMap<>();
-        param.put("code", "wtfl");
-        sendHttpGet(ApiService.QUERY_QUS_CLASSFIY, param, 10003);
-        rgLevel.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
-            @Override
-            public void onCheckedChanged(RadioGroup group, int checkedId) {
-                selectButton = (RadioButton) findViewById(rgLevel.getCheckedRadioButtonId());
-                levelText = selectButton.getText().toString();
-                if (levelText.equals("重要")) {
-                    levelID = "0";
-                } else if (levelText.equals("一般")) {
-                    levelID = "1";
-                } else if (levelText.equals("标准")) {
-                    levelID = "2";
-                }
-                if (!TextUtils.isEmpty(levelText) && !TextUtils.isEmpty(edtProblemName.getText()) && !TextUtils.isEmpty(mEditPartContents.getText())
-                        && !TextUtils.isEmpty(texClassify.getText())&&!TextUtils.isEmpty(edtPhoneNum.getText().toString())) {
-                    txvSubmit.setBackgroundResource(R.drawable.bg_btn_face_enable);
-                } else {
-                    txvSubmit.setBackgroundResource(R.drawable.bg_btn_face_disable);
-                }
-            }
-        });
+        param.put("code", "cpfl");
+        sendHttpGet(ApiService.QUERY_QUS_CLASSFIY, param, 10013);
+
+        HashMap<String, String> code = new HashMap<>();
+//        code.put("code", AppConfig.getInstance().getString("authority", ""));
+        sendHttpGet(ApiService.QUERY_LADER_NAMES,code ,10019);
+
         mTittle = findViewById(R.id.mTitle);
         imageViewVpAdapter = new ImageViewVpAdapter(this, new ArrayList<String>());
         imageViewVpAdapter.setOnImageClick(this);
@@ -201,104 +239,100 @@ public class AddSeviceActivity extends BaseActivity implements   ImageViewVpAdap
 
             @Override
             public void afterTextChanged(Editable s) {
-                if (!TextUtils.isEmpty(levelText) && !TextUtils.isEmpty(edtProblemName.getText()) && !TextUtils.isEmpty(mEditPartContents.getText())
-                        && !TextUtils.isEmpty(texClassify.getText())&&!TextUtils.isEmpty(edtPhoneNum.getText().toString())) {
+                textAll.setText(s.length() + "/300");
+                if (!TextUtils.isEmpty(mEditPartContents.getText())) {
                     txvSubmit.setBackgroundResource(R.drawable.bg_btn_face_enable);
                 } else {
                     txvSubmit.setBackgroundResource(R.drawable.bg_btn_face_disable);
                 }
             }
         };
-        edtPhoneNum.addTextChangedListener(textWatcher);
-        edtProblemName.addTextChangedListener(textWatcher);
         mEditPartContents.addTextChangedListener(textWatcher);
-        texClassify.addTextChangedListener(textWatcher);
         showSelectImgv();
         texClassify.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 if (mLists.size() > 0) {
-                    showFilterPop(1, classfiyArray, texClassify, llClassFiy);//选择产线
+                    ShowChoise("0",classfiyArray, texClassify, "请选择问题设备");
+//                    showFilterPop(1, classfiyArray, texClassify, llClassFiy);//选择产线
+                }else {
+                    HashMap<String, String> param = new HashMap<>();
+                    param.put("code", "cpfl");
+                    sendHttpGet(ApiService.QUERY_QUS_CLASSFIY, param, 10013);
+                    ToastUtils.showShort("请检查网络");
                 }
+            }
+        });
+        llLine.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                ShowChoise("1",lineArray, textLineName, "请选择问题产线");
+
+            }
+        });
+
+        llPersonName.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                 ShowChoise("2",mameArrays,texName,"请选择审批人员");
             }
         });
         ivVedio.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent( AddSeviceActivity.this, RecordedActivity.class);
+                Intent intent = new Intent(AddSeviceActivity.this, RecordedActivity.class);
                 startActivityForResult(intent, 0);
             }
         });
 
     }
 
-    private void showFilterPop(final int flag, final String[] arr, final TextView lineName, final View view) {
-        PopUpWindow popupWindow = new PopUpWindow(AddSeviceActivity.this, arr, null, view);
-        popupWindow.setShowLocationYourself(true);
-        popupWindow.showPopUpWindow(new PopUpWindow.OnitemClickListener() {
-            @Override
-            public void onItemClick(int position) {
-                texClassify.setText(arr[position]);
-                classfitID = mLists.get(position).getCode();
-                // ToastUtils.showShort(classfitID);
-            }
 
-            @Override
-            public void onshowLocation(PopupWindow popupWindow) {
-                popupWindow.showAsDropDown(view, 0, 0);
-            }
-        });
-    }
     @OnClick(R.id.txv_submit)
     public void submitDatas() {
-
         Map<String, String> params = new HashMap<>();
-        if (TextUtils.isEmpty(levelID)) {
-            ToastUtils.showShort("请选择优先级");
-            return;
-        }
-        params.put("priority", levelID);//优先级
-
-        if (TextUtils.isEmpty(edtProblemName.getText().toString())) {
-            ToastUtils.showShort("请输入问题名称");
-            return;
-        }
-        if (TextUtils.isEmpty(edtPhoneNum.getText().toString())){
-            ToastUtils.showShort("请输入手机号码");
-            return;
-        }
-        params.put("name", edtProblemName.getText().toString());//问题名称
-        params.put("fjCustomerId", AppConfig.getInstance().getString("fjCustomerId", ""));//xian
-
-        params.put("fjProductionLineId", getIntent().getStringExtra("lineID"));//产线
-        if (TextUtils.isEmpty(classfitID)) {
+//        params.put("lineId", AppConfig.getInstance().getString("fjCustomerId", ""));//xian
+//        params.put("fjProductionLineId", getIntent().getStringExtra("lineID"));//产线
+        if (TextUtils.isEmpty(texClassify.getText().toString())) {
             ToastUtils.showShort("请选择问题分类");
             return;
         }
-        if (!UIUtils.isMobileNO(edtPhoneNum.getText().toString())){
-            ToastUtils.showShort("手机号码格式错误");
-            return;
-        }
-        params.put("type", classfitID);//问题分类
-        if (!TextUtils.isEmpty(edtCodeNum.getText().toString())) {
-            params.put("code", edtCodeNum.getText().toString());//出厂编码
-        }
-        if (!TextUtils.isEmpty(edtPhoneNum.getText().toString())) {
-            if (!UIUtils.isMobileNO(edtPhoneNum.getText().toString())) {
-                ToastUtils.showShort("手机号码格式错误");
-                return;
-            }
-            params.put("phone", edtPhoneNum.getText().toString());//手机号码
-        }
+
+//        params.put("type", classfitID);//问题分类
+
         if (TextUtils.isEmpty(mEditPartContents.getText().toString())) {
             ToastUtils.showShort("请输入问题详情");
             return;
         }
-        params.put("content", mEditPartContents.getText().toString());//问题详情
-        LogUtils.e("提交数据1", levelID);
-        LogUtils.e("提交数据2", edtProblemName.getText().toString());
+        if (TextUtils.isEmpty(personSignID)){
+            ToastUtils.showShort("请选择审批人");
+            return;
+        }
+        if (!TextUtils.isEmpty(edtTypeNum.getText().toString())){
+            params.put("compoentNum",  edtTypeNum.getText().toString());//
+
+            LogUtils.d("compoentNum", edtTypeNum.getText().toString());
+        }
+        params.put("processState",  "0");//当前位置
+//        params.put("leaderId", AppConfig.getInstance().getString("customerId",""));//当前处理人id
+//        params.put("leaderName", AppConfig.getInstance().getString("usercname",""));//当前处理人name
+//        params.put("state",  "0");//流程操作状态
+//        params.put("nextState",  "1");//下一转发位置
+
+//        params.put("lineId", lineId);//产线id
+        params.put("lineName", lineName);//产线name
+//        params.put("remark", lineName);//产线name
+//        params.put("introducerTel", AppConfig.getInstance().getString("mobile","") );//提交人联系电话
+//        params.put("introducerId",  AppConfig.getInstance().getString("userId",""));//提出人id
+//        params.put("introducerName",  AppConfig.getInstance().getString("usercname","") );//  提出人名字
+        params.put("questionDescribe", mEditPartContents.getText().toString());//问题描述
+        params.put("equipType", texClassify.getText().toString());// 机器设备分类
+        params.put("factoryId",AppConfig.getInstance().getString("sysOrgId","") );// 厂家id
+        params.put("factoryName", AppConfig.getInstance().getString("sysOrgName",""));//厂家名称
+        params.put("customerLeaderId",  personSignID);// 审批人ID
+
+
         LogUtils.e("提交数据3", AppConfig.getInstance().getString("fjCustomerId", ""));
-        LogUtils.e("提交数据4", edtCodeNum.getText().toString());
         LogUtils.e("提交数据5", mEditPartContents.getText().toString());
         /**
          * 提交数据
@@ -309,7 +343,6 @@ public class AddSeviceActivity extends BaseActivity implements   ImageViewVpAdap
 
     /**
      * 提交数据
-     *
      * @param reqUrl
      * @param params
      * @param pic_key
@@ -322,9 +355,7 @@ public class AddSeviceActivity extends BaseActivity implements   ImageViewVpAdap
         //遍历map中所有参数到builder
         if (params != null) {
             for (String key : params.keySet()) {
-
                 multipartBodyBuilder.addFormDataPart(key, params.get(key));
-
             }
         }
         //遍历paths中所有图片绝对路径到builder，并约定key如“upload”作为后台接受多张图片的key
@@ -353,18 +384,31 @@ public class AddSeviceActivity extends BaseActivity implements   ImageViewVpAdap
                 LogUtils.e("上传", call.request().body().toString());
                 hideCustomProgressDialog();
                 ToastUtils.showShort("提交失败");
-
             }
 
             @Override
-            public void onResponse(Call call, Response response) throws IOException {
+            public void onResponse(Call call, final Response response) throws IOException {
                 LogUtils.i("上传", response);
+//                String responseData=response.body().string();
+//                LogUtils.i("fengqianz",responseData);
                 hideCustomProgressDialog();
                 if (response.code() == 200) {
                     new Thread() {
                         public void run() {
                             Looper.prepare();
-                            ToastUtils.showShort("提交成功");
+                            try {
+                                String responseData=response.body().string();
+                                LogUtils.i("fengqianz",responseData);
+                                ResultBean resultBean = JSON.parseObject(responseData, ResultBean.class);
+                                if (resultBean.getResultCode().equals("1")){
+                                    ToastUtils.showShort("提交成功");
+                                    MyApp.getInstance().setType(true);
+
+                                    finish();
+                                }
+                            } catch (IOException e) {
+                                e.printStackTrace();
+                            }
                             Looper.loop();// 进入loop中的循环，查看消息队列
                         }
 
@@ -377,13 +421,37 @@ public class AddSeviceActivity extends BaseActivity implements   ImageViewVpAdap
         });
     }
 
+    private void ShowChoise(final String flag, final String[] items, final TextView textView, String title) {
+
+        AlertDialog.Builder builder = new AlertDialog.Builder(baseContext, R.style.CustomAlertDialogBackground);
+        //builder.setIcon(R.drawable.ic_launcher);
+        builder.setTitle(title);
+        //    指定下拉列表的显示数据
+        //  final String[] majors = {"电气", "动力", "给排水", "电气低压"};
+        //    设置一个下拉的列表选择项
+        builder.setItems(items, new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                textView.setText(items[which]);
+//                lineId = mListLines.get(which).getId();
+                if (flag.equals("1")){
+                    lineId = mListLines.get(which).getId();
+                    lineName = mListLines.get(which).getName();
+                }
+                if (flag.equals("2")){
+                    personSignID = mListName.get(which).getId();
+                }
+            }
+        });
+        builder.show();
+    }
+
     /**
      * 显示图片
      */
     private void showSelectImgv() {
         mLinearLayout.removeAllViews();
         for (final String url : imgvUrlList) {
-
             View view = LayoutInflater.from(this).inflate(R.layout.layout_imgv_faceback, null);
             ImageView imgv_face = (ImageView) view.findViewById(R.id.imgv_face);
             View rl_pic = view.findViewById(R.id.rl_pic);
@@ -400,11 +468,13 @@ public class AddSeviceActivity extends BaseActivity implements   ImageViewVpAdap
                     vpNum = imgvUrlList.size();
                     imageViewVpAdapter.setData(imgvUrlList);
                     //   vp_photos.setCurrentItem(clickPositon);
-                    //   txv_page.setText((clickPositon + 1) + "/" + vpNum);
+//                    txv_page.setText((1) + "/" + vpNum);
                     imagePopupWindow.showAtLocation(mTittle, Gravity.BOTTOM, 0, 0);
 
                 }
             });
+
+
             imgv_del.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
@@ -449,7 +519,8 @@ public class AddSeviceActivity extends BaseActivity implements   ImageViewVpAdap
             vp_photos.addOnPageChangeListener(new ViewPager.OnPageChangeListener() {
                 @Override
                 public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
-
+//                    ToastUtils.showShort(position+"");
+//                    txv_page.setText((position + 1) + "/" + vpNum);
                 }
 
                 @Override
@@ -543,13 +614,13 @@ public class AddSeviceActivity extends BaseActivity implements   ImageViewVpAdap
 
     @Override
     public View[] filterViewByIds() {
-        View[] views = {edtProblemName, mEditPartContents, edtPhoneNum, edtCodeNum};
+        View[] views = {mEditPartContents};
         return views;
     }
 
     @Override
     public int[] hideSoftByEditViewIds() {
-        int[] ids = {R.id.edt_part, R.id.edt_part_content, R.id.edt_phone_num, R.id.edt_code_num};
+        int[] ids = {R.id.edt_part_content};
         return ids;
     }
 

@@ -54,7 +54,7 @@
                 android:layout_width="@dimen/mar_50"
                 android:layout_height="@dimen/mar_50"
                 android:layout_marginLeft="@dimen/mar_20"
-                android:src="@mipmap/icon_app"/>
+                android:src="@mipmap/champagne_bin"/>
 
             <TextView
                 android:id="@+id/tw_username"

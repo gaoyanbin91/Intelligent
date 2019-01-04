@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+                android:fitsSystemWindows="true" >
+
+    <com.gao.intelligent.view.sign.SignatureView
+        android:id="@+id/signature_pad"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_above="@+id/ll" />
+
+    <LinearLayout
+        android:id="@+id/ll"
+        android:gravity="center"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/mar_50"
+        android:layout_alignParentBottom="true"
+        android:orientation="horizontal">
+        <RelativeLayout
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="match_parent">
+            <Button
+                android:id="@+id/clear"
+                android:layout_width="wrap_content"
+                android:textColor="@color/white"
+                android:layout_centerInParent="true"
+                android:background="@drawable/background_newlogin_gobutton_gray"
+                android:textSize="@dimen/text_16"
+                android:layout_height="@dimen/mar_40"
+                android:text="清除" />
+        </RelativeLayout>
+        <RelativeLayout
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="match_parent">
+            <Button
+                android:id="@+id/button"
+                android:layout_centerInParent="true"
+                android:layout_width="wrap_content"
+                android:textSize="@dimen/text_16"
+                android:textColor="@color/white"
+                android:background="@drawable/background_newlogin_gobutton_gray"
+                android:layout_height="@dimen/mar_40"
+                android:text="确定" />
+        </RelativeLayout>
+
+    </LinearLayout>
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="wrap_content"
+        android:layout_height="@dimen/mar_45"
+        android:background="@color/white"
+        android:elevation="0dp"
+        android:gravity="left"
+        android:minHeight="@dimen/mar_45"
+        app:navigationIcon="@mipmap/back_black"
+        app:title="">
+    </android.support.v7.widget.Toolbar>
+    <TextView
+        android:id="@+id/texHint"
+        android:layout_width="match_parent"
+        android:hint="请签写您的姓名"
+        android:gravity="center"
+        android:textColorHint="@color/text_hint"
+        android:textSize="50sp"
+        android:layout_height="match_parent"/>
+
+</RelativeLayout>

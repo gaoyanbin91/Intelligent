@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="@dimen/mar_50">
+
+    <RelativeLayout
+        android:id="@+id/addview"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:paddingLeft="10dp"
+        android:paddingRight="10dp"
+        android:layout_centerHorizontal="true">
+
+        <ImageView
+            android:id="@+id/icon"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:contentDescription="@null"
+            android:layout_centerHorizontal="true"
+            android:src="@drawable/tab_my_bg"
+            android:tag="TAB_ICON" />
+
+        <TextView
+            android:id="@+id/txv_menu"
+            android:layout_width="wrap_content"
+            android:layout_height="@dimen/mar_20"
+            android:text="精选"
+            android:textSize="12sp"
+            android:visibility="visible"
+            android:textColor="@color/menu_text_color"
+            android:layout_centerHorizontal="true"
+            android:layout_below="@+id/icon"
+            android:contentDescription="@null"
+            android:tag="TAB_ICON" />
+    </RelativeLayout>
+</RelativeLayout>

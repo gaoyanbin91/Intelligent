@@ -18,6 +18,34 @@ public class LoginBean implements Serializable {
     private String token;
     private String success;
     private String desc;
+    private String status;
+    private String currentAuthority;
+    private String type;
+
+    public void setStatus(String status) {
+        this.status = status;
+    }
+
+    public void setCurrentAuthority(String currentAuthority) {
+        this.currentAuthority = currentAuthority;
+    }
+
+    public void setType(String type) {
+        this.type = type;
+    }
+
+    public String getStatus() {
+
+        return status;
+    }
+
+    public String getCurrentAuthority() {
+        return currentAuthority;
+    }
+
+    public String getType() {
+        return type;
+    }
 
     public String getSuccess() {
         return success;

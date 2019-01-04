@@ -1,12 +1,16 @@
 package com.gao.intelligent.activity;
 
+import android.app.Dialog;
 import android.content.Intent;
+import android.graphics.drawable.ColorDrawable;
+import android.support.v7.widget.Toolbar;
 import android.text.Editable;
 import android.text.InputFilter;
 import android.text.InputType;
 import android.text.TextUtils;
 import android.text.TextWatcher;
 import android.view.View;
+import android.view.Window;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
@@ -46,6 +50,10 @@ public class LoginActivity extends BaseActivity implements TextWatcher {
     @BindView(R.id.login_button)
     Button loginButton;//登录按钮
     LoginBean loginBean;
+    @BindView(R.id.toolbar)
+    Toolbar mToolbar;
+    private Button btndelete,btnSave;
+    private EditText edtCodeNum;
 
     @Override
     protected int provideContentViewId() {
@@ -53,26 +61,38 @@ public class LoginActivity extends BaseActivity implements TextWatcher {
     }
 
     @Override
-    public void aidHandleMessage(int what,int type, Object obj) {
-        super.aidHandleMessage(what, type,obj);
+    public void aidHandleMessage(int what, int type, Object obj) {
+        super.aidHandleMessage(what, type, obj);
         switch (what) {
 
             case 10004:
                 hideCustomProgressDialog();
                 loginButton.setEnabled(true);
                 LogUtils.d("Success", obj);
-                  Gson gson = new Gson();
-                  loginBean=  gson.fromJson(obj.toString(), LoginBean.class);
+                Gson gson = new Gson();
+                loginBean = gson.fromJson(obj.toString(), LoginBean.class);
                 //LoginBean loginBean = JSON.parseObject(obj.toString(), LoginBean.class);
-                ToastUtils.showShort(loginBean.getSuccess());
-                LogUtils.i("Success",loginBean.getDesc());
-                if (!TextUtils.isEmpty(loginBean.getSuccess())&&loginBean.getSuccess().equals("true")) {
+//                ToastUtils.showShort(loginBean.getSuccess());
+//                LogUtils.i("Success", loginBean.getDesc());
+                if (!TextUtils.isEmpty(loginBean.getCurrentAuthority())) {
                     AppConfig.getInstance().putString("token", loginBean.getToken());
-                    ToastUtils.showShort(loginBean.getDesc());
+                    AppConfig.getInstance().putString("authority", loginBean.getCurrentAuthority());
+                    if (!TextUtils.isEmpty(loginBean.getType())){
+                        AppConfig.getInstance().putString("type", loginBean.getType());
+                    }
+                    ToastUtils.showShort(loginBean.getStatus());
                     startActivity(new Intent(LoginActivity.this, MainActivity.class));
                     finish();
-                }else {
-                    ToastUtils.showShort(loginBean.getDesc());
+                }
+//                else if (loginBean.getType().equals("2")){
+//                    ToastUtils.showShort("验证码已发送");
+//                    loginButton.setClickable(false);
+//                    loginButton.setBackgroundResource(R.drawable.background_newlogin_gobutton_gray);
+//                    showDialog();
+//
+//                }
+               else {
+                    ToastUtils.showShort(loginBean.getStatus());
                 }
                 //tvF.setText( obj.toString());
                 break;
@@ -84,9 +104,54 @@ public class LoginActivity extends BaseActivity implements TextWatcher {
                 break;
         }
     }
+    public void showDialog() {
+        final Dialog alertDialog = new Dialog( baseContext);
+        alertDialog.show();
+        Window window = alertDialog.getWindow();
+        window.setBackgroundDrawable(new ColorDrawable(0));
+        window.setContentView(R.layout.login_code_dialog);
+        alertDialog.setCanceledOnTouchOutside(false);// 设置点击屏幕Dialog不消失
+        btndelete = (Button) window.findViewById(R.id.btn_delete);
+        btnSave = (Button) window.findViewById(R.id.btn_submit);
+        btnSave.setEnabled(true);
+        edtCodeNum = (EditText) window.findViewById(R.id.edtCodeNum);
 
+        btndelete.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                alertDialog.dismiss();
+            }
+        });
+        btnSave.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (!TextUtils.isEmpty(edtCodeNum.getText().toString())){
+                    showProgressDialog("重新登陆...");
+                    HashMap<String, String> loginMap = new HashMap<>();
+                    loginMap.put("username", mobileEditText.getText().toString());
+                    loginMap.put("password", pwdEditText.getText().toString());
+                    loginMap.put("deviceId", AppConfig.getInstance().getString("deviceId",""));
+                    loginMap.put("verification",  edtCodeNum.getText().toString());
+                    sendHttpPost(ApiService.LOGIN_UP, loginMap, 10000);
+                    alertDialog.dismiss();
+                }else {
+                    ToastUtils.showShort("验证码不能为空");
+                }
+
+
+
+            }
+        });
+    }
     @Override
     public void initView() {
+        mToolbar.setNavigationOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish();
+
+            }
+        });
         if (AppConfig.getInstance().getString("username", "") != null) {
             mobileEditText.setText(AppConfig.getInstance().getString("username", ""));
         }
@@ -123,18 +188,16 @@ public class LoginActivity extends BaseActivity implements TextWatcher {
 
     }
 
-    @OnClick({R.id.pwd_forget_textview, R.id.login_button, R.id.phone_delte_imageview, R.id.toolbar, R.id.clear_pwd_imageview, R.id.showpwd_imageview})
+    @OnClick({R.id.pwd_forget_textview, R.id.login_button, R.id.phone_delte_imageview , R.id.clear_pwd_imageview, R.id.showpwd_imageview})
     public void onClick(View view) {
         switch (view.getId()) {
             case R.id.pwd_forget_textview:
                 //    showProgressDialog();
                 //   showProgressDialog("正在登录..");
+                startActivity(new Intent(baseContext, ForgetPsdActivity.class));
+//                ToastUtils.showShort("忘记密码");
+                break;
 
-                ToastUtils.showShort("忘记密码");
-                break;
-            case R.id.toolbar://返回
-                finish();
-                break;
             case R.id.phone_delte_imageview://清空输入账号
                 mobileEditText.setText("");
 
@@ -143,7 +206,7 @@ public class LoginActivity extends BaseActivity implements TextWatcher {
                 pwdEditText.setText(String.valueOf(""));
                 break;
             case R.id.login_button://登录按钮
-
+//                showDialog();
                 loginOn();
 
                 //startActivity(new Intent(this,TabActivity.class));
@@ -176,6 +239,7 @@ public class LoginActivity extends BaseActivity implements TextWatcher {
         HashMap<String, String> loginMap = new HashMap<>();
         loginMap.put("username", mobileEditText.getText().toString());
         loginMap.put("password", pwdEditText.getText().toString());
+        loginMap.put("deviceId", AppConfig.getInstance().getString("deviceId",""));
         sendHttpPost(ApiService.LOGIN_UP, loginMap, 10000);
         AppConfig.getInstance().putString("username", mobileEditText.getText().toString());
         AppConfig.getInstance().putString("password", pwdEditText.getText().toString());

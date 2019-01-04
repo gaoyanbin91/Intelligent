@@ -185,8 +185,8 @@ public abstract class BaseActivity extends AppCompatActivity {
         try {
             HashMap<String, String> heard = new HashMap<>();
             heard.put("token", AppConfig.getInstance().getString("token", ""));
-            // LibraryLogUtils.info("GET请求url==>" + url+map.get("id"));
-            LogUtils.info("GET请求token==>" + AppConfig.getInstance().getString("token", ""));
+             LogUtils.info("GET请求url==>" + url+map.get("id"));
+             LogUtils.info("GET请求token==>" + AppConfig.getInstance().getString("token", ""));
 
             (new  OkHttpRequest.Builder()).url(url).params(map).headers(heard).get(new ResultCallback<String>() {
                 @Override

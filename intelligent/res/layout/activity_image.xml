@@ -42,7 +42,7 @@
     <com.gao.intelligent.view.ZoomImageView
         android:layout_centerInParent="true"
         android:id="@+id/iv_big_image"
-        android:src="@mipmap/icon_app"
+        android:src="@mipmap/champagne_bin"
         android:layout_width="match_parent"
         android:layout_height="match_parent"/>
 

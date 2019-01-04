@@ -38,10 +38,10 @@ import okio.ByteString;
  */
 public class RealtimeMonitorActivity extends BaseActivity {
 
-//    @BindView(R.id.rl_no_data)
+    //    @BindView(R.id.rl_no_data)
 //    View rlNoData;//暂无数据
-  //  @BindView(R.id.listview_data)
- //   GridView listviewData;// 动态数据
+    //  @BindView(R.id.listview_data)
+    //   GridView listviewData;// 动态数据
     @BindView(R.id.mTitle)
     TextView mTitleName;
 
@@ -82,21 +82,21 @@ public class RealtimeMonitorActivity extends BaseActivity {
     TextView text15;//月气能耗
     @BindView(R.id.text_16)
     TextView text16;//班气能耗
-
-   // private String stringData = "";
+    @BindView(R.id.text_1_1)
+    TextView text1_1;//产品卷号
+    // private String stringData = "";
     private String lineID;
     private List<LineParamBean.RowsBean> mParamsLists = new ArrayList<>();
     private String dataID = "";
-    String changMessage,changMessage1,scodeId;
+    String changMessage, changMessage1, scodeId;
     private WebSocket mSocket;
     //private LineParamAdapter mAdapter;
     KeyBean keyBean;
     KeyBean keyBean1;
-    private  int count = 10;
+    private int count = 10;
     @BindView(R.id.toolbar)
     Toolbar toolbar;
-    @BindView(R.id.text_1_1)
-    TextView text1_1;//产品卷号
+
     @Override
     protected int provideContentViewId() {
         return R.layout.activity_realtime_monitor;
@@ -110,21 +110,23 @@ public class RealtimeMonitorActivity extends BaseActivity {
                 finish();
             }
         });
-        if (getIntent().getStringExtra("lineID") != null) {
-            lineID = getIntent().getStringExtra("lineID");
-        }
-        if (getIntent().getStringExtra("lineName") != null) {
-            mTitleName.setText(getIntent().getStringExtra("lineName"));
-
-        }
+//        if (getIntent().getStringExtra("lineID") != null) {
+//            lineID = getIntent().getStringExtra("lineID");
+//        }
+//        if (getIntent().getStringExtra("lineName") != null) {
+//            mTitleName.setText(getIntent().getStringExtra("lineName"));
+//
+//        }
         // sendHttpGet(ApiService.QUERY_VENDER_LIST,new HashMap<String, String>(),);
-        showProgressDialog("加载中...");
+//        showProgressDialog();
         HashMap<String, String> apiParam = new HashMap<>();
-        apiParam.put("fjProductionLineId", lineID);
+//        LogUtils.d("lineid", lineID);
+
+        apiParam.put("fjProductionLineId", "402881e85ad53f8a015ad5ad3a000002");
         /**
          * 获取参数ids
          */
-        sendHttpGet(ApiService.QUERY_LINE_DATAS, apiParam, 1111);
+        sendHttpGet(ApiService.QUERY_LINE_VALUES, apiParam, 1111);
     }
 
     /**
@@ -137,7 +139,7 @@ public class RealtimeMonitorActivity extends BaseActivity {
                 .writeTimeout(3, TimeUnit.SECONDS)//设置写的超时时间
                 .connectTimeout(3, TimeUnit.SECONDS)//设置连接超时时间
                 .build();
-        Request request = new Request.Builder().url("ws:/"+ApiService.base+"websocket/androidConfig").build();
+        Request request = new Request.Builder().url("ws:/" + ApiService.base + "websocket/androidConfig").build();
         EchoWebSocketListener socketListener = new EchoWebSocketListener();
         mOkHttpClient.newWebSocket(request, socketListener);
         mOkHttpClient.dispatcher().executorService().shutdown();
@@ -164,27 +166,33 @@ public class RealtimeMonitorActivity extends BaseActivity {
             super.onMessage(webSocket, text);
             hideProgressDialog();
             //收到服务器端发送来的信息后，每隔25秒发送一次心跳包
-            LogUtils.i("实时刷新数据"+count, text);
+            LogUtils.i("实时刷新数据" + count, text);
             output(text);
             Timer timer = new Timer();
             timer.schedule(new TimerTask() {
                 @Override
                 public void run() {
-                  //  ToastUtils.showShort(scodeId+"code");
+                    //  ToastUtils.showShort(scodeId+"code");
                     count++;
-                    if (scodeId!=null&&scodeId.equals("0011")&&count>9){
+                    if (scodeId != null && scodeId.equals("0011") && count > 9) {
                         count = 0;
+                        LogUtils.i("ssss",changMessage+count);
                         mSocket.send(changMessage1);
-                    }else {
+//                        mSocket.send(new File());
+                    } else {
+                        LogUtils.i("ssss1",changMessage+count);
                         mSocket.send(changMessage);
+
                     }
                 }
             }, 1500);
         }
+
         @Override
         public void onClosed(WebSocket webSocket, int code, String reason) {
             super.onClosed(webSocket, code, reason);
         }
+
         @Override
         public void onClosing(WebSocket webSocket, int code, String reason) {
             super.onClosing(webSocket, code, reason);
@@ -231,25 +239,25 @@ public class RealtimeMonitorActivity extends BaseActivity {
                             }
                         }
                     }
-                }else {
+                } else {
                     ArrayList<LineValueBean.DataBean> mLists = (ArrayList<LineValueBean.DataBean>) lineValueBean.getData();
                     if (mLists != null) {
                         for (int i = 0; i < mLists.size(); i++) {
                             if (mLists.get(i).getName() != null && mLists.get(i).getName().equals("月产量")) {
                                 text9.setText(Utils.formateRate(mLists.get(i).getValue()) + " " + mLists.get(i).getVarunit());
-                            }else if (mLists.get(i).getName() != null && mLists.get(i).getName().equals("月水消耗")) {
+                            } else if (mLists.get(i).getName() != null && mLists.get(i).getName().equals("月水消耗")) {
                                 text11.setText(mLists.get(i).getValue() + " " + mLists.get(i).getVarunit());
                             } else if (mLists.get(i).getName() != null && mLists.get(i).getName().equals("月电消耗")) {
                                 text13.setText(mLists.get(i).getValue() + " " + mLists.get(i).getVarunit());
                             } else if (mLists.get(i).getName() != null && mLists.get(i).getName().equals("月气消耗")) {
                                 text15.setText(mLists.get(i).getValue() + " " + mLists.get(i).getVarunit());
-                            }else if (mLists.get(i).getName() != null && mLists.get(i).getName().equals("班气消耗")) {
+                            } else if (mLists.get(i).getName() != null && mLists.get(i).getName().equals("班气消耗")) {
                                 text16.setText(mLists.get(i).getValue() + " " + mLists.get(i).getVarunit());
                             } else if (mLists.get(i).getName() != null && mLists.get(i).getName().equals("班产量")) {
                                 text10.setText(Utils.formateRate(mLists.get(i).getValue()) + " " + mLists.get(i).getVarunit());
                             } else if (mLists.get(i).getName() != null && mLists.get(i).getName().equals("班水消耗")) {
                                 text12.setText(mLists.get(i).getValue() + " " + mLists.get(i).getVarunit());
-                            }else if (mLists.get(i).getName() != null && mLists.get(i).getName().equals("班电消耗")) {
+                            } else if (mLists.get(i).getName() != null && mLists.get(i).getName().equals("班电消耗")) {
                                 text14.setText(mLists.get(i).getValue() + " " + mLists.get(i).getVarunit());
                             }
                         }
@@ -283,7 +291,9 @@ public class RealtimeMonitorActivity extends BaseActivity {
                         keyBean.setStype("0");
                         keyBean.setRemark(lineID);
                         KeyBean.SdataBean m = new KeyBean.SdataBean();
-                        m.setIds(dataID+ lineID + "ZX_YLPB1,"+ lineID + "ZX_YLPB2," + lineID + "ZX_YLPB3," + lineID + "ZX_CPJH," + lineID + "ZX_CPDDH," + lineID + "ZX_CPKZ," + lineID + "ZX_CPFK," +
+                        m.setIds(dataID + lineID + "ZX_YLPB1," + lineID + "ZX_YLPB2," + lineID + "ZX_YLPB3,"
+                                + lineID + "ZX_CPJH," +
+                                lineID + "ZX_CPDDH," + lineID + "ZX_CPKZ," + lineID + "ZX_CPFK," +
                                 lineID + "ZX_YZSC," + lineID + "ZX_YZL," +
                                 lineID + "ZX_YCL," + lineID + "ZX_YSNH,"
                                 + lineID + "ZX_YDNH," + lineID + "ZX_YQNH," +
@@ -296,14 +306,14 @@ public class RealtimeMonitorActivity extends BaseActivity {
                         keyBean1.setScode("A1004");
                         keyBean1.setStype("0");
                         KeyBean.SdataBean n = new KeyBean.SdataBean();
-                        n.setIds(lineID);
+                        n.setIds("402881e85ad53f8a015ad5ad3a000002");
                         keyBean1.setSdata(n);
                         changMessage1 = new Gson().toJson(keyBean1);
                     } else {
                         ToastUtils.showShort("数据获取失败！");
                     }
                 }
-                break; 
+                break;
             case 10003:
                 hideProgressDialog();
                 hideCustomProgressDialog();

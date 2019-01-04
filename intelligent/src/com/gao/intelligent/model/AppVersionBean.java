@@ -98,6 +98,15 @@ public class AppVersionBean implements Serializable {
         private String id;
         private String name;
         private String version;
+        private String updateContent;
+
+        public String getUpdateContent() {
+            return updateContent;
+        }
+
+        public void setUpdateContent(String updateContent) {
+            this.updateContent = updateContent;
+        }
 
         public String getAddress() {
             return address;

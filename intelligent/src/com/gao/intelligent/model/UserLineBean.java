@@ -114,6 +114,36 @@ public class UserLineBean implements Serializable {
         private String type;
         private String userCname;
         private String userName;
+        private String customerId;
+        private String signatureAddress;
+
+        public String getSignatureAddress() {
+            return signatureAddress;
+        }
+
+        public void setSignatureAddress(String signatureAddress) {
+            this.signatureAddress = signatureAddress;
+        }
+
+        public String getId() {
+            return id;
+        }
+
+        public void setId(String id) {
+            this.id = id;
+        }
+
+        private String id
+                ;
+
+        public String getCustomerId() {
+            return customerId;
+        }
+
+        public void setCustomerId(String customerId) {
+            this.customerId = customerId;
+        }
+
         private List<ListBean> list;
 
         public String getEmail() {

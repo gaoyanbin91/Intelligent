@@ -28,7 +28,7 @@
         android:layout_below="@id/toolbar"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="30dp"
-        android:src="@mipmap/icon_app" />
+        android:src="@mipmap/champagne_bin" />
 
     <View
         android:id="@+id/centerview"
@@ -56,6 +56,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_alignParentLeft="true"
+                android:singleLine="true"
                 android:layout_toLeftOf="@+id/phone_delte_imageview"
                 android:background="@null"
                 android:drawablePadding="@dimen/mar_10"
@@ -103,6 +104,7 @@
                 android:layout_alignParentLeft="true"
                 android:layout_toLeftOf="@+id/clear_pwd_imageview"
                 android:background="@null"
+                android:singleLine="true"
                 android:drawablePadding="@dimen/mar_10"
                 android:drawableLeft="@mipmap/password"
                 android:gravity="left|center_vertical"
@@ -157,23 +159,13 @@
             android:paddingBottom="6dp"
             android:paddingTop="6dp"
             android:text="@string/login_forget_password"
+            android:visibility="gone"
             android:textColor="#616161"
             android:textSize="@dimen/text_12"
             tools:ignore="SmallSp" />
 
 
-        <TextView
-            android:id="@+id/forgetPwd"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_toLeftOf="@id/pwd_forget_textview"
-            android:paddingBottom="6dp"
-            android:paddingTop="6dp"
-            android:layout_marginRight="10dp"
-            android:text="@string/login_reg"
-            android:textColor="#616161"
-            android:textSize="10sp"
-            tools:ignore="SmallSp" />
+
 
     </RelativeLayout>
 
@@ -201,6 +193,16 @@
         android:text="@string/login_button"
         android:textColor="@color/white"
         android:textSize="@dimen/text_16" />
-
+    <TextView
+        android:id="@+id/forgetPwd"
+        android:gravity="center"
+        android:layout_alignParentBottom="true"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="@dimen/mar_40"
+        android:text="@string/login_reg"
+        android:textColor="#616161"
+        android:textSize="@dimen/text_14"
+        tools:ignore="SmallSp" />
 
 </RelativeLayout>

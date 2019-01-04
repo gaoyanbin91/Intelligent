@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              xmlns:app="http://schemas.android.com/apk/res-auto"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:orientation="vertical">
+    <TextView
+        android:visibility="gone"
+        android:id="@+id/text"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/mar_40"/>
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <com.gao.intelligent.view.pulltorefresh.extral.PullToRefreshRecyclerView
+            android:id="@+id/pullToRefreshRecyclerView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/white"
+            android:choiceMode="singleChoice"
+            android:divider="@null"
+            android:fadingEdge="none"
+            android:listSelector="@android:color/transparent"
+            android:scrollbarStyle="outsideOverlay"
+            android:scrollbars="none"
+            app:ptrDrawableEnd="@drawable/progress_wave_large"
+            app:ptrDrawableStart="@drawable/progress_wave_large"
+            app:ptrHeaderBackground="@color/white"
+            app:ptrHeaderLayout="@layout/pull_to_refresh_header1"
+            app:ptrHeaderTextColor="@color/activity_txt"
+            app:ptrMode="both"
+            app:ptrScrollingWhileRefreshingEnabled="false" />
+
+        <include
+            android:id="@+id/no_internet"
+            layout="@layout/no_internet"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+              />
+        <ImageView
+            android:layout_alignParentBottom="true"
+            android:layout_marginBottom="@dimen/mar_50"
+            android:layout_marginRight="@dimen/mar_30"
+            android:id="@+id/iv_add"
+            android:layout_width="@dimen/mar_45"
+            android:layout_alignParentRight="true"
+            android:layout_height="@dimen/mar_45"
+            android:padding="@dimen/mar_3"
+            android:src="@mipmap/icon_add_blue"/>
+    </RelativeLayout>
+
+
+</LinearLayout>

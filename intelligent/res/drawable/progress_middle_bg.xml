@@ -1,8 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <animation-list android:oneshot="false"
   xmlns:android="http://schemas.android.com/apk/res/android">
-    <item android:duration="300" android:drawable="@mipmap/progress_middle1" />
     <!--<item android:duration="100" android:drawable="@drawable/progress_middle2" />
     <item android:duration="100" android:drawable="@drawable/progress_middle3" />-->
-    <item android:duration="300" android:drawable="@mipmap/progress_middle4" />
 </animation-list>
