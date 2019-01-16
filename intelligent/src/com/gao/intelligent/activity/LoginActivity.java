@@ -212,7 +212,6 @@ public class LoginActivity extends BaseActivity implements TextWatcher {
                 //startActivity(new Intent(this,TabActivity.class));
                 //      finish();
 
-
                 break;
             case R.id.showpwd_imageview://显示或隐藏密码
                 if (pwdEditText.getInputType() == (InputType.TYPE_CLASS_TEXT | InputType.TYPE_TEXT_VARIATION_PASSWORD)) {
@@ -227,7 +226,6 @@ public class LoginActivity extends BaseActivity implements TextWatcher {
 
                 break;
         }
-
     }
 
     /**

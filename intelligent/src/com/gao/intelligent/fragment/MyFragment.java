@@ -79,7 +79,8 @@ public class MyFragment extends BaseFragment {
                     mRowsBeanList = mBean.getRows();
 //                    ToastUtils.showShort(mRowsBeanList.get(0).getVersion());
                     try {
-                        if ((UIUtils.compareVersion(mRowsBeanList.get(0).getVersion(), UIUtils.getAppVersionCode(getActivity())) > 0)) {
+                        LogUtils.d("版本",mRowsBeanList.get(0).getVersion()+":"+UIUtils.getAppVersionCode(getActivity()));
+                        if ((UIUtils.compareVersion(mRowsBeanList.get(0).getVersion(), UIUtils.getAppVersionCode(getActivity())+".0") > 0)) {
                             ivRed.setVisibility(View.VISIBLE);
                             showAlertDialog((getString(R.string.prompt)),  mRowsBeanList.get(0).getUpdateContent(),
                                     getString(R.string.UMUpdateNow),
@@ -250,6 +251,7 @@ public class MyFragment extends BaseFragment {
 
             @Override
             public void onDownloadFailed() {
+                downloadDialog.dismiss();
                 ToastUtils.showShort("下载失败");
             }
         });

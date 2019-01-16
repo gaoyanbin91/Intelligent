@@ -1,0 +1,236 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:layout_width="match_parent"
+              android:background="@color/white"
+              android:layout_height="match_parent"
+              android:orientation="vertical">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/mar_20"
+        android:background="@color/theme_color"/>
+
+    <TextView
+        android:id="@+id/text"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/mar_40"
+        android:gravity="center"
+        android:text="故障查询"
+        android:textSize="@dimen/text_16"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/mar_45"
+        android:background="@color/gray2"
+        android:orientation="horizontal"
+        android:paddingLeft="@dimen/mar_10"
+        android:paddingRight="@dimen/mar_10">
+
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_marginTop="@dimen/mar_5"
+            android:layout_marginBottom="@dimen/mar_5"
+            android:layout_weight="1"
+            android:background="@drawable/ver_news_bag"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:layout_width="@dimen/mar_25"
+                android:layout_height="@dimen/mar_25"
+                android:layout_gravity="center"
+                android:layout_marginLeft="@dimen/mar_5"
+                android:src="@mipmap/icon_search_gray"/>
+
+            <EditText
+                android:id="@+id/edt_fault_code"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="@dimen/mar_3"
+                android:layout_weight="2"
+                android:background="@null"
+                android:gravity="center|left"
+                android:hint="请输入6位故障代码"
+                android:maxLength="6"
+                android:textColor="@color/gray5"
+                android:textSize="@dimen/text_14"
+                />
+
+            <ImageView
+                android:id="@+id/phone_delte_imageview"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:contentDescription="@null"
+                android:paddingRight="@dimen/mar_10"
+                android:src="@mipmap/sign_btn_close"
+                android:visibility="gone"/>
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/texSearch"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:paddingLeft="@dimen/mar_10"
+            android:paddingRight="@dimen/mar_10"
+            android:text="搜索"
+            android:textSize="@dimen/text_14"/>
+
+    </LinearLayout>
+    <LinearLayout
+        android:id="@+id/errorView"
+        android:visibility="gone"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+    <LinearLayout
+        android:paddingLeft="@dimen/mar_10"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="故障名称："
+            android:textColor="@color/black"
+            android:textSize="@dimen/text_16"/>
+
+        <TextView
+            android:id="@+id/texErrorName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/mar_5"
+            android:textColor="@color/darkgray"
+            android:textSize="@dimen/text_16"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:paddingLeft="@dimen/mar_10"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/mar_5"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="故障类型："
+            android:textColor="@color/black"
+            android:textSize="@dimen/text_16"/>
+
+        <TextView
+            android:id="@+id/texErrorCode"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/mar_5"
+            android:textColor="@color/darkgray"
+            android:textSize="@dimen/text_16"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:paddingLeft="@dimen/mar_10"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/mar_5"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="故障反馈："
+            android:textColor="@color/black"
+            android:textSize="@dimen/text_16"/>
+
+        <TextView
+            android:id="@+id/texErrorResponse"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/mar_5"
+            android:paddingRight="@dimen/mar_10"
+            android:textColor="@color/darkgray"
+            android:textSize="@dimen/text_16"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:paddingLeft="@dimen/mar_10"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/mar_5"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="故障结果："
+            android:textColor="@color/black"
+            android:textSize="@dimen/text_16"/>
+
+        <TextView
+            android:id="@+id/textErrorAnser"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/mar_5"
+            android:textColor="@color/darkgray"
+            android:textSize="@dimen/text_16"/>
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:paddingLeft="@dimen/mar_10"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="故障原因："
+            android:textColor="@color/black"
+            android:textSize="@dimen/text_16"/>
+
+        <TextView
+            android:id="@+id/texErrorReson"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/mar_5"
+            android:textColor="@color/darkgray"
+            android:textSize="@dimen/text_16"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:paddingLeft="@dimen/mar_10"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="故障描述："
+            android:textColor="@color/black"
+            android:textSize="@dimen/text_16"/>
+
+        <TextView
+            android:id="@+id/texErrorDispose"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/mar_5"
+            android:textColor="@color/darkgray"
+            android:textSize="@dimen/text_16"/>
+    </LinearLayout>
+
+    </LinearLayout>
+    <include
+        android:id="@+id/no_internet"
+        layout="@layout/no_internet"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        />
+
+
+</LinearLayout>

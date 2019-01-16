@@ -106,6 +106,8 @@ public class AddSeviceActivity extends BaseActivity implements ImageViewVpAdapte
     TextView texName;
     @BindView(R.id.edtTypeNum)
             EditText edtTypeNum;
+    @BindView(R.id.edtErrorCode)
+            EditText edtErrorCode;//故障代码
     String[] classfiyArray;
     String[] lineArray;
     String videoPath, classfitID,lineId,lineName,personSignID;//视频文件路劲
@@ -312,6 +314,9 @@ public class AddSeviceActivity extends BaseActivity implements ImageViewVpAdapte
             params.put("compoentNum",  edtTypeNum.getText().toString());//
 
             LogUtils.d("compoentNum", edtTypeNum.getText().toString());
+        }
+        if (!TextUtils.isEmpty(edtErrorCode.getText().toString())){
+            params.put("errorCode",  edtErrorCode.getText().toString());//
         }
         params.put("processState",  "0");//当前位置
 //        params.put("leaderId", AppConfig.getInstance().getString("customerId",""));//当前处理人id

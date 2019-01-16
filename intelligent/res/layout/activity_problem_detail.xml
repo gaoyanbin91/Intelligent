@@ -82,8 +82,30 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"/>
         </LinearLayout>
-
         <LinearLayout
+            android:id="@+id/ll_error"
+            android:visibility="gone"
+            android:layout_marginTop="@dimen/mar_5"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="@dimen/text_16"
+                android:textColor="@color/black"
+                android:text="故障代码："/>
+            <TextView
+                android:id="@+id/text_error_code"
+                android:layout_marginLeft="@dimen/mar_10"
+                android:textSize="@dimen/text_16"
+                android:textColor="@color/darkgray"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+        </LinearLayout>
+        <LinearLayout
+            android:visibility="gone"
+            android:id="@+id/ll_num_size"
             android:layout_marginTop="@dimen/mar_5"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"

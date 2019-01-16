@@ -10,8 +10,8 @@ public class ApiService {
     //public static final String BASE_URL = "http://";//外网
 //    public static final String base = "192.168.1.2:8080/";
 //    public static final String base = "192.168.0.66:8080/";
-//    public static final String base = "106.15.205.62:8080/";
-    public static final String base = "61.163.81.139:8090/";
+    public static final String base = "106.15.205.62:8080/";
+//    public static final String base = "61.163.81.139:8090/";
     public static final String BASE_URL = "http://"+base;//外网
 //    public static final String BASE_URL = "http://192.168.1.108:8080/";//龙飞
 
@@ -35,4 +35,5 @@ public class ApiService {
     public static final String QUERY_FORM_LIST = BASE_URL + "app/question/queryBackContext";//回函表数据
 
     public static final String SING_HUI_NAME = BASE_URL + "app/question/customerSignatureLogistics";//厂家领导回函表签字
+    public static final String QUERY_ERROR_DETAIL = BASE_URL + "app/question/queryError";//查询故障详情
 }

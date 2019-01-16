@@ -116,7 +116,6 @@ public class RealtimeFragment extends BaseFragment {
     public void initData() {
 
     }
-
     private void initSocket() {
         showProgressDialog("加载中...");
         OkHttpClient mOkHttpClient = new OkHttpClient.Builder()
@@ -286,7 +285,6 @@ public class RealtimeFragment extends BaseFragment {
                     return;
                 }
                 switch (typ){
-
                     case 11101:
                         LineParamBean paramBean = JSON.parseObject(obj.toString(), LineParamBean.class);
                         if (paramBean.getRows() != null) {

@@ -100,8 +100,15 @@ public class ProblemDetailActivity extends BaseActivity {
     Button btnSignName;
     @BindView(R.id.btnHui)
     Button btnHui;
+
     private Button btndelete,btnSave;
     ImageView mSignName;
+    @BindView(R.id.text_error_code)
+    TextView text_error_code;
+    @BindView(R.id.ll_error)
+    View llError;
+    @BindView(R.id.ll_num_size)
+    View ll_num_size;
     @Override
     protected int provideContentViewId() {
         return R.layout.activity_problem_detail;
@@ -153,11 +160,16 @@ public class ProblemDetailActivity extends BaseActivity {
                                 textSHname.setText(mProblemDetailBean.getObject().getSalePerson());
                             }
                             if (mProblemDetailBean.getObject().getCompoentNum()!=null){
+                                ll_num_size.setVisibility(View.VISIBLE);
                                 text_nums_name.setText(mProblemDetailBean.getObject().getCompoentNum());
                             }
                             if (mProblemDetailBean.getObject().getProductPerson()!=null){
                                 llJSName.setVisibility(View.VISIBLE);
                                 textJSname.setText(mProblemDetailBean.getObject().getProductPerson());
+                            }
+                            if (mProblemDetailBean.getObject().getErrorCode()!=null){
+                                llError.setVisibility(View.VISIBLE);
+                                text_error_code.setText(mProblemDetailBean.getObject().getErrorCode());
                             }
                                 if (mProblemDetailBean.getObject().getBackContactFlag()!=null){
                                 btnHui.setVisibility(View.VISIBLE);

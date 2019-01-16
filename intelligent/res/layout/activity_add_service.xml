@@ -227,6 +227,47 @@
                         android:layout_height="@dimen/mar_45"
                         android:gravity="center_vertical"
                         android:paddingLeft="@dimen/mar_15"
+                        android:text="故障代码"
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/text_16"/>
+
+                    <LinearLayout
+
+                        android:layout_width="0dp"
+                        android:layout_height="@dimen/mar_45"
+                        android:layout_weight="1">
+
+                        <EditText
+                            android:id="@+id/edtErrorCode"
+                            android:background="@null"
+                            android:layout_width="match_parent"
+                            android:layout_height="@dimen/mar_45"
+                            android:gravity="center_vertical"
+                            android:hint="请输入6位故障代码(非必填)"
+                            android:paddingLeft="@dimen/mar_30"
+                            android:textColor="@color/black"
+                            android:maxLength="6"
+                            android:textColorHint="@color/text_hint"
+                            android:textSize="@dimen/text_16">
+                        </EditText>
+                    </LinearLayout>
+
+                </LinearLayout>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="@color/gray1_1"/>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/mar_45"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="@dimen/mar_45"
+                        android:gravity="center_vertical"
+                        android:paddingLeft="@dimen/mar_15"
                         android:text="零件型号、数量"
                         android:textColor="@color/black"
                         android:textSize="@dimen/text_16"/>
@@ -243,8 +284,8 @@
                             android:layout_width="match_parent"
                             android:layout_height="@dimen/mar_45"
                             android:gravity="center_vertical"
-                            android:hint="请输入零件型号、数量"
-                            android:paddingLeft="@dimen/mar_30"
+                            android:hint="请输入零件型号、数量(非必填)"
+                            android:paddingLeft="@dimen/mar_10"
                             android:textColor="@color/black"
                             android:textColorHint="@color/text_hint"
                             android:textSize="@dimen/text_16">

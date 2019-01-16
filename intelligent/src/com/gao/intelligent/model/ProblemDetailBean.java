@@ -167,6 +167,15 @@ public class ProblemDetailBean implements Serializable {
         private String productPerson;
         private String backContactFlag;
         private String compoentNum;
+        private String errorCode;
+
+        public String getErrorCode() {
+            return errorCode;
+        }
+
+        public void setErrorCode(String errorCode) {
+            this.errorCode = errorCode;
+        }
 
         public String getCompoentNum() {
             return compoentNum;
