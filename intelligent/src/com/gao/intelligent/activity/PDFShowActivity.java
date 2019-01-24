@@ -45,7 +45,6 @@ public class PDFShowActivity extends BaseActivity implements DownloadFile.Listen
     Toolbar toolbar;
     @BindView(R.id.no_internet)
     View noData;
-
     @BindView(R.id.mTitle)
     TextView mTextView;
     @BindView(R.id.txvSignName)
@@ -69,15 +68,12 @@ public class PDFShowActivity extends BaseActivity implements DownloadFile.Listen
             }
         });//返回
 
-
-
         if (getIntent().getStringExtra("back")!=null&&
                 getIntent().getStringExtra("back").equals("3")&&
                 AppConfig.getInstance().getString("authority","").equals("[LEADER]")){
                 txvSignName.setVisibility(View.VISIBLE);
         }
     }
-
     @Override
     protected void onResume() {
         super.onResume();
@@ -94,16 +90,18 @@ public class PDFShowActivity extends BaseActivity implements DownloadFile.Listen
     public void aidHandleMessage(int what, int type, Object obj) {
         super.aidHandleMessage(what, type, obj);
         switch (what) {
-
             case 10004:
-
-
                 hideCustomProgressDialog();
+                if (obj.equals("401")) {
+                    ToastUtils.showShort("登录超时，请重新登录");
+                    exitApp();
+                    finish();
+                    startActivity(new Intent(this, LoginActivity.class));
+                    return;
+                }
                 switch (type) {
-
                     case 10098:
                         LogUtils.i("联系函", obj);
-
                         ResultBean resultBean = JSON.parseObject(obj.toString(), ResultBean.class);
                         if (resultBean.getResultCode().equals("1")){
                             String mUrl = ApiService.BASE_URL  +  resultBean.getResultData();
@@ -120,22 +118,18 @@ public class PDFShowActivity extends BaseActivity implements DownloadFile.Listen
                             HashMap<String, String> map = new HashMap<>();
                             map.put("id", getIntent().getStringExtra("questionID"));
                             sendHttpPost(ApiService.PREVIE_CONTACT_FORM, map, 10098);
-
                         }else {
                             ToastUtils.showShort(result .getResultDesc()+"");
                         }
-
                         break;
                 }
                 break;
             case 10003:
                 hideCustomProgressDialog();
-                // ToastUtils.showShort(obj.toString());
                 ToastUtils.showShort(obj.toString());
                 break;
         }
     }
-
     private void setDownloadListener(String url) {
         final DownloadFile.Listener listener = this;
 //        String mUrl = ApiService.BASE_URL + "downloadFile" + getIntent().getStringExtra("url");
@@ -144,7 +138,6 @@ public class PDFShowActivity extends BaseActivity implements DownloadFile.Listen
     }
     @OnClick({R.id.txvSignName})
     public void onClick(){
-
         if (AppConfig.getInstance().getString("signImg","")!=null
                 &&AppConfig.getInstance().getString("signImg","")!="") {
             showDialog();
@@ -155,7 +148,6 @@ public class PDFShowActivity extends BaseActivity implements DownloadFile.Listen
         l.putExtra("flag", "hui");
         LogUtils.d("heheh1",getIntent().getStringExtra("version")+"2");
         startActivity(l);}
-
     }
     public void showDialog( ) {
         final Dialog alertDialog = new Dialog( baseContext);
@@ -169,13 +161,11 @@ public class PDFShowActivity extends BaseActivity implements DownloadFile.Listen
         btnSave.setEnabled(true);
         if (AppConfig.getInstance().getString("signImg","")!=null
                 &&AppConfig.getInstance().getString("signImg","")!=""){
-
             Glide.with(baseContext)
                     .load(ApiService.BASE_URL+"downloadFile"+AppConfig.getInstance().getString("signImg",""))
                     .placeholder(R.mipmap.icon_loading)
                     .error(R.mipmap.icon_load_fail)
                     .into(mSignName);
-
         }
         btndelete.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -207,12 +197,9 @@ public class PDFShowActivity extends BaseActivity implements DownloadFile.Listen
         remotePDF.setVisibility(View.VISIBLE);
         noData.setVisibility(View.GONE);
         adapter = new PDFPagerAdapter(this, FileUtil.extractFileNameFromURL(url));
-//        ToastUtils.showShort(adapter.getCount()+"页");
-//        textPageSizes.setText("共"+adapter.getCount()+"页");
         remotePDFViewPager.setAdapter(adapter);
         updateLayout();
     }
-
     /*更新视图*/
     private void updateLayout() {
         remotePDF.removeAllViewsInLayout();
@@ -227,9 +214,7 @@ public class PDFShowActivity extends BaseActivity implements DownloadFile.Listen
         noData.setVisibility(View.VISIBLE);
         remotePDF.setVisibility(View.GONE);
     }
-
     @Override
     public void onProgressUpdate(int progress, int total) {
-
     }
 }

@@ -276,6 +276,8 @@ public class RealtimeMonitorActivity extends BaseActivity {
                 LogUtils.d("参数数据IDS", obj);
                 if (obj.equals("401")) {
                     ToastUtils.showShort("登录超时，请重新登录");
+                    exitApp();
+                    finish();
                     startActivity(new Intent(this, LoginActivity.class));
                     return;
                 }

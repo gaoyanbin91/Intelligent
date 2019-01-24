@@ -99,6 +99,15 @@ public class AppVersionBean implements Serializable {
         private String name;
         private String version;
         private String updateContent;
+        private String customizeVersion;
+
+        public String getCustomizeVersion() {
+            return customizeVersion;
+        }
+
+        public void setCustomizeVersion(String customizeVersion) {
+            this.customizeVersion = customizeVersion;
+        }
 
         public String getUpdateContent() {
             return updateContent;

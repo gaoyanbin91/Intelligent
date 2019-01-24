@@ -83,6 +83,13 @@ public class PasswordActivity extends BaseActivity {
 
             case 10004:
                 hideCustomProgressDialog();
+                if (obj.equals("401")) {
+                    ToastUtils.showShort("登录超时，请重新登录");
+                    exitApp();
+                    finish();
+                    startActivity(new Intent(this, LoginActivity.class));
+                    return;
+                }
                 ResultBean resultBean = JSON.parseObject(obj.toString(), ResultBean.class);
                 LogUtils.d("修改密码", obj);
                 if (resultBean.getResultCode()!=null&&resultBean.getResultCode().equals("1")){

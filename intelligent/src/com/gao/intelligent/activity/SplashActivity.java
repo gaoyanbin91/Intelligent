@@ -25,7 +25,6 @@ public class SplashActivity extends BaseActivity {
         return R.layout.activity_splash_layout;
     }
 
-
     public void initView() {
         AlphaAnimation alphaAnimation = new AlphaAnimation(0.0f, 1.0f);
         alphaAnimation.setDuration(1000);//设置动画播放时长500毫秒
@@ -37,7 +36,6 @@ public class SplashActivity extends BaseActivity {
             @Override
             public void onAnimationStart(Animation animation) {
             }
-
             //动画结束
             @Override
             public void onAnimationEnd(Animation animation) {
@@ -53,7 +51,6 @@ public class SplashActivity extends BaseActivity {
                 }
                 finish();
             }
-
             @Override
             public void onAnimationRepeat(Animation animation) {
             }

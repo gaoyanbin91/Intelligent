@@ -84,7 +84,6 @@ public class NewFeedBackActivity extends BaseActivity {
     @Override
     public void initData() {
 
-
     }
 
     /**
@@ -154,12 +153,9 @@ public class NewFeedBackActivity extends BaseActivity {
                     options.inPreferredConfig = Bitmap.Config.ARGB_4444;
                     options.inJustDecodeBounds = false;
                     final Bitmap photo = BitmapFactory.decodeFile(Global.uritempFile.getPath(), options);
-
                     final String imgName = String.valueOf(System.currentTimeMillis());
                     FileUtil.saveSDcardImage(photo, Comm.SDCARD_IMG_ROOT, imgName);
                     String filepath = Comm.SDCARD_IMG_ROOT + "/" + imgName + ".png";
-                //    String imageUrl = ImageDownloader.Scheme.FILE.wrap(filepath);
-                 //   updateImage(filepath, imageUrl);
                     imgvUrlList.add(filepath );
                     showSelectImgv();
                 } catch (Exception e) {

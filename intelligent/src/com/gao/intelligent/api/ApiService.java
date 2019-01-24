@@ -36,4 +36,8 @@ public class ApiService {
 
     public static final String SING_HUI_NAME = BASE_URL + "app/question/customerSignatureLogistics";//厂家领导回函表签字
     public static final String QUERY_ERROR_DETAIL = BASE_URL + "app/question/queryError";//查询故障详情
+    public static final String SEND_SIM_CODE = BASE_URL + "app/employee/createVerification";//获取短信验证码
+    public static final String SETTING_NEWPASS_WORD = BASE_URL + "app/employee/resetPwd";//设置密码
+
+
 }

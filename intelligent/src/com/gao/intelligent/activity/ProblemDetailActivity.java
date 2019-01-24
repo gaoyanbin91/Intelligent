@@ -138,6 +138,13 @@ public class ProblemDetailActivity extends BaseActivity {
         super.aidHandleMessage(what, type, obj);
         switch (what) {
             case 10004:
+                if (obj.equals("401")) {
+                    ToastUtils.showShort("登录超时，请重新登录");
+                    exitApp();
+                    finish();
+                    startActivity(new Intent(this, LoginActivity.class));
+                    return;
+                }
                 switch (type){
 
                     case 10021:

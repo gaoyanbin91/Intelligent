@@ -166,7 +166,6 @@ public class ShowBigImageActivity extends BaseActivity {
             return datas.size();
         }
 
-
         @Override
         public Object instantiateItem(ViewGroup container, final int position) {
             View view = inflater.inflate(R.layout.item_pager_image, container, false);
@@ -183,7 +182,6 @@ public class ShowBigImageActivity extends BaseActivity {
                     smallImageView.setScaleType(ImageView.ScaleType.FIT_XY);
                     ((FrameLayout) view).addView(smallImageView);
                 }
-
                 //loading
                 final ProgressBar loading = new ProgressBar(context);
                 FrameLayout.LayoutParams loadingLayoutParams = new FrameLayout.LayoutParams(ViewGroup.LayoutParams
@@ -203,19 +201,14 @@ public class ShowBigImageActivity extends BaseActivity {
                             @Override
                             public void onLoadStarted(Drawable placeholder) {
                                 super.onLoadStarted(placeholder);
-                               /* if(smallImageView!=null){
-                                    smallImageView.setVisibility(View.VISIBLE);
-                                    Glide.with(context).load(imgurl).into(smallImageView);
-                                }*/
+
                                 loading.setVisibility(View.VISIBLE);
                             }
 
                             @Override
                             public void onLoadFailed(Exception e, Drawable errorDrawable) {
                                 super.onLoadFailed(e, errorDrawable);
-                                /*if(smallImageView!=null){
-                                    smallImageView.setVisibility(View.GONE);
-                                }*/
+
                                 loading.setVisibility(View.GONE);
                             }
 
@@ -224,9 +217,7 @@ public class ShowBigImageActivity extends BaseActivity {
                                     animation) {
                                 super.onResourceReady(resource, animation);
                                 loading.setVisibility(View.GONE);
-                                /*if(smallImageView!=null){
-                                    smallImageView.setVisibility(View.GONE);
-                                }*/
+
                             }
                         });
 

@@ -1,8 +1,8 @@
 package com.gao.intelligent.activity;
 
+import android.content.Intent;
 import android.support.v7.widget.Toolbar;
 import android.text.Editable;
-import android.text.InputFilter;
 import android.text.InputType;
 import android.text.TextUtils;
 import android.text.TextWatcher;
@@ -11,10 +11,18 @@ import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.alibaba.fastjson.JSON;
 import com.gao.intelligent.R;
+import com.gao.intelligent.api.ApiService;
 import com.gao.intelligent.base.BaseActivity;
+import com.gao.intelligent.model.ResultBean;
+import com.gao.intelligent.utils.AppConfig;
 import com.gao.intelligent.utils.CountDownTimerUtils;
+import com.gao.intelligent.utils.LogUtils;
+import com.gao.intelligent.utils.ToastUtils;
 import com.gao.intelligent.utils.UIUtils;
+
+import java.util.HashMap;
 
 import butterknife.BindView;
 import butterknife.OnClick;
@@ -25,21 +33,21 @@ import butterknife.OnClick;
  */
 public class ForgetPsdActivity extends BaseActivity implements TextWatcher {
     @BindView(R.id.register_phone)
-    TextView registerPhone;
+    EditText registerPhone;//手机号码
     @BindView(R.id.register_msg)
-    EditText registerMsg;
+    EditText registerMsg;//验证码
     @BindView(R.id.register_msg_bt)
-    TextView registerMsgBt;
+    TextView registerMsgBt;//获取验证码
 
     @BindView(R.id.pwd_edittext)
-    EditText registerPwd;
+    EditText registerPwd;//密码
     @BindView(R.id.clear_pwd_imageview)
     ImageView clearPwdImageView;//清除输入密码
     @BindView(R.id.showpwd_imageview)
     ImageView showPwdImageView;//显示密码
 
     @BindView(R.id.pwd_edittext_2)
-    EditText registerPwd2;
+    EditText registerPwd2;//重复密码
     @BindView(R.id.clear_pwd_imageview_2)
     ImageView clearPwdImageView2;//清除输入密码
     @BindView(R.id.showpwd_imageview_2)
@@ -68,8 +76,8 @@ public class ForgetPsdActivity extends BaseActivity implements TextWatcher {
         });
         registerPwd.setInputType(InputType.TYPE_CLASS_TEXT | InputType.TYPE_TEXT_VARIATION_PASSWORD); //输入类型
         registerPwd2.setInputType(InputType.TYPE_CLASS_TEXT | InputType.TYPE_TEXT_VARIATION_PASSWORD); //输入类型
-        registerPwd.setFilters(new InputFilter[]{new InputFilter.LengthFilter(6)}); //最大输入长度
-        registerPwd2.setFilters(new InputFilter[]{new InputFilter.LengthFilter(6)}); //最大输入长度
+//        registerPwd.setFilters(new InputFilter[]{new InputFilter.LengthFilter(6)}); //最大输入长度
+//        registerPwd2.setFilters(new InputFilter[]{new InputFilter.LengthFilter(6)}); //最大输入长度
 
         mCountDownTimerUtils = new CountDownTimerUtils(registerMsgBt, 60000, 1000);
         showPwdImageView.setVisibility(View.VISIBLE);
@@ -141,7 +149,7 @@ public class ForgetPsdActivity extends BaseActivity implements TextWatcher {
 
                 break;
             case R.id.clear_pwd_imageview_2://清空密码
-                registerPwd.setText(String.valueOf(""));
+                registerPwd2.setText(String.valueOf(""));
                 break;
             case R.id.showpwd_imageview_2://显示或隐藏密码
                 if (registerPwd2.getInputType() == (InputType.TYPE_CLASS_TEXT | InputType.TYPE_TEXT_VARIATION_PASSWORD)) {
@@ -166,7 +174,7 @@ public class ForgetPsdActivity extends BaseActivity implements TextWatcher {
                 if (UIUtils.isMobileNO(registerPhone.getText().toString())) {
                     mCountDownTimerUtils.start();
                 }
-//                phoneCode();
+                phoneCode(phone);
 
                 break;
 
@@ -183,6 +191,10 @@ public class ForgetPsdActivity extends BaseActivity implements TextWatcher {
                     UIUtils.showToast("手机号格式不正确");
                     return;
                 }
+                if (TextUtils.isEmpty(registerMsg.getText())) {
+                    UIUtils.showToast("请输入手机验证码");
+                    return;
+                }
                 if (!UIUtils.isPwdFormat(registerPwd.getText().toString().trim())) {
                     UIUtils.showToast("密码必须在6位及以上");
                     return;
@@ -191,9 +203,79 @@ public class ForgetPsdActivity extends BaseActivity implements TextWatcher {
                     UIUtils.showToast("两次输入的密码不一致");
                     return;
                 }
-
+                settingNewPassWord();
                 break;
 
+        }
+    }
+
+    /**
+     * 密码重置
+     */
+    private void settingNewPassWord() {
+        HashMap<String, String> setPwd = new HashMap<>();
+        setPwd.put("telephone", registerPhone.getText().toString());
+        setPwd.put("newPwd", registerPwd.getText().toString());
+        setPwd.put("verification", registerMsg.getText().toString());
+        setPwd.put("deviceId", AppConfig.getInstance().getString("deviceId",""));
+        sendHttpPost(ApiService.SETTING_NEWPASS_WORD, setPwd, 19002);
+    }
+
+    /**
+     * 获取手机验证码
+     */
+    private void phoneCode(String phone) {
+        HashMap<String, String> simCode = new HashMap<>();
+        simCode.put("telephone", phone);
+        sendHttpPost(ApiService.SEND_SIM_CODE, simCode, 19001);
+    }
+
+    @Override
+    public void aidHandleMessage(int what, int type, Object obj) {
+        super.aidHandleMessage(what, type, obj);
+        switch (what) {
+
+            case 10004:
+                hideCustomProgressDialog();
+                if (obj.equals("401")) {
+                    ToastUtils.showShort("登录超时，请重新登录");
+                    exitApp();
+                    finish();
+                    startActivity(new Intent(this, LoginActivity.class));
+                    return;
+                }
+                switch (type) {
+                    case 19001:
+                        LogUtils.d("SIMCODE", obj);
+
+                        ToastUtils.showShort(obj.toString());
+
+                        break;
+                    case 19002:
+                        LogUtils.d("NEWPWD", obj);
+                        ResultBean setBean = JSON.parseObject(obj.toString(), ResultBean.class);
+                        if (setBean.getResultCode().equals("1")){
+                            ToastUtils.showShort("修改成功，请登录！");
+                            finish();
+                        }else {
+                            if (setBean.getResultDesc()!=null) {
+                                ToastUtils.showShort(setBean.getResultDesc() + "");
+                            }
+                        }
+
+
+                        break;
+                }
+
+
+                //tvF.setText( obj.toString());
+                break;
+            case 10003:
+                hideCustomProgressDialog();
+
+                //        ToastUtils.showShort(obj.toString());
+                ToastUtils.showShort(obj.toString());
+                break;
         }
     }
 
@@ -209,12 +291,23 @@ public class ForgetPsdActivity extends BaseActivity implements TextWatcher {
 
     @Override
     public void afterTextChanged(Editable s) {
-        if (registerMsg.length() > 0 && registerPwd.length() > 0&&registerPwd2.length()>0) {
+        if (registerMsg.length() > 0 && registerPwd.length() > 0 && registerPwd2.length() > 0) {
             registerBt.setClickable(true);
             registerBt.setBackgroundResource(R.drawable.background_newlogin_gobutton_orange);
         } else {
             registerBt.setClickable(false);
             registerBt.setBackgroundResource(R.drawable.background_newlogin_gobutton_gray);
         }
+    }
+    @Override
+    public View[] filterViewByIds() {
+        View[] views = {registerPhone, registerMsg,registerPwd,registerPwd2};
+        return views;
+    }
+
+    @Override
+    public int[] hideSoftByEditViewIds() {
+        int[] ids = {R.id.register_phone, R.id.register_msg , R.id.pwd_edittext , R.id.pwd_edittext_2 };
+        return ids;
     }
 }

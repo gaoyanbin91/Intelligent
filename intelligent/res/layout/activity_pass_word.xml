@@ -127,6 +127,7 @@
     </LinearLayout>
 <View
     android:layout_width="match_parent"
+    android:layout_weight="1"
     android:layout_height="@dimen/mar_170"/>
     <Button
 
@@ -134,7 +135,7 @@
         android:layout_width="match_parent"
         android:layout_height="@dimen/mar_45"
         android:layout_margin="@dimen/mar_20"
-        android:layout_marginTop="@dimen/mar_150"
+        android:layout_marginBottom="@dimen/mar_150"
         android:background="@drawable/background_newlogin_gobutton_orange"
         android:text="确定修改"
         android:textColor="@color/white"

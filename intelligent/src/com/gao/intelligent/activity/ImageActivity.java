@@ -36,7 +36,6 @@ public class ImageActivity extends BaseActivity {
     @BindView(R.id.mTitle)
     TextView mTitle;
 
-
     @Override
     protected int provideContentViewId() {
         return R.layout.activity_image;
@@ -78,7 +77,6 @@ public class ImageActivity extends BaseActivity {
                             vv_play.setLayoutParams(layoutParams);
                         }
                     });
-
                 }
 
                 @Override
@@ -94,11 +92,7 @@ public class ImageActivity extends BaseActivity {
 
                 }
             });
-
-
         }
-
-
     }
 
     @OnClick({R.id.toolbar, R.id.iv_big_image})

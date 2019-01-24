@@ -84,15 +84,14 @@ public class LoginActivity extends BaseActivity implements TextWatcher {
                     startActivity(new Intent(LoginActivity.this, MainActivity.class));
                     finish();
                 }
-//                else if (loginBean.getType().equals("2")){
-//                    ToastUtils.showShort("验证码已发送");
-//                    loginButton.setClickable(false);
-//                    loginButton.setBackgroundResource(R.drawable.background_newlogin_gobutton_gray);
-//                    showDialog();
-//
-//                }
                else {
-                    ToastUtils.showShort(loginBean.getStatus());
+                    if(loginBean.getType()!=null&&loginBean.getType().equals("2")){
+                        ToastUtils.showShort( loginBean.getStatus());
+                        showDialog();
+
+                    }else {
+                        ToastUtils.showShort(loginBean.getStatus());
+                    }
                 }
                 //tvF.setText( obj.toString());
                 break;
@@ -137,9 +136,6 @@ public class LoginActivity extends BaseActivity implements TextWatcher {
                 }else {
                     ToastUtils.showShort("验证码不能为空");
                 }
-
-
-
             }
         });
     }
@@ -208,9 +204,6 @@ public class LoginActivity extends BaseActivity implements TextWatcher {
             case R.id.login_button://登录按钮
 //                showDialog();
                 loginOn();
-
-                //startActivity(new Intent(this,TabActivity.class));
-                //      finish();
 
                 break;
             case R.id.showpwd_imageview://显示或隐藏密码

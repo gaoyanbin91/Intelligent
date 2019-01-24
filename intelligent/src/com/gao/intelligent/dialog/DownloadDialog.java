@@ -13,20 +13,17 @@ import com.gao.intelligent.view.WDSeekBar;
 public class DownloadDialog extends Dialog {
 
 	Context context;
-	public  static TextView tv_content,uptv_title;
-	private String cancel;
+	public  static TextView tv_content,tv_content2;
 	public String content;
 	private String title;
-	private View view_v;
 	public  static WDSeekBar wdSeekBar;
 
-	public DownloadDialog(Context context, int theme, String cancel, TextView tv_content , String title, WDSeekBar bar) {
+	public DownloadDialog(Context context, int theme) {
 		super(context, theme);
 		this.context = context;
-		this.cancel = cancel;
+		this.tv_content2 = tv_content2;
 		this.tv_content = tv_content;
 		this.title = title;
-		this.wdSeekBar=bar;
 	}
 
 	@Override
@@ -39,10 +36,11 @@ public class DownloadDialog extends Dialog {
 	private void initViews() {
 		tv_content = (TextView) findViewById(R.id.dialog_content);
 		tv_content.setText(this.content);
+		tv_content2 = (TextView) findViewById(R.id.dialog_content2);
+		tv_content2.setText(this.content);
 
 		wdSeekBar = (WDSeekBar) findViewById(R.id.pb_product_progress);
-		uptv_title = (TextView) findViewById(R.id.dialog_title);
-		uptv_title.setText(this.title);
+
 	}
 
 	@Override

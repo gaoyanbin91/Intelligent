@@ -194,11 +194,9 @@ public class SetActivity extends BaseActivity {
                     // LogUtils.info("line==>" + line);
                     sb.append(line);
                 }
-
             } catch (IOException e) {
                 LogUtils.e(TAG, e);
             }
-
             //    LogUtils.info(sb.toString());
             Gson gson = new Gson();
             List<LanguageDataModel> mList = gson.fromJson(sb.toString(), new TypeReference<List<LanguageDataModel>>() {

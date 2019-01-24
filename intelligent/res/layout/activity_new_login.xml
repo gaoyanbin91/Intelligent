@@ -159,7 +159,6 @@
             android:paddingBottom="6dp"
             android:paddingTop="6dp"
             android:text="@string/login_forget_password"
-            android:visibility="gone"
             android:textColor="#616161"
             android:textSize="@dimen/text_12"
             tools:ignore="SmallSp" />

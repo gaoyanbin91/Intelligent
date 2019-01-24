@@ -26,7 +26,6 @@ import com.gao.intelligent.utils.LogUtils;
 import com.gao.intelligent.utils.ToastUtils;
 import com.gao.intelligent.utils.UIUtils;
 import com.gao.intelligent.utils.okhttp.DownloadUtil;
-import com.gao.intelligent.view.WDSeekBar;
 
 import java.io.File;
 import java.io.IOException;
@@ -70,6 +69,7 @@ public class MyFragment extends BaseFragment {
                 hideCustomProgressDialog();
                 if (obj.equals("401")) {
                     ToastUtils.showShort("登录超时，请重新登录");
+                    getActivity().finish();
                     startActivity(new Intent(getActivity(), LoginActivity.class));
                     return;
                 }
@@ -80,7 +80,7 @@ public class MyFragment extends BaseFragment {
 //                    ToastUtils.showShort(mRowsBeanList.get(0).getVersion());
                     try {
                         LogUtils.d("版本",mRowsBeanList.get(0).getVersion()+":"+UIUtils.getAppVersionCode(getActivity()));
-                        if ((UIUtils.compareVersion(mRowsBeanList.get(0).getVersion(), UIUtils.getAppVersionCode(getActivity())+".0") > 0)) {
+                        if ((UIUtils.compareVersion(mRowsBeanList.get(0).getCustomizeVersion(), UIUtils.getAppVersionName(getActivity()) ) > 0)) {
                             ivRed.setVisibility(View.VISIBLE);
                             showAlertDialog((getString(R.string.prompt)),  mRowsBeanList.get(0).getUpdateContent(),
                                     getString(R.string.UMUpdateNow),
@@ -145,9 +145,9 @@ public class MyFragment extends BaseFragment {
 
     @Override
     protected void initView() {
-        HashMap<String, String> param = new HashMap<>();
-        param.put("name", "易生产.apk");
-        sendHttpGet(ApiService.QUERY_APP_VERSON, param, 11001);
+//        HashMap<String, String> param = new HashMap<>();
+//        param.put("name", "易生产.apk");
+//        sendHttpGet(ApiService.QUERY_APP_VERSON, param, 11001);
     }
 
     @Override
@@ -211,9 +211,6 @@ public class MyFragment extends BaseFragment {
     /**
      * 下载监听
      */
-    private WDSeekBar bar;
-    private TextView tvPro;
-    private String info_down;
     private DownloadDialog downloadDialog;
 
     private void download(String apkDownloadUrl, String apkFilePath) {
@@ -233,7 +230,7 @@ public class MyFragment extends BaseFragment {
             public void onDownloading(int progress) {
 //            LogUtils.i("视频下载", progress + "");
                 if (downloadDialog == null) {
-                    downloadDialog = new DownloadDialog(getActivity(), R.style.transparentFrameWindowStyle, "关 闭", tvPro, "正在下载", bar);
+                    downloadDialog = new DownloadDialog(getActivity(), R.style.transparentFrameWindowStyle);
                     downloadDialog.setCanceledOnTouchOutside(false);
                     downloadDialog.setCancelable(false);
                     Window window = downloadDialog.getWindow();
@@ -243,6 +240,7 @@ public class MyFragment extends BaseFragment {
                     downloadDialog.show();
                 }
                 if (downloadDialog != null) {
+                    downloadDialog.tv_content2.setText(progress+"%");
                     downloadDialog.tv_content.setText(progress + "/" + "100");
                     downloadDialog.wdSeekBar.setMax(100);
                     downloadDialog.wdSeekBar.setProgress((int) progress);

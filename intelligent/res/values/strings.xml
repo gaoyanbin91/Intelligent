@@ -97,7 +97,7 @@
     <string name="w_hqyzm">获取验证码</string>
     <string name="w_qsrmm">请输入密码</string>
     <string name="w_qrmm">请确认密码</string>
-    <string name="w_zhmm">找回密码</string>
+    <string name="w_zhmm">重置密码</string>
 
     <string name="user_update_tittle">我的资料</string>
     <string name="user_update_nick_hint">(2-10个字符)</string>

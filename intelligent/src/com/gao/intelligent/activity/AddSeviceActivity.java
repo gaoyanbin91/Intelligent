@@ -138,6 +138,13 @@ public class AddSeviceActivity extends BaseActivity implements ImageViewVpAdapte
         super.aidHandleMessage(what, type, obj);
         switch (what) {
             case 10004:
+                if (obj.equals("401")) {
+                    ToastUtils.showShort("登录超时，请重新登录");
+                    exitApp();
+                    finish();
+                    startActivity(new Intent(this, LoginActivity.class));
+                    return;
+                }
                 switch (type){
                     case 10013:
                         if (obj.equals("401")) {
@@ -187,7 +194,6 @@ public class AddSeviceActivity extends BaseActivity implements ImageViewVpAdapte
                             }
                         }
                         break;
-
                 }
                 break;
             case 10003:
@@ -286,9 +292,7 @@ public class AddSeviceActivity extends BaseActivity implements ImageViewVpAdapte
                 startActivityForResult(intent, 0);
             }
         });
-
     }
-
 
     @OnClick(R.id.txv_submit)
     public void submitDatas() {
@@ -299,9 +303,6 @@ public class AddSeviceActivity extends BaseActivity implements ImageViewVpAdapte
             ToastUtils.showShort("请选择问题分类");
             return;
         }
-
-//        params.put("type", classfitID);//问题分类
-
         if (TextUtils.isEmpty(mEditPartContents.getText().toString())) {
             ToastUtils.showShort("请输入问题详情");
             return;
@@ -319,24 +320,12 @@ public class AddSeviceActivity extends BaseActivity implements ImageViewVpAdapte
             params.put("errorCode",  edtErrorCode.getText().toString());//
         }
         params.put("processState",  "0");//当前位置
-//        params.put("leaderId", AppConfig.getInstance().getString("customerId",""));//当前处理人id
-//        params.put("leaderName", AppConfig.getInstance().getString("usercname",""));//当前处理人name
-//        params.put("state",  "0");//流程操作状态
-//        params.put("nextState",  "1");//下一转发位置
-
-//        params.put("lineId", lineId);//产线id
         params.put("lineName", lineName);//产线name
-//        params.put("remark", lineName);//产线name
-//        params.put("introducerTel", AppConfig.getInstance().getString("mobile","") );//提交人联系电话
-//        params.put("introducerId",  AppConfig.getInstance().getString("userId",""));//提出人id
-//        params.put("introducerName",  AppConfig.getInstance().getString("usercname","") );//  提出人名字
         params.put("questionDescribe", mEditPartContents.getText().toString());//问题描述
         params.put("equipType", texClassify.getText().toString());// 机器设备分类
         params.put("factoryId",AppConfig.getInstance().getString("sysOrgId","") );// 厂家id
         params.put("factoryName", AppConfig.getInstance().getString("sysOrgName",""));//厂家名称
         params.put("customerLeaderId",  personSignID);// 审批人ID
-
-
         LogUtils.e("提交数据3", AppConfig.getInstance().getString("fjCustomerId", ""));
         LogUtils.e("提交数据5", mEditPartContents.getText().toString());
         /**
@@ -394,8 +383,6 @@ public class AddSeviceActivity extends BaseActivity implements ImageViewVpAdapte
             @Override
             public void onResponse(Call call, final Response response) throws IOException {
                 LogUtils.i("上传", response);
-//                String responseData=response.body().string();
-//                LogUtils.i("fengqianz",responseData);
                 hideCustomProgressDialog();
                 if (response.code() == 200) {
                     new Thread() {
@@ -418,8 +405,6 @@ public class AddSeviceActivity extends BaseActivity implements ImageViewVpAdapte
                         }
 
                     }.start();
-
-                    //  Toast.makeText(baseContext, "提交成功", Toast.LENGTH_SHORT).show();
                     finish();
                 }
             }
@@ -479,7 +464,6 @@ public class AddSeviceActivity extends BaseActivity implements ImageViewVpAdapte
                 }
             });
 
-
             imgv_del.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
@@ -524,8 +508,7 @@ public class AddSeviceActivity extends BaseActivity implements ImageViewVpAdapte
             vp_photos.addOnPageChangeListener(new ViewPager.OnPageChangeListener() {
                 @Override
                 public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
-//                    ToastUtils.showShort(position+"");
-//                    txv_page.setText((position + 1) + "/" + vpNum);
+
                 }
 
                 @Override

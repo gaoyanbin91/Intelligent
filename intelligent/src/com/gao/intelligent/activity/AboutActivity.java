@@ -27,7 +27,6 @@ public class AboutActivity extends BaseActivity {
         return R.layout.activity_about;
     }
 
-
     @Override
     public void initView() {
         mToolbar.setNavigationOnClickListener(new View.OnClickListener() {

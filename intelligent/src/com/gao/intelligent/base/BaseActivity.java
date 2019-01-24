@@ -204,7 +204,6 @@ public abstract class BaseActivity extends AppCompatActivity {
                 }
                 @Override
                 public void onResponse(String response) {
-
                     aidsendMessage(10004, refreshType,response);
                     //    LogUtils.d("shuj",response.toString());
                 }
@@ -243,10 +242,7 @@ public abstract class BaseActivity extends AppCompatActivity {
         } catch (Throwable var6) {
             Log.e(TAG, "sendHttp", var6);
         }
-
     }
-
-
 
     public void showProgressDialog(String text) {
         if (customProgressDialog == null) {
@@ -256,8 +252,6 @@ public abstract class BaseActivity extends AppCompatActivity {
             //customProgressDialog.setCancelable(true);
         }
         customProgressDialog.show();
-
-
     }
 
     public void hideCustomProgressDialog() {

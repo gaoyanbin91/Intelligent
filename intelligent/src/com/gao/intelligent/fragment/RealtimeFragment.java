@@ -137,7 +137,6 @@ public class RealtimeFragment extends BaseFragment {
             //连接成功后，发送登录信息
 //            LogUtils.i("对象", changMessage);
             mSocket.send(changMessage);
-            // output("连接成功！");
         }
 
         @Override
@@ -281,6 +280,7 @@ public class RealtimeFragment extends BaseFragment {
                 LogUtils.d("参数数据IDS", obj);
                 if (obj.equals("401")) {
                     ToastUtils.showShort("登录超时，请重新登录");
+                    getActivity().finish();
                     startActivity(new Intent(getActivity(), LoginActivity.class));
                     return;
                 }
@@ -341,7 +341,6 @@ public class RealtimeFragment extends BaseFragment {
                                 text14.setText("");
                                 text15.setText("");
                                 text16.setText("");
-
                                 ToastUtils.showShort("数据获取失败！");
                             }
                         }
@@ -355,6 +354,11 @@ public class RealtimeFragment extends BaseFragment {
                 ToastUtils.showShort(obj.toString());
                 break;
         }
+    }
+
+    @Override
+    protected void onFragmentVisibleChange(boolean isVisible) {
+        super.onFragmentVisibleChange(isVisible);
     }
 
     @Override

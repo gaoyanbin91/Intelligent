@@ -44,6 +44,7 @@ public class DataShowFragment extends BaseFragment {
                 hideCustomProgressDialog();
                 if (obj.equals("401")) {
                     ToastUtils.showShort("登录超时，请重新登录");
+                    getActivity().finish();
                     startActivity(new Intent(getActivity(), LoginActivity.class));
                     return;
                 }

@@ -129,7 +129,6 @@ public class SignActivity extends BaseActivity {
                     params.put("id",  getIntent().getStringExtra("questionID"));//
                     showProgressDialog("正在提交...");
                     uploadSign(ApiService.SING_HUI_NAME, params,photo);
-
                 }
             }
         });
@@ -173,10 +172,7 @@ public class SignActivity extends BaseActivity {
                     }
 
                 }.start();
-
-
             }
-
             @Override
             public void onResponse(Call call, final Response response) throws IOException {
                 LogUtils.i("上传", response);
@@ -185,7 +181,6 @@ public class SignActivity extends BaseActivity {
                     new Thread() {
                         public void run() {
                             Looper.prepare();
-
                             try {
                                 String responseData=response.body().string();
                                 LogUtils.i("上传", responseData);
@@ -205,16 +200,12 @@ public class SignActivity extends BaseActivity {
                         }
 
                     }.start();
-
-                    //  Toast.makeText(baseContext, "提交成功", Toast.LENGTH_SHORT).show();
-
                 }else {
                     ToastUtils.showShort("上传失败了");
                 }
             }
         });
     }
-
 
     public void saveBitmapToPNG(Bitmap bitmap, File photo) throws IOException {
         Bitmap newBitmap = Bitmap.createBitmap(bitmap.getWidth(), bitmap.getHeight(), Bitmap.Config.ARGB_8888);
